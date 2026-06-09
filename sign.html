@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+<title>Assinatura Remota · Melolink Internet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    :root {
+        --ml-red: #E31B23;
+        --ml-red-dark: #B81218;
+        --ml-red-light: #FEF0F0;
+        --ml-red-gradient: linear-gradient(135deg, #E31B23 0%, #B81218 100%);
+        --gray-900: #1A1A2E;
+        --gray-700: #4A4A5A;
+        --gray-500: #8E8E9A;
+        --gray-200: #EBEBEF;
+        --gray-100: #F5F5F7;
+        --white: #FFFFFF;
+        --success: #10B981;
+        --success-light: #D1FAE5;
+        --error: #EF4444;
+        --error-light: #FEE2E2;
+        --warning: #F59E0B;
+        --warning-light: #FEF3C7;
+        --info: #3B82F6;
+        --info-light: #DBEAFE;
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .card {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
+        animation: fadeInUp 0.5s ease;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-header {
+        background: var(--ml-red-gradient);
+        padding: 24px;
+        text-align: center;
+        color: white;
+    }
+
+    .card-header i {
+        font-size: 48px;
+        margin-bottom: 12px;
+        background: rgba(255,255,255,0.2);
+        padding: 12px;
+        border-radius: 60px;
+    }
+
+    .card-header h1 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 4px;
+    }
+
+    .card-header p {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    .card-body {
+        padding: 28px 24px;
+    }
+
+    .info-box {
+        background: var(--gray-100);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+        margin-bottom: 24px;
+        border: 1px solid var(--gray-200);
+    }
+
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--gray-200);
+        font-size: 14px;
+    }
+
+    .info-row:last-child {
+        border-bottom: none;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: var(--gray-700);
+    }
+
+    .info-value {
+        color: var(--gray-900);
+        font-weight: 500;
+        text-align: right;
+        max-width: 60%;
+        word-break: break-word;
+    }
+
+    .expiry-warning {
+        background: var(--warning-light);
+        border-left: 4px solid var(--warning);
+        padding: 12px 16px;
+        border-radius: var(--radius-md);
+        margin-bottom: 24px;
+        font-size: 13px;
+        color: #92400E;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .signature-container {
+        border: 2px dashed var(--gray-300);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition: all 0.2s;
+        background: white;
+        margin-bottom: 20px;
+    }
+
+    .signature-container.has-signature {
+        border-color: var(--success);
+        border-style: solid;
+        background: var(--success-light);
+    }
+
+    #signatureCanvas {
+        display: block;
+        width: 100%;
+        height: 250px;
+        cursor: crosshair;
+        background: white;
+        touch-action: none;
+        min-height: 250px;
+    }
+
+    .signature-placeholder {
+        position: relative;
+        text-align: center;
+        margin-top: -50px;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .signature-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-top: 1px solid var(--gray-200);
+        background: var(--gray-50);
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .signature-status {
+        font-size: 12px;
+        color: var(--gray-500);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .signature-status.ready {
+        color: var(--success);
+        font-weight: 600;
+    }
+
+    .btn-clear {
+        background: none;
+        border: none;
+        color: var(--error);
+        font-size: 12px;
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn-fullscreen {
+        background: var(--info);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Inter', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background: var(--ml-red-gradient);
+        color: white;
+        box-shadow: 0 4px 12px rgba(227, 27, 35, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(227, 27, 35, 0.4);
+    }
+
+    .btn-primary:disabled {
+        opacity: 0.5;
+        transform: none;
+        cursor: not-allowed;
+    }
+
+    .alert {
+        padding: 14px 16px;
+        border-radius: var(--radius-lg);
+        margin-bottom: 20px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .alert-error {
+        background: var(--error-light);
+        border: 1px solid #FCA5A5;
+        color: #991B1B;
+    }
+
+    .alert-success {
+        background: var(--success-light);
+        border: 1px solid #6EE7B7;
+        color: #065F46;
+    }
+
+    .loading {
+        text-align: center;
+        padding: 40px;
+        color: var(--gray-500);
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--gray-200);
+        border-top-color: var(--ml-red);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 12px;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .fullscreen-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .footer-note {
+        text-align: center;
+        font-size: 11px;
+        color: var(--gray-500);
+        margin-top: 20px;
+        padding: 16px;
+    }
+
+    @media (max-width: 480px) {
+        .card-body { padding: 20px 16px; }
+        .info-row { font-size: 12px; }
+        .btn { padding: 12px 16px; font-size: 14px; }
+        #signatureCanvas { height: 200px; min-height: 200px; }
+    }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+function showLoading() {
+    document.getElementById('app').innerHTML = `
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-spinner fa-pulse"></i>
+                <h1>Carregando</h1>
+                <p>Aguarde um momento...</p>
+            </div>
+            <div class="card-body">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Verificando seu link de assinatura...</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function showError(message, detail = '') {
+    document.getElementById('app').innerHTML = `
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h1>Link Inválido</h1>
+                <p>Não foi possível processar sua solicitação</p>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-error">
+                    <i class="fas fa-circle-exclamation" style="font-size: 20px;"></i>
+                    <div>
+                        <strong>${escapeHtml(message)}</strong>
+                        ${detail ? `<p style="margin-top: 6px; font-size: 13px;">${escapeHtml(detail)}</p>` : ''}
+                    </div>
+                </div>
+                <div class="footer-note">
+                    <i class="fas fa-headset"></i> Em caso de dúvidas, entre em contato com o suporte Melolink.
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function showSuccess(contractId, signedAt) {
+    const formattedDate = new Date(signedAt).toLocaleString('pt-BR');
+    document.getElementById('app').innerHTML = `
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                <i class="fas fa-check-circle"></i>
+                <h1>Assinatura Confirmada!</h1>
+                <p>Documento assinado com sucesso</p>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <i class="fas fa-file-signature" style="font-size: 20px;"></i>
+                    <div>
+                        <strong>Protocolo: ${escapeHtml(contractId)}</strong><br>
+                        Data e hora: ${formattedDate}
+                    </div>
+                </div>
+                <div class="info-box" style="background: #F0FDF4; border-color: #BBF7D0;">
+                    <p style="text-align: center; margin: 0;">
+                        <i class="fas fa-envelope"></i> Você receberá uma cópia do documento por e-mail em breve.
+                    </p>
+                </div>
+                <button class="btn btn-primary" onclick="window.close()">
+                    <i class="fas fa-check"></i> Fechar
+                </button>
+                <div class="footer-note">
+                    <i class="fas fa-lock"></i> Assinatura digital com validade jurídica (Lei 14.063/2020)
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+}
+
+let canvas = null;
+let ctx = null;
+let drawing = false;
+let hasSignature = false;
+
+function initCanvas() {
+    canvas = document.getElementById('signatureCanvas');
+    if (!canvas) return;
+    
+    const container = canvas.parentElement;
+    const width = Math.min(container.clientWidth, 600);
+    canvas.width = width;
+    canvas.height = 250;
+    canvas.style.cssText = 'width:100%;height:250px';
+    
+    ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#1A1A2E';
+    ctx.lineWidth = 2.5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    
+    const placeholder = document.getElementById('signaturePlaceholder');
+    if (placeholder) placeholder.style.opacity = '0.5';
+    
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', endDraw);
+    canvas.addEventListener('mouseleave', endDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('touchend', endDraw);
+}
+
+function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { 
+        x: Math.max(0, Math.min(canvas.width, (clientX - rect.left) * scaleX)), 
+        y: Math.max(0, Math.min(canvas.height, (clientY - rect.top) * scaleY)) 
+    };
+}
+
+function startDraw(e) { 
+    e.preventDefault(); 
+    drawing = true; 
+    const pos = getPos(e); 
+    ctx.beginPath(); 
+    ctx.moveTo(pos.x, pos.y); 
+    if (!hasSignature) { 
+        hasSignature = true; 
+        const placeholder = document.getElementById('signaturePlaceholder');
+        const container = document.getElementById('signatureContainer');
+        const status = document.getElementById('signatureStatus');
+        if (placeholder) placeholder.style.opacity = '0';
+        if (container) container.classList.add('has-signature');
+        if (status) { 
+            status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; 
+            status.classList.add('ready'); 
+        }
+    } 
+}
+
+function draw(e) { 
+    if (!drawing) return; 
+    e.preventDefault(); 
+    const pos = getPos(e); 
+    ctx.lineTo(pos.x, pos.y); 
+    ctx.stroke(); 
+    ctx.beginPath(); 
+    ctx.moveTo(pos.x, pos.y); 
+}
+
+function endDraw() { 
+    drawing = false; 
+    ctx.beginPath(); 
+}
+
+function clearSignature() { 
+    ctx.fillStyle = 'white'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height); 
+    ctx.beginPath(); 
+    hasSignature = false; 
+    const placeholder = document.getElementById('signaturePlaceholder');
+    const container = document.getElementById('signatureContainer');
+    const status = document.getElementById('signatureStatus');
+    if (placeholder) placeholder.style.opacity = '0.5';
+    if (container) container.classList.remove('has-signature');
+    if (status) { 
+        status.innerHTML = '<i class="fas fa-info-circle"></i> Aguardando assinatura...'; 
+        status.classList.remove('ready'); 
+    }
+}
+
+function openFullscreenSignature() {
+    const modal = document.createElement('div');
+    modal.className = 'fullscreen-modal';
+    const currentImageData = canvas.toDataURL();
+    
+    modal.innerHTML = `
+        <div style="background:white; border-radius:24px; padding:20px; text-align:center; max-width:90vw; max-height:90vh; overflow:auto;">
+            <h3 style="margin-bottom:16px;">
+                <i class="fas fa-pencil-alt" style="color:#E31B23;"></i> Assinatura em Tela Cheia
+            </h3>
+            <canvas id="fullscreenCanvas" width="800" height="350" 
+                style="border:2px solid #E5E7EB; border-radius:16px; background:white; touch-action:none; width:100%; height:auto;">
+            </canvas>
+            <div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+                <button id="fsClearBtn" style="background:#EF4444; color:white; border:none; padding:12px 24px; border-radius:40px; cursor:pointer;">
+                    <i class="fas fa-eraser"></i> Limpar
+                </button>
+                <button id="fsSaveBtn" style="background:#10B981; color:white; border:none; padding:12px 32px; border-radius:40px; cursor:pointer;">
+                    <i class="fas fa-check"></i> Salvar
+                </button>
+                <button id="fsCloseBtn" style="background:#6B7280; color:white; border:none; padding:12px 24px; border-radius:40px; cursor:pointer;">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+            </div>
+        </div>`;
+    
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    
+    const fsCanvas = document.getElementById('fullscreenCanvas');
+    const fsCtx = fsCanvas.getContext('2d');
+    fsCanvas.width = 800; 
+    fsCanvas.height = 350;
+    fsCtx.fillStyle = 'white'; 
+    fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height);
+    fsCtx.strokeStyle = '#1A1A2E'; 
+    fsCtx.lineWidth = 3; 
+    fsCtx.lineCap = 'round';
+    
+    const img = new Image(); 
+    img.onload = () => fsCtx.drawImage(img, 0, 0, fsCanvas.width, fsCanvas.height); 
+    img.src = currentImageData;
+    
+    let fsDrawing = false;
+    
+    const fsGetPos = (e, canvasEl) => { 
+        const rect = canvasEl.getBoundingClientRect(); 
+        const scaleX = canvasEl.width / rect.width; 
+        const scaleY = canvasEl.height / rect.height; 
+        let clientX = e.touches ? e.touches[0].clientX : e.clientX; 
+        let clientY = e.touches ? e.touches[0].clientY : e.clientY; 
+        return { 
+            x: Math.max(0, Math.min(canvasEl.width, (clientX - rect.left) * scaleX)), 
+            y: Math.max(0, Math.min(canvasEl.height, (clientY - rect.top) * scaleY)) 
+        }; 
+    };
+    
+    const fsStart = (e) => { 
+        e.preventDefault(); 
+        fsDrawing = true; 
+        const pos = fsGetPos(e, fsCanvas); 
+        fsCtx.beginPath(); 
+        fsCtx.moveTo(pos.x, pos.y); 
+    };
+    
+    const fsDraw = (e) => { 
+        if (!fsDrawing) return; 
+        e.preventDefault(); 
+        const pos = fsGetPos(e, fsCanvas); 
+        fsCtx.lineTo(pos.x, pos.y); 
+        fsCtx.stroke(); 
+        fsCtx.beginPath(); 
+        fsCtx.moveTo(pos.x, pos.y); 
+    };
+    
+    const fsEnd = () => { 
+        fsDrawing = false; 
+        fsCtx.beginPath(); 
+    };
+    
+    const fsClear = () => { 
+        fsCtx.fillStyle = 'white'; 
+        fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height); 
+        fsCtx.beginPath(); 
+    };
+    
+    const fsSave = () => { 
+        const originalCtx = canvas.getContext('2d'); 
+        originalCtx.clearRect(0, 0, canvas.width, canvas.height); 
+        originalCtx.drawImage(fsCanvas, 0, 0, canvas.width, canvas.height); 
+        hasSignature = true; 
+        const placeholder = document.getElementById('signaturePlaceholder');
+        const container = document.getElementById('signatureContainer');
+        const status = document.getElementById('signatureStatus');
+        if (placeholder) placeholder.style.opacity = '0';
+        if (container) container.classList.add('has-signature');
+        if (status) { 
+            status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; 
+            status.classList.add('ready'); 
+        }
+        modal.remove(); 
+        document.body.style.overflow = ''; 
+        showToastLocal('Assinatura salva!', 'success'); 
+    };
+    
+    const fsClose = () => {
+        modal.remove();
+        document.body.style.overflow = '';
+    };
+    
+    fsCanvas.addEventListener('mousedown', fsStart); 
+    fsCanvas.addEventListener('mousemove', fsDraw); 
+    fsCanvas.addEventListener('mouseup', fsEnd); 
+    fsCanvas.addEventListener('mouseleave', fsEnd); 
+    fsCanvas.addEventListener('touchstart', fsStart, { passive: false }); 
+    fsCanvas.addEventListener('touchmove', fsDraw, { passive: false }); 
+    fsCanvas.addEventListener('touchend', fsEnd);
+    
+    document.getElementById('fsClearBtn').onclick = fsClear; 
+    document.getElementById('fsSaveBtn').onclick = fsSave; 
+    document.getElementById('fsCloseBtn').onclick = fsClose;
+}
+
+function showToastLocal(msg, type) {
+    const toastDiv = document.createElement('div');
+    toastDiv.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#333; color:white; padding:8px 16px; border-radius:40px; font-size:12px; z-index:10001;';
+    if (type === 'success') toastDiv.style.background = '#10B981';
+    else toastDiv.style.background = '#EF4444';
+    toastDiv.textContent = msg;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
+}
+
+let token = null;
+let documentData = null;
+
+async function init() {
+    token = getQueryParam('token');
+    
+    if (!token) {
+        showError('Token não informado', 'O link de assinatura está incompleto. Verifique o endereço ou solicite um novo.');
+        return;
+    }
+    
+    showLoading();
+    
+    try {
+        const res = await fetch(`/api/verificar-token/${token}`);
+        const data = await res.json();
+        
+        if (!res.ok || !data.valido) {
+            let msg = data.razao || 'Link inválido';
+            let detalhe = '';
+            if (msg === 'Token expirado') detalhe = 'O prazo de 24 horas para assinar este documento expirou. Solicite um novo link ao administrador.';
+            else if (msg === 'Documento já foi assinado') detalhe = 'Este documento já foi assinado anteriormente.';
+            else detalhe = 'Verifique se o link está correto ou solicite um novo.';
+            showError(msg, detalhe);
+            return;
+        }
+        
+        documentData = data;
+        
+        const expiryDate = new Date(data.expira_em);
+        const expiryFormatted = expiryDate.toLocaleString('pt-BR');
+        const tipoDocumentoTexto = data.tipo_documento === 'instalacao' ? 'Contrato de Instalação' 
+                                 : data.tipo_documento === 'mudanca_endereco' ? 'Termo de Mudança' 
+                                 : 'Ordem de Serviço';
+        
+        document.getElementById('app').innerHTML = `
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-file-signature"></i>
+                    <h1>Assinatura Digital</h1>
+                    <p>Confirme seus dados e assine o documento</p>
+                </div>
+                <div class="card-body">
+                    <div class="info-box">
+                        <div class="info-row"><span class="info-label">Cliente:</span><span class="info-value">${escapeHtml(data.cliente_nome)}</span></div>
+                        <div class="info-row"><span class="info-label">Protocolo:</span><span class="info-value">${escapeHtml(data.contrato_id)}</span></div>
+                        <div class="info-row"><span class="info-label">Tipo:</span><span class="info-value">${escapeHtml(tipoDocumentoTexto)}</span></div>
+                        ${data.campo_cliente ? `<div class="info-row"><span class="info-label">Nº Cliente:</span><span class="info-value">${escapeHtml(data.campo_cliente)}</span></div>` : ''}
+                        ${data.campo_ctop ? `<div class="info-row"><span class="info-label">CTOP:</span><span class="info-value">${escapeHtml(data.campo_ctop)}</span></div>` : ''}
+                        ${data.campo_db ? `<div class="info-row"><span class="info-label">DB:</span><span class="info-value">${escapeHtml(data.campo_db)}</span></div>` : ''}
+                        ${data.os_descricao ? `<div class="info-row" style="flex-direction:column; align-items:flex-start;"><span class="info-label">Descrição do Serviço:</span><span class="info-value" style="text-align:left; max-width:100%; margin-top:6px;">${escapeHtml(data.os_descricao)}</span></div>` : ''}
+                    </div>
+                    
+                    <div class="expiry-warning">
+                        <i class="fas fa-hourglass-half"></i>
+                        <span>Este link expira em: <strong>${expiryFormatted}</strong>. Assine antes do prazo.</span>
+                    </div>
+                    
+                    <div class="signature-container" id="signatureContainer">
+                        <div style="position:relative">
+                            <canvas id="signatureCanvas" width="600" height="250"></canvas>
+                            <div class="signature-placeholder" id="signaturePlaceholder">
+                                <i class="fas fa-hand-peace" style="font-size:48px;color:var(--gray-400);display:block;margin-bottom:8px;"></i>
+                                <span style="font-size:12px;color:var(--gray-500);">Assine aqui</span>
+                            </div>
+                        </div>
+                        <div class="signature-footer">
+                            <div class="signature-status" id="signatureStatus">
+                                <i class="fas fa-info-circle"></i> Aguardando assinatura...
+                            </div>
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn-fullscreen" onclick="openFullscreenSignature()">
+                                    <i class="fas fa-expand"></i> Tela Cheia
+                                </button>
+                                <button class="btn-clear" onclick="clearSignature()">
+                                    <i class="fas fa-trash-alt"></i> Limpar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="submitBtn" onclick="submitSignature()">
+                        <i class="fas fa-check-circle"></i> Confirmar Assinatura
+                    </button>
+                    <div class="footer-note">
+                        <i class="fas fa-lock"></i> Assinatura digital com validade jurídica (Lei 14.063/2020)
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        initCanvas();
+        
+    } catch (err) {
+        console.error(err);
+        showError('Erro de conexão', 'Não foi possível conectar ao servidor. Tente novamente mais tarde.');
+    }
+}
+
+async function submitSignature() {
+    if (!hasSignature) {
+        alert('Por favor, realize a assinatura antes de confirmar.');
+        return;
+    }
+    
+    const signatureData = canvas.toDataURL('image/png');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processando...';
+    
+    try {
+        const res = await fetch(`/api/assinatura-remota/${token}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ assinatura_base64: signatureData })
+        });
+        
+        const data = await res.json();
+        
+        if (res.ok && data.sucesso) {
+            showSuccess(data.contrato_id || documentData?.contrato_id || 'Documento', data.data_assinatura || new Date().toISOString());
+        } else {
+            alert('Erro ao registrar assinatura: ' + (data.erro || 'Tente novamente'));
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirmar Assinatura';
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Erro de conexão. Verifique sua internet e tente novamente.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirmar Assinatura';
+    }
+}
+
+init();
+</script>
+</body>
+</html>

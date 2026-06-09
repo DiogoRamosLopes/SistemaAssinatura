@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover"/>
+<title>Assinatura da Empresa · Melolink AssinaNet</title>
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AERERABERERARERERERERERERERERERERERERERERERERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzMzMzMzMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/babel-standalone@6.26.0/babel.min.js"></script>
+<style>
+  * { -webkit-tap-highlight-color: transparent; }
+  .signature-canvas { border: 2px solid #e5e7eb; border-radius: 16px; background: white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+  .signature-canvas:hover { border-color: #ef4444; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+  @keyframes modalSlideIn { from { opacity: 0; transform: scale(0.95) translateY(-20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .toast { transition: transform 0.3s ease; }
+  .toast.show { transform: translateX(0); }
+  .fullscreen-modal { animation: fadeIn 0.3s ease; background: rgba(0,0,0,0.95); }
+  .card-shadow { box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1); transition: box-shadow 0.3s ease; }
+  .card-shadow:hover { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+  @media (max-width: 768px) { button, .btn { min-height: 48px; } input, textarea { font-size: 16px !important; } }
+  .signature-preview { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; text-align: center; }
+  .signature-preview img { max-width: 100%; height: auto; border-radius: 8px; background: white; padding: 8px; }
+</style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useCallback, useRef } = React;
+
+// ─── Utilitário: verifica se canvas tem conteúdo (sem depender de closure) ───
+function canvasHasContent(canvas) {
+  if (!canvas) return false;
+  try {
+    const ctx = canvas.getContext('2d');
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    for (let i = 0; i < data.length; i += 16) {
+      if (data[i] < 250 || data[i + 1] < 250 || data[i + 2] < 250) return true;
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
+// ─── Toast ────────────────────────────────────────────────────────────────────
+const Toast = ({ message, type, show, onClose }) => {
+  useEffect(() => {
+    if (show) { const t = setTimeout(onClose, 3000); return () => clearTimeout(t); }
+  }, [show, onClose]);
+  if (!show) return null;
+  const bg = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+  const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+  return React.createElement("div", {
+    className: `fixed bottom-4 left-4 right-4 md:left-auto md:right-8 ${bg} text-white px-5 py-4 rounded-2xl shadow-xl flex items-center gap-3 z-50 toast show text-sm font-medium`,
+    style: { maxWidth: '500px' }
+  },
+    React.createElement("i", { className: `fas ${icon} text-lg` }),
+    React.createElement("span", { className: "flex-1" }, message)
+  );
+};
+
+// ─── Modal de confirmação ─────────────────────────────────────────────────────
+const Modal = ({ isOpen, onClose, title, message, onConfirm, confirmText = "Confirmar", confirmVariant = "danger" }) => {
+  if (!isOpen) return null;
+  const confirmClass = confirmVariant === 'danger'
+    ? 'bg-red-500 hover:bg-red-600'
+    : 'bg-green-500 hover:bg-green-600';
+  return React.createElement("div", {
+    className: "fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4",
+    onClick: onClose
+  },
+    React.createElement("div", {
+      className: "bg-white rounded-2xl max-w-md w-full mx-auto p-6 text-center",
+      style: { animation: 'modalSlideIn 0.3s ease' },
+      onClick: (e) => e.stopPropagation()
+    },
+      React.createElement("div", { className: "w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4" },
+        React.createElement("i", { className: "fas fa-exclamation-triangle text-red-500 text-2xl" })
+      ),
+      React.createElement("h3", { className: "text-xl font-bold text-gray-900 mb-2" }, title),
+      React.createElement("p", { className: "text-sm text-gray-500 mb-6", dangerouslySetInnerHTML: { __html: message } }),
+      React.createElement("div", { className: "flex gap-3 justify-center" },
+        React.createElement("button", { onClick: onClose, className: "px-5 py-2.5 bg-gray-100 text-gray-700 rounded-xl text-sm font-semibold hover:bg-gray-200 transition" }, "Cancelar"),
+        React.createElement("button", { onClick: onConfirm, className: `px-5 py-2.5 text-white rounded-xl text-sm font-semibold transition ${confirmClass}` }, confirmText)
+      )
+    )
+  );
+};
+
+// ─── Assinatura em tela cheia ─────────────────────────────────────────────────
+const FullscreenSignature = ({ isOpen, onClose, onSave, canvasRef }) => {
+  const tempCanvasRef = useRef(null);
+  const tempCtxRef = useRef(null);
+  const drawingRef = useRef(false);
+  // Guarda a imagem entre rotações dentro do fullscreen
+  const savedDataRef = useRef(null);
+
+  // Configura o canvas fullscreen e restaura a imagem
+  const setupFullscreenCanvas = useCallback(() => {
+    if (!tempCanvasRef.current || !isOpen) return;
+    const canvas = tempCanvasRef.current;
+    const isMobile = window.innerWidth < 768;
+    const width  = isMobile ? Math.min(window.innerWidth - 40, 800) : Math.min(window.innerWidth - 100, 1200);
+    const height = isMobile ? 350 : 500;
+
+    canvas.width  = width  * 2;
+    canvas.height = height * 2;
+    canvas.style.width  = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(2, 2);
+    ctx.strokeStyle = '#1f2937';
+    ctx.lineWidth   = 3.5;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+    tempCtxRef.current = ctx;
+
+    // Determina a fonte de restauração: primeiro tenta savedDataRef, depois o canvas principal
+    let source = null;
+    if (savedDataRef.current) {
+      source = savedDataRef.current;
+    } else if (canvasRef.current && canvasHasContent(canvasRef.current)) {
+      source = canvasRef.current.toDataURL();
+    }
+
+    if (source) {
+      const img = new Image();
+      img.onload = () => {
+        // FIX: fillRect DENTRO do onload, antes de drawImage
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+      };
+      img.src = source;
+    } else {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, width, height);
+    }
+  }, [isOpen, canvasRef]);
+
+  useEffect(() => {
+    if (!isOpen) { savedDataRef.current = null; return; }
+    setTimeout(setupFullscreenCanvas, 100);
+
+    const handleResize = () => {
+      // Salva antes de reconfigurar
+      if (tempCanvasRef.current && canvasHasContent(tempCanvasRef.current)) {
+        savedDataRef.current = tempCanvasRef.current.toDataURL();
+      }
+      setTimeout(setupFullscreenCanvas, 150);
+    };
+    const handleOrientation = () => {
+      if (tempCanvasRef.current && canvasHasContent(tempCanvasRef.current)) {
+        savedDataRef.current = tempCanvasRef.current.toDataURL();
+      }
+      setTimeout(setupFullscreenCanvas, 300); // iOS precisa de mais tempo
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleOrientation);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientation);
+    };
+  }, [isOpen, setupFullscreenCanvas]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = ''; };
+    }
+  }, [isOpen]);
+
+  const getPos = useCallback((e, canvas) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    let clientX, clientY;
+    if (e.touches && e.touches.length > 0) {
+      clientX = e.touches[0].clientX; clientY = e.touches[0].clientY;
+    } else if (e.changedTouches && e.changedTouches.length > 0) {
+      clientX = e.changedTouches[0].clientX; clientY = e.changedTouches[0].clientY;
+    } else {
+      clientX = e.clientX; clientY = e.clientY;
+    }
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top)  * scaleY
+    };
+  }, []);
+
+  const startDrawing = useCallback((e) => {
+    e.preventDefault();
+    drawingRef.current = true;
+    const ctx = tempCtxRef.current;
+    if (!ctx) return;
+    const pos = getPos(e, tempCanvasRef.current);
+    ctx.beginPath();
+    ctx.moveTo(pos.x / 2, pos.y / 2);
+    ctx.stroke();
+  }, [getPos]);
+
+  const draw = useCallback((e) => {
+    if (!drawingRef.current) return;
+    e.preventDefault();
+    const ctx = tempCtxRef.current;
+    if (!ctx) return;
+    const pos = getPos(e, tempCanvasRef.current);
+    ctx.lineTo(pos.x / 2, pos.y / 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(pos.x / 2, pos.y / 2);
+  }, [getPos]);
+
+  const stopDrawing = useCallback(() => {
+    drawingRef.current = false;
+    if (tempCtxRef.current) tempCtxRef.current.beginPath();
+    // Atualiza ref após cada traço
+    if (tempCanvasRef.current && canvasHasContent(tempCanvasRef.current)) {
+      savedDataRef.current = tempCanvasRef.current.toDataURL();
+    }
+  }, []);
+
+  const clearCanvas = useCallback(() => {
+    const canvas = tempCanvasRef.current;
+    const ctx    = tempCtxRef.current;
+    if (!canvas || !ctx) return;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width / 2, canvas.height / 2);
+    savedDataRef.current = null;
+  }, []);
+
+  const saveAndClose = useCallback(() => {
+    const tempCanvas     = tempCanvasRef.current;
+    const originalCanvas = canvasRef.current;
+    if (!tempCanvas || !originalCanvas) { onClose(); return; }
+    const origCtx = originalCanvas.getContext('2d');
+    const origW   = originalCanvas.width  / 2;
+    const origH   = originalCanvas.height / 2;
+    origCtx.clearRect(0, 0, origW, origH);
+    origCtx.drawImage(tempCanvas, 0, 0, origW, origH);
+    if (onSave) onSave();
+    onClose();
+  }, [canvasRef, onClose, onSave]);
+
+  if (!isOpen) return null;
+
+  return React.createElement("div", {
+    className: "fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center fullscreen-modal p-4",
+    style: { zIndex: 1000 }
+  },
+    React.createElement("div", {
+      className: "bg-white rounded-2xl shadow-2xl p-4 md:p-6",
+      style: { maxWidth: '95vw', maxHeight: '90vh', width: 'auto' }
+    },
+      React.createElement("p", { className: "text-center text-sm font-semibold text-gray-500 mb-3" },
+        React.createElement("i", { className: "fas fa-pencil-alt mr-2 text-red-500" }),
+        "Desenhe sua assinatura no quadro abaixo"
+      ),
+      React.createElement("canvas", {
+        ref: tempCanvasRef,
+        className: "rounded-xl",
+        style: { touchAction: 'none', cursor: 'crosshair', border: '2px solid #e5e7eb', background: '#ffffff', display: 'block', margin: '0 auto' },
+        onMouseDown: startDrawing, onMouseMove: draw, onMouseUp: stopDrawing, onMouseLeave: stopDrawing,
+        onTouchStart: startDrawing, onTouchMove: draw, onTouchEnd: stopDrawing
+      }),
+      React.createElement("div", { className: "flex justify-center gap-3 mt-5 flex-wrap" },
+        React.createElement("button", { onClick: clearCanvas, className: "bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold transition flex items-center gap-2" },
+          React.createElement("i", { className: "fas fa-eraser" }), " Limpar"
+        ),
+        React.createElement("button", { onClick: saveAndClose, className: "bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition flex items-center gap-2 shadow-md" },
+          React.createElement("i", { className: "fas fa-check" }), " Salvar e Fechar"
+        ),
+        React.createElement("button", { onClick: onClose, className: "bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-semibold transition flex items-center gap-2" },
+          React.createElement("i", { className: "fas fa-times" }), " Cancelar"
+        )
+      )
+    )
+  );
+};
+
+// ─── App principal ────────────────────────────────────────────────────────────
+const AdminSignatureApp = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [verificandoAuth, setVerificandoAuth]  = useState(true);
+  const [toast,   setToast]   = useState({ show: false, message: '', type: 'success' });
+  const [modal,   setModal]   = useState({ isOpen: false, title: '', message: '', onConfirm: null });
+  const [loading, setLoading] = useState(false);
+  const [assinaturaAtual, setAssinaturaAtual] = useState(null);
+  const [fullscreenOpen,  setFullscreenOpen]  = useState(false);
+  const [formData, setFormData] = useState({ responsavel_nome: '', responsavel_cargo: '' });
+
+  const canvasRef   = useRef(null);
+  const ctxRef      = useRef(null);
+  const drawingRef  = useRef(false);
+  // FIX: ref síncrona — persiste a assinatura entre rotações
+  const signatureDataRef = useRef(null);
+
+  const showToast = useCallback((message, type = 'success') => setToast({ show: true, message, type }), []);
+  const showModal = useCallback((title, message, onConfirm) => setModal({ isOpen: true, title, message, onConfirm }), []);
+
+  // ── Autenticação ─────────────────────────────────────────────────────────────
+  const checkAuth = useCallback(async () => {
+    try {
+      const res  = await fetch('/api/admin/check-auth');
+      const data = res.ok ? await res.json() : { autenticado: false };
+      if (data.autenticado) {
+        setIsAuthenticated(true);
+        await carregarAssinaturaAtual();
+      } else {
+        setIsAuthenticated(false);
+      }
+    } catch (err) {
+      console.error('Erro ao verificar autenticação:', err);
+      setIsAuthenticated(false);
+    } finally {
+      setVerificandoAuth(false);
+    }
+  }, []);
+
+  const carregarAssinaturaAtual = useCallback(async () => {
+    try {
+      const res  = await fetch('/api/assinatura-empresa/ativa');
+      const data = res.ok ? await res.json() : {};
+      if (data.sucesso) {
+        setAssinaturaAtual(data);
+        setFormData({ responsavel_nome: data.responsavel_nome || '', responsavel_cargo: data.responsavel_cargo || '' });
+      }
+    } catch (err) {
+      console.error('Erro ao carregar assinatura atual:', err);
+    }
+  }, []);
+
+  // ── FIX 1: salvar na ref sem depender de isCanvasEmpty (closure stale) ───────
+  const saveCurrentSignatureToRef = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    if (canvasHasContent(canvas)) {
+      signatureDataRef.current = canvas.toDataURL();
+    }
+  }, []);
+
+  // ── FIX 2: setupCanvas com fillRect DENTRO do onload ─────────────────────────
+  const setupCanvas = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const isMobile = window.innerWidth < 768;
+    let width  = isMobile ? Math.min(window.innerWidth - 60, 600) : 800;
+    let height = isMobile ? 250 : 320;
+    if (width < 300) width = 300;
+    if (height < 150) height = 150;
+
+    canvas.width  = width * 2;
+    canvas.height = height * 2;
+    canvas.style.width    = `${width}px`;
+    canvas.style.height   = `${height}px`;
+    canvas.style.maxWidth = '100%';
+
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(2, 2);
+    ctx.strokeStyle = '#1f2937';
+    ctx.lineWidth   = 3.5;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+    ctxRef.current  = ctx;
+
+    if (signatureDataRef.current) {
+      const img = new Image();
+      img.onload = () => {
+        // FIX: fillRect antes de drawImage, ambos dentro do onload
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+      };
+      img.src = signatureDataRef.current;
+    } else {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, width, height);
+    }
+  }, []);
+
+  // ── FIX 3: listeners com delay para iOS + orientationchange separado ──────────
+  useEffect(() => {
+    const handleResize = () => {
+      saveCurrentSignatureToRef();
+      setTimeout(setupCanvas, 150);
+    };
+    const handleOrientation = () => {
+      saveCurrentSignatureToRef();
+      setTimeout(setupCanvas, 300); // iOS termina o reflow mais tarde
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleOrientation);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientation);
+    };
+  }, [saveCurrentSignatureToRef, setupCanvas]);
+
+  // ── Desenho ───────────────────────────────────────────────────────────────────
+  const getPos = useCallback((e, canvas) => {
+    const rect   = canvas.getBoundingClientRect();
+    const scaleX = canvas.width  / rect.width;
+    const scaleY = canvas.height / rect.height;
+    let clientX, clientY;
+    if (e.touches && e.touches.length > 0) {
+      clientX = e.touches[0].clientX; clientY = e.touches[0].clientY;
+    } else if (e.changedTouches && e.changedTouches.length > 0) {
+      clientX = e.changedTouches[0].clientX; clientY = e.changedTouches[0].clientY;
+    } else {
+      clientX = e.clientX; clientY = e.clientY;
+    }
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top)  * scaleY
+    };
+  }, []);
+
+  const startDrawing = useCallback((e) => {
+    e.preventDefault();
+    drawingRef.current = true;
+    if (!ctxRef.current) return;
+    const pos = getPos(e, canvasRef.current);
+    ctxRef.current.beginPath();
+    ctxRef.current.moveTo(pos.x, pos.y);
+    ctxRef.current.stroke();
+  }, [getPos]);
+
+  const draw = useCallback((e) => {
+    if (!drawingRef.current) return;
+    e.preventDefault();
+    if (!ctxRef.current) return;
+    const pos = getPos(e, canvasRef.current);
+    ctxRef.current.lineTo(pos.x, pos.y);
+    ctxRef.current.stroke();
+    ctxRef.current.beginPath();
+    ctxRef.current.moveTo(pos.x, pos.y);
+  }, [getPos]);
+
+  const stopDrawing = useCallback(() => {
+    drawingRef.current = false;
+    if (ctxRef.current) ctxRef.current.beginPath();
+    saveCurrentSignatureToRef(); // salva na ref após cada traço
+  }, [saveCurrentSignatureToRef]);
+
+  const clearCanvas = useCallback(() => {
+    const canvas = canvasRef.current;
+    const ctx    = ctxRef.current;
+    if (!canvas || !ctx) return;
+    const w = canvas.width / 2;
+    const h = canvas.height / 2;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#1f2937';
+    ctx.lineWidth   = 3.5;
+    signatureDataRef.current = null;
+  }, []);
+
+  const isCanvasEmpty = useCallback(() => !canvasHasContent(canvasRef.current), []);
+
+  const getSignatureDataUrl = useCallback(() => {
+    return canvasRef.current ? canvasRef.current.toDataURL('image/png') : '';
+  }, []);
+
+  // ── Salvar assinatura ─────────────────────────────────────────────────────────
+  const salvarAssinatura = useCallback(async () => {
+    const { responsavel_nome, responsavel_cargo } = formData;
+    if (!responsavel_nome.trim())  { showToast('Digite o nome do responsável', 'error'); return; }
+    if (isCanvasEmpty())           { showToast('Faça a assinatura no campo acima.', 'error'); return; }
+    const assinaturaBase64 = getSignatureDataUrl();
+    if (!assinaturaBase64 || assinaturaBase64.length < 100) { showToast('Assinatura muito pequena.', 'error'); return; }
+    setLoading(true);
+    try {
+      const res  = await fetch('/api/assinatura-empresa/salvar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ responsavel_nome: responsavel_nome.trim(), responsavel_cargo: responsavel_cargo.trim(), assinatura_base64: assinaturaBase64 })
+      });
+      const data = await res.json();
+      if (data.sucesso) {
+        showToast('✅ Assinatura salva com sucesso!', 'success');
+        clearCanvas();
+        setFormData({ responsavel_nome: '', responsavel_cargo: '' });
+        await carregarAssinaturaAtual();
+      } else {
+        showToast(data.erro || 'Erro ao salvar', 'error');
+      }
+    } catch (err) {
+      console.error('Erro ao salvar:', err);
+      showToast('Erro de conexão.', 'error');
+    } finally {
+      setLoading(false);
+    }
+  }, [formData, isCanvasEmpty, getSignatureDataUrl, showToast, clearCanvas, carregarAssinaturaAtual]);
+
+  const confirmarSubstituicao = useCallback(() => {
+    showModal('Substituir Assinatura', 'Ao salvar uma nova assinatura, <strong>a anterior será desativada</strong>. Deseja continuar?', salvarAssinatura);
+  }, [showModal, salvarAssinatura]);
+
+  const voltarAdmin  = useCallback(() => window.location.href = '/admin', []);
+  const fazerLogout  = useCallback(async () => {
+    try {
+      await fetch('/api/admin/logout', { method: 'POST' });
+    } catch (err) {
+      console.error('Erro ao fazer logout:', err);
+    } finally {
+      window.location.href = '/admin';
+    }
+  }, []);
+  const handleFullscreenSave = useCallback(() => {
+    // Atualiza a ref com o conteúdo salvo pelo fullscreen
+    saveCurrentSignatureToRef();
+  }, [saveCurrentSignatureToRef]);
+
+  useEffect(() => { checkAuth(); }, [checkAuth]);
+  useEffect(() => { if (isAuthenticated) setTimeout(setupCanvas, 200); }, [isAuthenticated, setupCanvas]);
+
+  // ── Telas de loading / acesso restrito ────────────────────────────────────────
+  if (verificandoAuth) return React.createElement("div", { className: "fixed inset-0 bg-gray-100 flex items-center justify-center" },
+    React.createElement("div", { className: "text-center" },
+      React.createElement("i", { className: "fas fa-spinner fa-pulse text-red-500 text-5xl mb-4" }),
+      React.createElement("p", { className: "text-gray-500 text-base" }, "Verificando autenticação...")
+    )
+  );
+
+  if (!isAuthenticated) return React.createElement("div", { className: "fixed inset-0 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center z-50 p-4" },
+    React.createElement("div", { className: "bg-white rounded-3xl p-8 w-full max-w-md text-center", style: { animation: 'fadeInUp 0.4s ease' } },
+      React.createElement("div", { className: "w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6" },
+        React.createElement("i", { className: "fas fa-lock text-red-600 text-5xl" })
+      ),
+      React.createElement("h2", { className: "text-2xl font-bold text-gray-900 mb-3" }, "Acesso Restrito"),
+      React.createElement("p",  { className: "text-gray-500 mb-8" }, "Você precisa estar logado no painel administrativo."),
+      React.createElement("a",  { href: "/admin", className: "w-full bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition flex items-center justify-center gap-2 shadow-md" },
+        React.createElement("i", { className: "fas fa-sign-in-alt" }), " Ir para o Login"
+      )
+    )
+  );
+
+  // ── UI principal ──────────────────────────────────────────────────────────────
+  return React.createElement(React.Fragment, null,
+    // Header
+    React.createElement("header", { className: "bg-gradient-to-r from-red-700 to-red-800 text-white px-5 md:px-8 py-4 flex items-center justify-between shadow-lg sticky top-0 z-40" },
+      React.createElement("div", { className: "flex items-center gap-3" },
+        React.createElement("div", { className: "w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center" },
+          React.createElement("i", { className: "fas fa-signature text-white text-xl" })
+        ),
+        React.createElement("div", null,
+          React.createElement("h1", { className: "text-lg md:text-xl font-bold" }, "Assinatura da Empresa"),
+          React.createElement("p",  { className: "text-[10px] md:text-xs opacity-80" }, "Responsável Legal · Melolink Internet")
+        )
+      ),
+      React.createElement("div", { className: "flex gap-2 md:gap-3" },
+        React.createElement("button", { onClick: voltarAdmin, className: "bg-white/20 hover:bg-white/30 px-4 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-2" },
+          React.createElement("i", { className: "fas fa-arrow-left" }),
+          React.createElement("span", { className: "hidden sm:inline" }, "Voltar")
+        ),
+        React.createElement("button", { onClick: fazerLogout, className: "bg-white/20 hover:bg-white/30 px-4 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-2" },
+          React.createElement("i", { className: "fas fa-sign-out-alt" }),
+          React.createElement("span", { className: "hidden sm:inline" }, "Sair")
+        )
+      )
+    ),
+
+    // Conteúdo
+    React.createElement("div", { className: "max-w-5xl mx-auto p-5 md:p-8" },
+
+      // Cards de info
+      React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-5 mb-8" },
+        React.createElement("div", { className: "bg-white rounded-2xl p-6 shadow-md border border-gray-100 card-shadow" },
+          React.createElement("div", { className: "w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4" },
+            React.createElement("i", { className: "fas fa-gavel text-red-500 text-xl" })
+          ),
+          React.createElement("h3", { className: "font-bold text-gray-900 mb-1" }, "Validade Jurídica"),
+          React.createElement("p",  { className: "text-sm text-gray-500" }, "Lei 14.063/2020")
+        ),
+        React.createElement("div", { className: "bg-white rounded-2xl p-6 shadow-md border border-gray-100 card-shadow" },
+          React.createElement("div", { className: "w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4" },
+            React.createElement("i", { className: "fas fa-file-signature text-blue-500 text-xl" })
+          ),
+          React.createElement("h3", { className: "font-bold text-gray-900 mb-1" }, "Aplicação Automática"),
+          React.createElement("p",  { className: "text-sm text-gray-500" }, "Todos os contratos novos")
+        ),
+        React.createElement("div", { className: "bg-white rounded-2xl p-6 shadow-md border border-gray-100 card-shadow" },
+          React.createElement("div", { className: "w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4" },
+            React.createElement("i", { className: "fas fa-history text-green-500 text-xl" })
+          ),
+          React.createElement("h3", { className: "font-bold text-gray-900 mb-1" }, "Histórico"),
+          React.createElement("p",  { className: "text-sm text-gray-500" }, "Todas as versões salvas")
+        )
+      ),
+
+      // Assinatura ativa
+      assinaturaAtual && React.createElement("div", { className: "bg-white rounded-2xl shadow-md border border-gray-100 mb-8 overflow-hidden card-shadow" },
+        React.createElement("div", { className: "bg-gradient-to-r from-green-50 to-emerald-50 px-6 py-4 border-b border-green-100" },
+          React.createElement("h3", { className: "font-bold text-green-700 flex items-center gap-2" },
+            React.createElement("i", { className: "fas fa-check-circle text-green-600" }), "Assinatura Atualmente Ativa"
+          )
+        ),
+        React.createElement("div", { className: "p-6" },
+          React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-5 mb-5" },
+            React.createElement("div", null,
+              React.createElement("label", { className: "text-xs font-semibold text-gray-500 uppercase block mb-1" }, "Responsável"),
+              React.createElement("p", { className: "text-gray-900 font-medium text-lg" }, assinaturaAtual.responsavel_nome)
+            ),
+            React.createElement("div", null,
+              React.createElement("label", { className: "text-xs font-semibold text-gray-500 uppercase block mb-1" }, "Cargo"),
+              React.createElement("p", { className: "text-gray-700" }, assinaturaAtual.responsavel_cargo || "—")
+            ),
+            React.createElement("div", null,
+              React.createElement("label", { className: "text-xs font-semibold text-gray-500 uppercase block mb-1" }, "Cadastrada em"),
+              React.createElement("p", { className: "text-gray-600" }, new Date(assinaturaAtual.data_cadastro).toLocaleString('pt-BR'))
+            )
+          ),
+          React.createElement("div", { className: "signature-preview" },
+            React.createElement("label", { className: "text-xs font-semibold text-gray-500 uppercase block mb-3" }, "Preview da Assinatura"),
+            React.createElement("img", { src: assinaturaAtual.assinatura_base64, alt: "Assinatura atual", className: "mx-auto", style: { maxWidth: '300px', maxHeight: '150px' } })
+          )
+        )
+      ),
+
+      // Formulário
+      React.createElement("div", { className: "bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden card-shadow", style: { animation: 'fadeInUp 0.4s ease' } },
+        React.createElement("div", { className: "bg-gradient-to-r from-red-50 to-rose-50 px-6 py-4 border-b border-red-100" },
+          React.createElement("h3", { className: "font-bold text-red-700 flex items-center gap-2" },
+            React.createElement("i", { className: "fas fa-pen-fancy text-red-600" }),
+            assinaturaAtual ? "Substituir Assinatura" : "Cadastrar Nova Assinatura"
+          )
+        ),
+        React.createElement("div", { className: "p-6" },
+          React.createElement("div", { className: "bg-amber-50 border-l-4 border-amber-400 p-4 mb-6 rounded-r-xl" },
+            React.createElement("div", { className: "flex items-start gap-3" },
+              React.createElement("i", { className: "fas fa-exclamation-triangle text-amber-500 mt-0.5 text-lg" }),
+              React.createElement("div", { className: "text-sm text-amber-800" },
+                React.createElement("strong", null, "Importante:"), " Esta assinatura será aplicada em TODOS os novos contratos."
+              )
+            )
+          ),
+
+          // Campos de texto
+          React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-5 mb-6" },
+            React.createElement("div", null,
+              React.createElement("label", { className: "text-sm font-semibold text-gray-700 block mb-2" },
+                React.createElement("i", { className: "fas fa-user mr-2 text-red-500" }),
+                "Nome Completo ", React.createElement("span", { className: "text-red-500" }, "*")
+              ),
+              React.createElement("input", {
+                type: "text",
+                className: "w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-all",
+                placeholder: "Ex: João Silva Santos",
+                value: formData.responsavel_nome,
+                onChange: (e) => setFormData({ ...formData, responsavel_nome: e.target.value })
+              })
+            ),
+            React.createElement("div", null,
+              React.createElement("label", { className: "text-sm font-semibold text-gray-700 block mb-2" },
+                React.createElement("i", { className: "fas fa-briefcase mr-2 text-gray-500" }),
+                "Cargo/Função"
+              ),
+              React.createElement("input", {
+                type: "text",
+                className: "w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-all",
+                placeholder: "Ex: Diretor, Gerente",
+                value: formData.responsavel_cargo,
+                onChange: (e) => setFormData({ ...formData, responsavel_cargo: e.target.value })
+              })
+            )
+          ),
+
+          // Campo de assinatura
+          React.createElement("div", { className: "mb-6" },
+            React.createElement("label", { className: "text-sm font-semibold text-gray-700 block mb-3" },
+              React.createElement("i", { className: "fas fa-draw-polygon mr-2 text-red-500" }),
+              "Assinatura Digital ", React.createElement("span", { className: "text-red-500" }, "*")
+            ),
+            React.createElement("div", { className: "bg-gray-50 rounded-2xl p-4 md:p-6 text-center border-2 border-dashed border-gray-300" },
+              React.createElement("canvas", {
+                ref: canvasRef,
+                className: "signature-canvas mx-auto",
+                style: { touchAction: 'none', display: 'block', margin: '0 auto', backgroundColor: '#ffffff', cursor: 'crosshair' },
+                onMouseDown: startDrawing, onMouseMove: draw, onMouseUp: stopDrawing, onMouseLeave: stopDrawing,
+                onTouchStart: startDrawing, onTouchMove: draw, onTouchEnd: stopDrawing
+              }),
+              React.createElement("div", { className: "flex justify-center gap-4 mt-5 flex-wrap" },
+                React.createElement("button", { onClick: clearCanvas, className: "bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-2.5 rounded-xl font-semibold transition flex items-center gap-2" },
+                  React.createElement("i", { className: "fas fa-eraser" }), " Limpar"
+                ),
+                React.createElement("button", { onClick: () => setFullscreenOpen(true), className: "bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl font-semibold transition flex items-center gap-2 shadow-md" },
+                  React.createElement("i", { className: "fas fa-expand" }), " Tela Cheia"
+                )
+              ),
+              React.createElement("p", { className: "text-xs text-gray-400 mt-4" },
+                React.createElement("i", { className: "fas fa-info-circle mr-1" }),
+                "Use o modo Tela Cheia para melhor experiência."
+              )
+            )
+          ),
+
+          // Botão salvar
+          React.createElement("button", {
+            onClick: assinaturaAtual ? confirmarSubstituicao : salvarAssinatura,
+            disabled: loading,
+            className: "w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 rounded-xl font-bold transition flex items-center justify-center gap-3 disabled:opacity-50 shadow-lg text-lg"
+          },
+            loading
+              ? React.createElement(React.Fragment, null, React.createElement("i", { className: "fas fa-spinner fa-pulse" }), " Salvando...")
+              : React.createElement(React.Fragment, null, React.createElement("i", { className: "fas fa-save" }), assinaturaAtual ? " Substituir Assinatura" : " Salvar Assinatura")
+          ),
+
+          React.createElement("div", { className: "mt-6 pt-5 border-t border-gray-100 text-center" },
+            React.createElement("p", { className: "text-xs text-gray-400" },
+              React.createElement("i", { className: "fas fa-shield-alt mr-1" }),
+              "Assinatura armazenada de forma segura."
+            )
+          )
+        )
+      )
+    ),
+
+    // Toast, Modal, Fullscreen
+    React.createElement(Toast, { message: toast.message, type: toast.type, show: toast.show, onClose: () => setToast(prev => ({ ...prev, show: false })) }),
+    React.createElement(Modal, {
+      isOpen: modal.isOpen,
+      onClose: () => setModal(prev => ({ ...prev, isOpen: false })),
+      title: modal.title,
+      message: modal.message,
+      onConfirm: () => { if (modal.onConfirm) modal.onConfirm(); setModal(prev => ({ ...prev, isOpen: false })); },
+      confirmText: "Sim, substituir",
+      confirmVariant: "danger"
+    }),
+    React.createElement(FullscreenSignature, {
+      isOpen: fullscreenOpen,
+      onClose: () => setFullscreenOpen(false),
+      onSave: handleFullscreenSave,
+      canvasRef: canvasRef
+    })
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(AdminSignatureApp, null));
+</script>
+</body>
+</html>

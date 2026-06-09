@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+<title>Painel Admin · Melolink Internet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link rel="icon" href="/static/logoB.png" type="image/png">
+<link rel="icon" href="static/logoB.ico" type="image/x-icon">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --red: #DC2626;
+    --red-dark: #B91C1C;
+    --red-darker: #991B1B;
+    --red-light: #FEF2F2;
+    --red-mid: #FECACA;
+    --red-100: #FEE2E2;
+    --white: #FFFFFF;
+    --off-white: #FEFEFE;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+    --shadow: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.04);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,.1), 0 4px 10px rgba(0,0,0,.05);
+    --shadow-red: 0 4px 15px rgba(220,38,38,.25);
+  }
+
+  html { font-size: 14px; }
+  body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #F5F5F5; color: var(--gray-900); line-height: 1.5; min-height: 100vh; }
+  code, .mono { font-family: 'DM Mono', 'Courier New', monospace; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-6px); } 60% { transform: translateX(6px); } }
+  @keyframes modalIn { from { opacity: 0; transform: scale(.95) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 99px; }
+
+  input, select, textarea {
+    font-family: inherit; font-size: .875rem; color: var(--gray-900);
+    background: var(--white); border: 2px solid var(--gray-200);
+    border-radius: var(--radius); padding: .6rem .9rem; outline: none;
+    transition: border-color .15s, box-shadow .15s; width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--red); box-shadow: 0 0 0 4px rgba(220,38,38,.1); }
+  input::placeholder, textarea::placeholder { color: var(--gray-400); }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .75rem center; padding-right: 2rem; }
+  label { font-size: .72rem; font-weight: 600; color: var(--gray-700); display: block; margin-bottom: .3rem; letter-spacing: .03em; text-transform: uppercase; }
+
+  .btn { display: inline-flex; align-items: center; gap: .4rem; font-family: inherit; font-size: .8125rem; font-weight: 600; border: none; cursor: pointer; border-radius: var(--radius); padding: .55rem 1rem; transition: all .15s; white-space: nowrap; text-decoration: none; }
+  .btn-primary { background: var(--red); color: #fff; }
+  .btn-primary:hover { background: var(--red-dark); box-shadow: var(--shadow-red); }
+  .btn-white { background: var(--white); color: var(--red); border: 2px solid var(--red); }
+  .btn-white:hover { background: var(--red-light); }
+  .btn-ghost { background: transparent; color: var(--gray-500); border: 2px solid var(--gray-200); }
+  .btn-ghost:hover { background: var(--gray-50); border-color: var(--gray-300); color: var(--gray-700); }
+  .btn-sm { padding: .35rem .7rem; font-size: .75rem; }
+  .btn-icon { padding: .4rem .5rem; min-width: 34px; justify-content: center; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; pointer-events: none; }
+  .btn-danger-ghost { background: transparent; color: var(--red); border: 2px solid var(--red-mid); }
+  .btn-danger-ghost:hover { background: var(--red-light); border-color: var(--red); }
+  .btn-green { background: #16A34A; color: #fff; }
+  .btn-green:hover { background: #15803D; }
+  .btn-outline { background: var(--white); color: var(--gray-700); border: 2px solid var(--gray-200); }
+  .btn-outline:hover { background: var(--gray-50); border-color: var(--gray-300); }
+  .btn-blue { background: #2563eb; color: #fff; }
+  .btn-blue:hover { background: #1d4ed8; }
+
+  .badge { display: inline-flex; align-items: center; gap: .3rem; font-size: .7rem; font-weight: 600; padding: .3rem .65rem; border-radius: 20px; letter-spacing: .01em; }
+  .badge-red { background: var(--red-100); color: var(--red-darker); border: 1px solid var(--red-mid); }
+  .badge-green { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+  .badge-amber { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+  .badge-purple { background: #F3E8FF; color: #6B21A8; border: 1px solid #E9D5FF; }
+  .badge-blue { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+  .badge-teal { background: #CCFBF1; color: #115E59; border: 1px solid #99F6E4; }
+  .badge-pending { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+  .badge-remote { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
+
+  .card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table thead th {
+    background: var(--red); color: #fff; font-size: .68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; padding: .75rem 1rem; text-align: left;
+    white-space: nowrap; position: sticky; top: 0; z-index: 5;
+  }
+  .data-table tbody td { padding: .8rem 1rem; border-bottom: 1px solid var(--gray-100); font-size: .8125rem; color: var(--gray-700); white-space: nowrap; vertical-align: middle; }
+  .data-table tbody tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover td { background: var(--red-light); }
+
+  .table-wrap { overflow-x: auto; border-radius: 0 0 var(--radius-lg) var(--radius-lg); max-height: 60vh; overflow-y: auto; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .875rem; }
+  @media(max-width:700px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .stat-card {
+    background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg);
+    padding: 1.2rem 1.3rem; display: flex; align-items: center; gap: 1rem;
+    box-shadow: var(--shadow-sm); transition: all .2s; border-left: 5px solid var(--red);
+  }
+  .stat-card:hover { box-shadow: var(--shadow-lg); border-color: var(--red); }
+  .stat-icon { width: 44px; height: 44px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; background: var(--red-light); color: var(--red); }
+  .stat-val { font-size: 1.9rem; font-weight: 700; line-height: 1.1; letter-spacing: -.03em; color: var(--gray-900); }
+  .stat-lbl { font-size: .75rem; color: var(--gray-500); margin-top: .15rem; font-weight: 500; }
+
+  .tabs { display: flex; gap: .25rem; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: .3rem; }
+  .tab { flex: 1; display: flex; align-items: center; justify-content: center; gap: .4rem; padding: .65rem; border-radius: var(--radius); font-size: .8125rem; font-weight: 600; cursor: pointer; transition: all .15s; color: var(--gray-500); border: none; background: transparent; }
+  .tab.active { background: var(--red); color: #fff; box-shadow: var(--shadow-red); }
+  .tab:not(.active):hover { background: var(--red-light); color: var(--red); }
+  .tab-count { font-size: .68rem; padding: .1rem .5rem; border-radius: 99px; font-weight: 700; }
+  .tab.active .tab-count { background: rgba(255,255,255,.25); color: #fff; }
+  .tab:not(.active) .tab-count { background: var(--gray-200); color: var(--gray-500); }
+
+  .toast { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 9999; padding: .75rem 1.1rem; border-radius: var(--radius-lg); display: flex; align-items: center; gap: .6rem; font-size: .8125rem; font-weight: 600; box-shadow: var(--shadow-lg); animation: fadeUp .25s ease; max-width: 380px; }
+  .toast-success { background: #16A34A; color: #fff; }
+  .toast-error { background: var(--red); color: #fff; }
+  .toast-close { opacity: .8; cursor: pointer; font-size: 1.1rem; line-height: 1; border: none; background: none; color: inherit; margin-left: .3rem; }
+
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9000; padding: 1rem; animation: fadeIn .2s ease; }
+  .modal { background: var(--white); border-radius: var(--radius-xl); max-width: 440px; width: 100%; padding: 1.75rem; box-shadow: var(--shadow-lg); animation: modalIn .2s ease; }
+
+  .upload-zone { border: 2px dashed var(--gray-300); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; cursor: pointer; transition: all .15s; background: var(--gray-50); }
+  .upload-zone:hover, .upload-zone.drag { border-color: var(--red); background: var(--red-light); }
+  .upload-zone.has-file { border-style: solid; border-color: #16A34A; background: #F0FDF4; }
+  .upload-zone-icon { font-size: 1.75rem; margin-bottom: .5rem; color: var(--gray-400); }
+  .upload-zone-label { font-size: .8125rem; font-weight: 600; color: var(--gray-700); }
+  .upload-zone.has-file .upload-zone-icon { color: #16A34A; }
+  .upload-zone.has-file .upload-zone-label { color: #16A34A; }
+  .upload-zone-req { font-size: .72rem; color: var(--red); margin-top: .35rem; font-weight: 600; }
+
+  .proto { background: var(--red-light); color: var(--red-darker); padding: .3rem .65rem; border-radius: var(--radius-sm); font-family: 'DM Mono', monospace; font-size: .72rem; font-weight: 500; border: 1px solid var(--red-mid); white-space: nowrap; }
+
+  .section-head { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--gray-200); background: var(--gray-50); }
+  .section-title { font-size: .9375rem; font-weight: 700; color: var(--gray-900); display: flex; align-items: center; gap: .5rem; }
+  .section-sub { font-size: .75rem; color: var(--gray-500); margin-top: .1rem; }
+
+  .filter-bar { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 1rem 1.25rem; }
+  .filter-grid { display: flex; flex-wrap: wrap; gap: .625rem; align-items: flex-end; }
+  .filter-field { min-width: 110px; flex: 1; }
+  .filter-field-wide { min-width: 180px; flex: 2; }
+
+  .empty { text-align: center; padding: 3.5rem 1rem; color: var(--gray-400); }
+  .empty-icon { font-size: 2.5rem; margin-bottom: .75rem; opacity: .4; }
+  .empty-title { font-size: .9rem; font-weight: 600; color: var(--gray-500); margin-bottom: .25rem; }
+  .empty-sub { font-size: .8rem; }
+
+  .app-header { background: var(--red); height: 56px; display: flex; align-items: center; padding: 0 1.25rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  .header-brand { display: flex; align-items: center; gap: .75rem; color: #fff; }
+  .header-logo { width: 34px; height: 34px; background: rgba(255,255,255,.2); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: .9rem; }
+  .header-name { font-size: .95rem; font-weight: 700; letter-spacing: -.01em; }
+  .header-tag { font-size: .65rem; opacity: .75; letter-spacing: .04em; font-weight: 500; }
+  .header-actions { margin-left: auto; display: flex; gap: .375rem; }
+  .header-btn { height: 34px; padding: 0 .8rem; border-radius: var(--radius-sm); background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.2); color: #fff; font-family: inherit; font-size: .78rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: .35rem; transition: all .15s; text-decoration: none; }
+  .header-btn:hover { background: rgba(255,255,255,.25); }
+  .header-btn-icon { padding: 0 .55rem; }
+
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: #16A34A; animation: pulse 2.5s infinite; }
+  .dot-gray { background: var(--gray-400); }
+
+  .spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; display: inline-block; }
+  .spinner-red { border-color: rgba(220,38,38,.2); border-top-color: var(--red); }
+
+  @media(max-width:600px) {
+    .header-btn span.hide-sm { display: none; }
+    .stat-val { font-size: 1.5rem; }
+    .stat-card { padding: 1rem; }
+  }
+
+  .template-item { display: flex; align-items: center; gap: .875rem; padding: .9rem 1.25rem; border-bottom: 1px solid var(--gray-100); transition: background .1s; }
+  .template-item:last-child { border-bottom: none; }
+  .template-item:hover { background: var(--red-light); }
+  .template-thumb { width: 40px; height: 50px; background: var(--red-light); border: 1.5px solid var(--red-mid); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--red); font-size: .95rem; flex-shrink: 0; }
+  .template-name { font-size: .875rem; font-weight: 600; color: var(--gray-900); }
+  .template-meta { font-size: .72rem; color: var(--gray-500); margin-top: .25rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+  .template-actions { margin-left: auto; display: flex; gap: .35rem; flex-shrink: 0; }
+
+  .login-wrap { min-height: 100vh; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 50%, #991B1B 100%); display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  .login-card { background: var(--white); border-radius: var(--radius-xl); padding: 2.5rem 2rem; max-width: 380px; width: 100%; animation: fadeUp .4s ease; box-shadow: 0 25px 60px rgba(0,0,0,.25); }
+  .login-logo { width: 56px; height: 56px; background: var(--red-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.5rem; color: var(--red); }
+  .login-title { text-align: center; font-size: 1.4rem; font-weight: 700; letter-spacing: -.02em; color: var(--gray-900); margin-bottom: .25rem; }
+  .login-sub { text-align: center; font-size: .8rem; color: var(--gray-500); margin-bottom: 1.75rem; }
+  .login-field { margin-bottom: 1rem; }
+  .login-hint { text-align: center; font-size: .72rem; color: var(--gray-400); margin-top: 1.25rem; font-family: 'DM Mono', monospace; }
+  .login-error { background: var(--red-light); border: 1px solid var(--red-mid); color: var(--red-darker); padding: .65rem .9rem; border-radius: var(--radius); font-size: .8rem; text-align: center; margin-bottom: 1rem; animation: shake .35s ease; font-weight: 500; }
+
+  .main-wrap { max-width: 1440px; margin: 0 auto; padding: 1.25rem; }
+  @media(max-width:600px) { .main-wrap { padding: .875rem .75rem; } }
+
+  .mb-3 { margin-bottom: .75rem; }
+  .mb-4 { margin-bottom: 1rem; }
+  .mb-5 { margin-bottom: 1.25rem; }
+
+  .type-info { background: var(--red-light); border-left: 4px solid var(--red); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: .7rem .95rem; font-size: .8rem; color: var(--gray-700); margin-bottom: 1rem; font-weight: 500; }
+  .type-info strong { color: var(--red); font-weight: 700; }
+
+  .tec-row { display: flex; align-items: center; padding: .85rem 1.25rem; border-bottom: 1px solid var(--gray-100); gap: .75rem; transition: background .1s; }
+  .tec-row:last-child { border-bottom: none; }
+  .tec-row:hover { background: var(--red-light); }
+  .tec-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--red-light); color: var(--red-darker); display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 700; flex-shrink: 0; }
+  .tec-name { font-size: .875rem; font-weight: 600; color: var(--gray-900); }
+  .tec-mat { font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--gray-500); }
+
+  /* Estilos do modal de detalhes */
+  .detail-row { display: flex; align-items: flex-start; padding: 0.6rem 0; border-bottom: 1px solid var(--gray-100); }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label { font-size: 0.7rem; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.03em; width: 130px; flex-shrink: 0; padding-top: 2px; }
+  .detail-value { font-size: 0.875rem; color: var(--gray-900); font-weight: 500; word-break: break-word; white-space: pre-wrap; line-height: 1.5; flex: 1; }
+  .detail-os-box { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1rem; margin-top: 0.5rem; max-height: 200px; overflow-y: auto; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div style="display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;gap:12px">
+    <div class="spinner spinner-red" style="width:32px;height:32px;border-width:3px"></div>
+    <p style="color:var(--gray-400);font-size:.875rem;font-weight:500">Carregando...</p>
+  </div>
+</div>
+
+<script type="text/babel">
+const { useState, useEffect, useCallback, useRef } = React;
+
+const formatarDataBR = (dataISO) => {
+  if (!dataISO) return '—';
+  const data = new Date(dataISO);
+  if (isNaN(data.getTime())) return '—';
+  return data.toLocaleString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+};
+
+const Toast = ({ message, type, show, onClose }) => {
+  useEffect(() => { if (show) { const t = setTimeout(onClose, 3500); return () => clearTimeout(t); } }, [show]);
+  if (!show) return null;
+  return (
+    <div className={`toast toast-${type}`}>
+      <i className={`fas ${type==='success'?'fa-circle-check':'fa-circle-exclamation'}`}></i>
+      <span style={{flex:1}}>{message}</span>
+      <button className="toast-close" onClick={onClose}>&times;</button>
+    </div>
+  );
+};
+
+const Modal = ({ isOpen, onClose, title, message, onConfirm, confirmText, confirmVariant }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal" style={{maxWidth:'380px'}} onClick={e=>e.stopPropagation()}>
+        <div style={{width:48,height:48,background:'var(--red-light)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto .875rem',color:'var(--red)',fontSize:'1.2rem'}}>
+          <i className="fas fa-triangle-exclamation"></i>
+        </div>
+        <h3 style={{textAlign:'center',fontSize:'1.05rem',fontWeight:700,marginBottom:'.4rem',color:'var(--gray-900)'}}>{title}</h3>
+        <p style={{textAlign:'center',fontSize:'.8125rem',color:'var(--gray-500)',marginBottom:'1.25rem',lineHeight:1.6}} dangerouslySetInnerHTML={{__html:message}}></p>
+        <div style={{display:'flex',gap:'.5rem'}}>
+          <button onClick={onClose} className="btn btn-ghost" style={{flex:1,justifyContent:'center'}}>Cancelar</button>
+          <button onClick={()=>{onConfirm();onClose();}} className={`btn ${confirmVariant==='success'?'btn-green':'btn-primary'}`} style={{flex:1,justifyContent:'center'}}>
+            {confirmText||'Confirmar'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const UploadZone = ({ title, icon, accept, file, onSelect, required, note }) => {
+  const [drag, setDrag] = useState(false);
+  const ref = useRef(null);
+  return (
+    <div className={`upload-zone ${drag?'drag':''} ${file?'has-file':''}`}
+      onClick={()=>ref.current?.click()}
+      onDragOver={e=>{e.preventDefault();setDrag(true);}}
+      onDragLeave={()=>setDrag(false)}
+      onDrop={e=>{e.preventDefault();setDrag(false);const f=e.dataTransfer.files[0];if(f)onSelect(f);}}>
+      <input ref={ref} type="file" accept={accept} style={{display:'none'}} onChange={e=>{if(e.target.files[0])onSelect(e.target.files[0]);}} />
+      <div className="upload-zone-icon"><i className={`fas ${file?'fa-circle-check':icon}`}></i></div>
+      <div className="upload-zone-label">{file ? file.name : title}</div>
+      {!file && required && <div className="upload-zone-req"><i className="fas fa-exclamation-circle" style={{marginRight:4}}></i>Obrigatório</div>}
+      {!file && note && !required && <div style={{fontSize:'.72rem',color:'var(--gray-400)',marginTop:'.35rem'}}>{note}</div>}
+    </div>
+  );
+};
+
+const EmailModal = ({ doc, onClose, onSend }) => {
+  const [email, setEmail] = useState('');
+  const [msg, setMsg] = useState('');
+  const [sending, setSending] = useState(false);
+  const send = async () => {
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) return;
+    setSending(true);
+    const clienteNome = doc.cliente || 'Documento';
+    const ok = await onSend(doc.id, email, msg, doc.nome, clienteNome);
+    setSending(false);
+    if (ok) onClose();
+  };
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal" onClick={e=>e.stopPropagation()}>
+        <div style={{display:'flex',alignItems:'center',gap:'.75rem',marginBottom:'1.25rem'}}>
+          <div style={{width:42,height:42,background:'var(--red-light)',borderRadius:'var(--radius)',display:'flex',alignItems:'center',justifyContent:'center',color:'var(--red)',fontSize:'1.1rem'}}>
+            <i className="fas fa-envelope"></i>
+          </div>
+          <div><div style={{fontWeight:700,fontSize:'.95rem',color:'var(--gray-900)'}}>Enviar por E-mail</div><div style={{fontSize:'.75rem',color:'var(--gray-500)'}}>{doc.nome} · {doc.cliente}</div></div>
+        </div>
+        <div className="login-field"><label>E-mail do cliente</label><input type="email" placeholder="cliente@email.com" value={email} onChange={e=>setEmail(e.target.value)} /></div>
+        <div className="login-field"><label>Mensagem (opcional)</label><textarea placeholder="Olá, segue seu documento..." rows="3" value={msg} onChange={e=>setMsg(e.target.value)} style={{resize:'none'}}></textarea></div>
+        <div style={{display:'flex',gap:'.5rem',marginTop:'.5rem'}}>
+          <button onClick={onClose} className="btn btn-ghost" style={{flex:1,justifyContent:'center'}}>Cancelar</button>
+          <button onClick={send} disabled={sending} className="btn btn-primary" style={{flex:1,justifyContent:'center'}}>
+            {sending?<><span className="spinner"></span> Enviando...</>:<><i className="fas fa-paper-plane"></i> Enviar</>}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SendLinkModal = ({ doc, onClose, onSendLink }) => {
+  const [email, setEmail] = useState('');
+  const [sending, setSending] = useState(false);
+  const send = async () => {
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) return;
+    setSending(true);
+    const ok = await onSendLink(doc.id, email);
+    setSending(false);
+    if (ok) onClose();
+  };
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal" onClick={e=>e.stopPropagation()}>
+        <div style={{display:'flex',alignItems:'center',gap:'.75rem',marginBottom:'1.25rem'}}>
+          <div style={{width:42,height:42,background:'#FEF3C7',borderRadius:'var(--radius)',display:'flex',alignItems:'center',justifyContent:'center',color:'#D97706',fontSize:'1.1rem'}}>
+            <i className="fas fa-link"></i>
+          </div>
+          <div><div style={{fontWeight:700,fontSize:'.95rem',color:'var(--gray-900)'}}>Enviar Link de Assinatura</div><div style={{fontSize:'.75rem',color:'var(--gray-500)'}}>{doc.nome} · {doc.cliente}</div></div>
+        </div>
+        <div className="type-info" style={{marginBottom:'1rem'}}>
+          <i className="fas fa-clock"></i> O link será válido por <strong>24 horas</strong>.
+        </div>
+        <div className="login-field"><label>E-mail do cliente</label><input type="email" placeholder="cliente@email.com" value={email} onChange={e=>setEmail(e.target.value)} /></div>
+        <div style={{display:'flex',gap:'.5rem',marginTop:'.5rem'}}>
+          <button onClick={onClose} className="btn btn-ghost" style={{flex:1,justifyContent:'center'}}>Cancelar</button>
+          <button onClick={send} disabled={sending} className="btn btn-blue" style={{flex:1,justifyContent:'center'}}>
+            {sending?<><span className="spinner"></span> Enviando...</>:<><i className="fas fa-paper-plane"></i> Enviar Link</>}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const WhatsModal = ({ doc, onClose }) => {
+  const [tel, setTel] = useState('');
+  const [msg, setMsg] = useState('');
+  const send = () => {
+    if (!tel) return;
+    let num = tel.replace(/\D/g,'');
+    if (num.length>=10&&num.length<=11) num='55'+num;
+    const clienteNome = doc.cliente || 'cliente';
+    const texto = msg || `*${doc.nome}* - Melolink\n\nOlá ${clienteNome}, segue o link do documento:\n${window.location.origin}/api/pdf/${doc.id}`;
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(texto + (msg ? `\n\nLink: ${window.location.origin}/api/pdf/${doc.id}` : ''))}`, '_blank');
+    onClose();
+  };
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal" onClick={e=>e.stopPropagation()}>
+        <div style={{display:'flex',alignItems:'center',gap:'.75rem',marginBottom:'1.25rem'}}>
+          <div style={{width:42,height:42,background:'#DCFCE7',borderRadius:'var(--radius)',display:'flex',alignItems:'center',justifyContent:'center',color:'#16A34A',fontSize:'1.1rem'}}>
+            <i className="fab fa-whatsapp"></i>
+          </div>
+          <div><div style={{fontWeight:700,fontSize:'.95rem',color:'var(--gray-900)'}}>Enviar por WhatsApp</div><div style={{fontSize:'.75rem',color:'var(--gray-500)'}}>{doc.nome} · {doc.cliente}</div></div>
+        </div>
+        <div className="login-field"><label>Número do cliente</label><input type="tel" placeholder="(11) 99999-9999" value={tel} onChange={e=>setTel(e.target.value)} /></div>
+        <div className="login-field"><label>Mensagem (opcional)</label><textarea placeholder="Mensagem personalizada..." rows="3" value={msg} onChange={e=>setMsg(e.target.value)} style={{resize:'none'}}></textarea></div>
+        <div style={{display:'flex',gap:'.5rem',marginTop:'.5rem'}}>
+          <button onClick={onClose} className="btn btn-ghost" style={{flex:1,justifyContent:'center'}}>Cancelar</button>
+          <button onClick={send} className="btn btn-green" style={{flex:1,justifyContent:'center'}}><i className="fab fa-whatsapp"></i> Enviar</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* Modal de Detalhes do Contrato (atualizado com status e assinatura remota) */
+const DetalhesContratoModal = ({ contract, onClose, onEnviar, onDownload, onSendLink }) => {
+  if (!contract) return null;
+  const tc = {
+    instalacao: { badge: 'badge-green', icon: 'fa-house', text: 'Instalação' },
+    mudanca_endereco: { badge: 'badge-amber', icon: 'fa-right-left', text: 'Mudança' },
+    ordem_servico: { badge: 'badge-purple', icon: 'fa-screwdriver-wrench', text: 'OS' }
+  }[contract.tipo_instalacao] || { badge: 'badge-red', icon: 'fa-file', text: contract.tipo_instalacao || '—' };
+
+  const getStatusBadge = () => {
+    switch(contract.signature_status) {
+      case 'complete':
+        return { badge: 'badge-green', icon: 'fa-check-circle', text: 'Assinado Normal' };
+      case 'pending':
+        return { badge: 'badge-pending', icon: 'fa-clock', text: 'Pendente' };
+      case 'complete_remote':
+        return { badge: 'badge-remote', icon: 'fa-laptop', text: 'Assinado Remotamente' };
+      default:
+        return { badge: 'badge-red', icon: 'fa-question', text: 'Desconhecido' };
+    }
+  };
+  const statusInfo = getStatusBadge();
+
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal" style={{maxWidth:'560px', maxHeight:'90vh', overflow:'auto'}} onClick={e=>e.stopPropagation()}>
+        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'1.25rem'}}>
+          <div style={{display:'flex', alignItems:'center', gap:'.75rem'}}>
+            <div style={{width:46, height:46, background:'var(--red-light)', borderRadius:'var(--radius-lg)', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--red)', fontSize:'1.2rem'}}>
+              <i className={`fas ${tc.icon}`}></i>
+            </div>
+            <div>
+              <div style={{fontWeight:700, fontSize:'1rem', color:'var(--gray-900)', lineHeight:1.2}}>Detalhes do Documento</div>
+              <div style={{fontSize:'.75rem', color:'var(--gray-500)'}}>{contract.contrato_id || '—'}</div>
+            </div>
+          </div>
+          <button onClick={onClose} className="btn btn-ghost btn-icon" style={{border:'none'}} title="Fechar">
+            <i className="fas fa-times" style={{fontSize:'1.1rem'}}></i>
+          </button>
+        </div>
+
+        <div style={{display:'flex', gap:'.5rem', marginBottom:'1rem', flexWrap:'wrap'}}>
+          <span className={`badge ${tc.badge}`}><i className={`fas ${tc.icon}`}></i> {tc.text}</span>
+          <span className={`badge ${statusInfo.badge}`}><i className={`fas ${statusInfo.icon}`}></i> {statusInfo.text}</span>
+        </div>
+
+        <div style={{background:'var(--gray-50)', borderRadius:'var(--radius-lg)', padding:'1rem 1.25rem', marginBottom:'1rem'}}>
+          <div className="detail-row">
+            <span className="detail-label">Protocolo</span>
+            <span className="detail-value"><span className="proto">{contract.contrato_id || '—'}</span></span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-label">Cliente</span>
+            <span className="detail-value" style={{fontWeight:600}}>{contract.cliente_nome || '—'}</span>
+          </div>
+          {contract.campo_cliente && (
+            <div className="detail-row">
+              <span className="detail-label">Nº Cliente</span>
+              <span className="detail-value"><span className="badge badge-blue">{contract.campo_cliente}</span></span>
+            </div>
+          )}
+          {contract.campo_ctop && (
+            <div className="detail-row">
+              <span className="detail-label">CTOP</span>
+              <span className="detail-value"><span className="badge badge-amber">{contract.campo_ctop}</span></span>
+            </div>
+          )}
+          {contract.campo_db && (
+            <div className="detail-row">
+              <span className="detail-label">DB</span>
+              <span className="detail-value"><span className="badge badge-teal">{contract.campo_db}</span></span>
+            </div>
+          )}
+          <div className="detail-row">
+            <span className="detail-label">Técnico</span>
+            <span className="detail-value">{contract.tecnico_nome || '—'}</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-label">Data/Hora</span>
+            <span className="detail-value mono" style={{fontSize:'.8rem'}}>{formatarDataBR(contract.data_hora)}</span>
+          </div>
+          {contract.signature_status === 'complete_remote' && contract.signed_at && (
+            <div className="detail-row">
+              <span className="detail-label">Assinado em</span>
+              <span className="detail-value mono" style={{fontSize:'.8rem', color:'#0369A1'}}>
+                <i className="fas fa-laptop"></i> {formatarDataBR(contract.signed_at)}
+              </span>
+            </div>
+          )}
+          {contract.email_sent_to && contract.signature_status === 'pending' && (
+            <div className="detail-row">
+              <span className="detail-label">Link enviado para</span>
+              <span className="detail-value" style={{fontSize:'.8rem', color:'#92400E'}}>
+                <i className="fas fa-envelope"></i> {contract.email_sent_to}
+              </span>
+            </div>
+          )}
+        </div>
+
+        <div style={{marginBottom:'1.25rem'}}>
+          <label style={{marginBottom:'.5rem', display:'flex', alignItems:'center', gap:'.4rem'}}>
+            <i className="fas fa-align-left" style={{color:'var(--red)', fontSize:'.8rem'}}></i>
+            Descrição da OS
+          </label>
+          {contract.os_descricao ? (
+            <div className="detail-os-box">
+              <p style={{fontSize:'.875rem', color:'var(--gray-700)', lineHeight:1.7, whiteSpace:'pre-wrap', margin:0}}>
+                {contract.os_descricao}
+              </p>
+            </div>
+          ) : (
+            <p style={{fontSize:'.8125rem', color:'var(--gray-400)', fontStyle:'italic', marginTop:'.25rem'}}>
+              Nenhuma descrição informada para esta OS.
+            </p>
+          )}
+        </div>
+
+        <div style={{display:'flex', gap:'.5rem', flexWrap:'wrap'}}>
+          <a href={`/api/pdf/${contract.id}`} target="_blank" className="btn btn-green" style={{flex:1, justifyContent:'center'}}>
+            <i className="fas fa-download"></i> Download PDF
+          </a>
+          {contract.signature_status === 'pending' && (
+            <button onClick={() => { onClose(); onSendLink(contract); }} className="btn btn-blue" style={{flex:1, justifyContent:'center'}}>
+              <i className="fas fa-link"></i> Enviar Link
+            </button>
+          )}
+          <button onClick={() => { onClose(); onEnviar(contract); }} className="btn btn-primary" style={{flex:1, justifyContent:'center'}}>
+            <i className="fas fa-share-nodes"></i> Enviar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const App = () => {
+  const [logged, setLogged] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginError, setLoginError] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+  const [modal, setModal] = useState({ isOpen: false });
+  const [activeTab, setActiveTab] = useState('contratos');
+  const [contratos, setContratos] = useState([]);
+  const [tecnicos, setTecnicos] = useState([]);
+  const [templates, setTemplates] = useState([]);
+  const [stats, setStats] = useState({ instalacoes: 0, hoje: 0, mudancas: 0, os: 0 });
+  const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState({ inicio: '', fim: '', tecnico: '', tipo: '', busca: '' });
+  const [showUpload, setShowUpload] = useState(false);
+  const [tipoSelecionado, setTipoSelecionado] = useState(null);
+  const [selectedPdf, setSelectedPdf] = useState(null);
+  const [selectedTxt, setSelectedTxt] = useState(null);
+  const [selectedOs, setSelectedOs] = useState(null);
+  const [docNome, setDocNome] = useState('');
+  const [docDesc, setDocDesc] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const [docEnvio, setDocEnvio] = useState(null);
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [showWhatsModal, setShowWhatsModal] = useState(false);
+  const [showMetodoModal, setShowMetodoModal] = useState(false);
+  const [showTipoModal, setShowTipoModal] = useState(false);
+  const [showSendLinkModal, setShowSendLinkModal] = useState(false); 
+  const [templateMap, setTemplateMap] = useState({});
+  const [contractDetail, setContractDetail] = useState(null);
+
+  const inicioInputRef = useRef(null);
+  const fimInputRef = useRef(null);
+  const tecnicoSelectRef = useRef(null);
+  const tipoSelectRef = useRef(null);
+  const buscaInputRef = useRef(null);
+  const loginUserRef = useRef(null);
+  const loginPassRef = useRef(null);
+
+  const showToast = (msg, type) => setToast({ show: true, message: msg, type: type || 'success' });
+
+  const showModalMsg = (title, msg, onConfirm, confirmText, confirmVariant) =>
+    setModal({ isOpen: true, title, message: msg, onConfirm, confirmText, confirmVariant });
+
+  const forceLogout = () => {
+    setLogged(false);
+    localStorage.removeItem('adminLogado');
+    setLoading(false);
+    showToast('Sessão expirada. Faça login novamente.', 'error');
+  };
+
+  const authFetch = useCallback(async (url, options = {}) => {
+    try {
+      const res = await fetch(url, options);
+      if (res.status === 401) {
+        forceLogout();
+        throw new Error('Não autenticado');
+      }
+      return res;
+    } catch (e) {
+      if (e.message !== 'Não autenticado') showToast('Erro de conexão', 'error');
+      throw e;
+    }
+  }, []);
+
+  const loadData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const [cRes, tRes, tmRes] = await Promise.all([
+        authFetch('/api/contratos'),
+        authFetch('/api/tecnicos'),
+        authFetch('/api/templates')
+      ]);
+      const [cData, tData, tmData] = await Promise.all([cRes.json(), tRes.json(), tmRes.json()]);
+      if (Array.isArray(cData)) {
+        setContratos(cData);
+        const hoje = new Date().toISOString().slice(0, 10);
+        setStats({
+          instalacoes: cData.filter(c => c.tipo_instalacao === 'instalacao').length,
+          hoje: cData.filter(c => c.data_hora && c.data_hora.startsWith(hoje)).length,
+          mudancas: cData.filter(c => c.tipo_instalacao === 'mudanca_endereco').length,
+          os: cData.filter(c => c.tipo_instalacao === 'ordem_servico').length
+        });
+      }
+      if (Array.isArray(tData)) setTecnicos(tData);
+      if (Array.isArray(tmData)) {
+        setTemplates(tmData.map(t => ({ ...t, has_os: !!t.os_pdf_path })));
+        const map = {};
+        tmData.forEach(t => { map[t.id] = t.nome; });
+        setTemplateMap(map);
+      }
+    } catch (e) {
+      console.error('Erro ao carregar dados:', e);
+    } finally {
+      setLoading(false);
+    }
+  }, [authFetch]);
+
+  useEffect(() => {
+    if (!logged) return;
+    const interval = setInterval(() => {
+      loadData();
+    }, 30000);
+    return () => clearInterval(interval);
+  }, [logged, loadData]);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const res = await fetch('/api/admin/check-auth');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.autenticado) {
+            setLogged(true);
+            await loadData();
+            return;
+          }
+        }
+        setLogged(false);
+        localStorage.removeItem('adminLogado');
+        setLoading(false);
+      } catch (e) {
+        console.error('Erro ao verificar sessão:', e);
+        setLogged(false);
+        setLoading(false);
+      }
+    };
+    checkSession();
+  }, [loadData]);
+
+  const login = async () => {
+    const usuario = loginUserRef.current?.value?.trim();
+    const senha = loginPassRef.current?.value;
+    if (!usuario || !senha) {
+      setLoginError(true);
+      setTimeout(() => setLoginError(false), 3000);
+      return;
+    }
+    setLoginLoading(true);
+    setLoginError(false);
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: usuario, password: senha })
+      });
+      const data = await res.json();
+      if (res.ok && data.sucesso) {
+        localStorage.setItem('adminLogado', 'true');
+        setLogged(true);
+        setLoginError(false);
+        await loadData();
+      } else {
+        setLoginError(true);
+        setTimeout(() => setLoginError(false), 3000);
+      }
+    } catch (err) {
+      console.error('Erro no login:', err);
+      setLoginError(true);
+      setTimeout(() => setLoginError(false), 3000);
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const handleLoginKeyPress = (e) => {
+    if (e.key === 'Enter') login();
+  };
+
+  const logout = async () => {
+    try { await fetch('/api/admin/logout', { method: 'POST' }); } catch(e) {}
+    localStorage.removeItem('adminLogado');
+    setLogged(false);
+    setContratos([]);
+    setTecnicos([]);
+    setTemplates([]);
+  };
+
+  const limparFiltros = () => {
+    setFilters({ inicio: '', fim: '', tecnico: '', tipo: '', busca: '' });
+    if (inicioInputRef.current) inicioInputRef.current.value = '';
+    if (fimInputRef.current) fimInputRef.current.value = '';
+    if (tecnicoSelectRef.current) tecnicoSelectRef.current.value = '';
+    if (tipoSelectRef.current) tipoSelectRef.current.value = '';
+    if (buscaInputRef.current) buscaInputRef.current.value = '';
+  };
+
+  const uploadDoc = async () => {
+    if (!tipoSelecionado || !selectedPdf) return showToast('Selecione tipo e PDF', 'error');
+    if (tipoSelecionado !== 'ordem_servico' && !selectedTxt) return showToast('TXT obrigatório', 'error');
+    if (tipoSelecionado === 'instalacao' && !selectedOs) return showToast('OS obrigatória', 'error');
+    const fd = new FormData();
+    fd.append('arquivo', selectedPdf);
+    if (selectedTxt) fd.append('txtfile', selectedTxt);
+    if (selectedOs && tipoSelecionado !== 'ordem_servico') fd.append('osfile', selectedOs);
+    fd.append('nome', docNome || selectedPdf.name.replace('.pdf', ''));
+    fd.append('descricao', docDesc);
+    fd.append('tipo', tipoSelecionado);
+    setUploading(true);
+    try {
+      const res = await authFetch('/api/templates', { method: 'POST', body: fd });
+      const data = await res.json();
+      if (data.sucesso) {
+        showToast('Documento salvo!');
+        setShowUpload(false);
+        setSelectedPdf(null);
+        setSelectedTxt(null);
+        setSelectedOs(null);
+        setDocNome('');
+        setDocDesc('');
+        loadData();
+      } else {
+        showToast(data.erro || 'Erro', 'error');
+      }
+    } catch (e) {} finally { setUploading(false); }
+  };
+
+  const addTecnico = async () => {
+    const nome = document.getElementById('tecNome')?.value?.trim();
+    const mat = document.getElementById('tecMat')?.value?.trim();
+    if (!nome || !mat) return showToast('Preencha os campos', 'error');
+    try {
+      const res = await authFetch('/api/tecnicos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, matricula: mat })
+      });
+      const data = await res.json();
+      if (data.sucesso) {
+        showToast('Técnico adicionado!');
+        document.getElementById('tecNome').value = '';
+        document.getElementById('tecMat').value = '';
+        loadData();
+      } else showToast(data.erro || 'Erro', 'error');
+    } catch(e) {}
+  };
+
+  const toggleTecnico = async (id, nome, ativo) => {
+    try {
+      const res = await authFetch(`/api/tecnicos/${id}${ativo ? '' : '/reativar'}`, { method: ativo ? 'DELETE' : 'PUT' });
+      const data = await res.json();
+      if (data.sucesso) showToast(`Técnico ${nome} ${ativo ? 'desativado' : 'reativado'}!`);
+      else showToast(data.erro || 'Erro', 'error');
+      loadData();
+    } catch(e) {}
+  };
+
+  const deleteTemplate = async (id, nome) => {
+    showModalMsg('Remover modelo', `Remover <strong>${nome}</strong>?<br><span style="font-size:.75rem;color:var(--gray-500)">Esta ação não pode ser desfeita</span>`, async () => {
+      try {
+        const res = await authFetch(`/api/templates/${id}/delete`, { method: 'DELETE' });
+        const data = await res.json();
+        if (data.sucesso) { showToast('Modelo removido!'); loadData(); }
+        else showToast(data.erro || 'Erro', 'error');
+      } catch(e) {}
+    }, 'Sim, remover');
+  };
+
+  const sendEmail = async (docId, email, msg, dNome, clienteNome) => {
+    try {
+      const res = await authFetch('/api/enviar-email-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ documento_id: docId, email_cliente: email, mensagem_personalizada: msg, nome_documento: dNome, nome_cliente: clienteNome })
+      });
+      const data = await res.json();
+      if (data.sucesso) { showToast('E-mail enviado!'); return true; }
+      else { showToast(data.erro || 'Erro', 'error'); return false; }
+    } catch(e) { showToast('Erro de conexão', 'error'); return false; }
+  };
+
+  const sendLinkAssinatura = async (docId, email) => {
+    try {
+      const res = await authFetch('/api/enviar-link-assinatura', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ documento_id: docId, email_cliente: email })
+      });
+      const data = await res.json();
+      if (data.sucesso) {
+        showToast(data.mensagem);
+        loadData(); 
+        return true;
+      } else {
+        showToast(data.erro || 'Erro ao enviar link', 'error');
+        return false;
+      }
+    } catch(e) {
+      showToast('Erro de conexão', 'error');
+      return false;
+    }
+  };
+
+  const openEnvioFromDetails = (contract) => {
+    setDocEnvio({
+      id: contract.id,
+      nome: contract.contrato_id,
+      cliente: contract.cliente_nome || '—'
+    });
+    setShowMetodoModal(true);
+  };
+
+  const openSendLinkFromDetails = (contract) => {
+    setDocEnvio({
+      id: contract.id,
+      nome: contract.contrato_id,
+      cliente: contract.cliente_nome || '—'
+    });
+    setShowSendLinkModal(true);
+  };
+
+  const contratosFiltrados = contratos.filter(c => {
+    if (filters.inicio && c.data_hora && c.data_hora < filters.inicio) return false;
+    if (filters.fim && c.data_hora && c.data_hora > filters.fim + 'T23:59:59') return false;
+    if (filters.tecnico && (c.tecnico_nome || '').toLowerCase() !== filters.tecnico.toLowerCase()) return false;
+    if (filters.tipo && c.tipo_instalacao !== filters.tipo) return false;
+    if (filters.busca) {
+      const b = filters.busca.toLowerCase();
+      const nomeDoc = templateMap[c.template_id] || '';
+      const nomeCliente = (c.cliente_nome || '').toLowerCase();
+      return (c.contrato_id || '').toLowerCase().includes(b) || nomeDoc.toLowerCase().includes(b) || nomeCliente.includes(b);
+    }
+    return true;
+  });
+
+  const tipoConfig = {
+    instalacao: { badge: 'badge-green', icon: 'fa-house', text: 'Instalação' },
+    mudanca_endereco: { badge: 'badge-amber', icon: 'fa-right-left', text: 'Mudança' },
+    ordem_servico: { badge: 'badge-purple', icon: 'fa-screwdriver-wrench', text: 'OS' }
+  };
+
+  const getStatusBadge = (status) => {
+    switch(status) {
+      case 'complete':
+        return { badge: 'badge-green', icon: 'fa-check-circle', text: 'Assinado' };
+      case 'pending':
+        return { badge: 'badge-pending', icon: 'fa-clock', text: 'Pendente' };
+      case 'complete_remote':
+        return { badge: 'badge-remote', icon: 'fa-laptop', text: 'Assinado Remotamente' };
+      default:
+        return { badge: 'badge-red', icon: 'fa-question', text: status || '—' };
+    }
+  };
+
+  if (!logged) {
+    return (
+      <div className="login-wrap">
+        <div className="login-card">
+          <div className="login-logo"><i className="fas fa-wifi"></i></div>
+          <h2 className="login-title">Painel Admin</h2>
+          <p className="login-sub">AssinaNet · Melolink Internet</p>
+          <div className="login-field"><label>Usuário</label><input ref={loginUserRef} id="loginUser" placeholder="Digite seu usuário" autoFocus onKeyPress={handleLoginKeyPress} /></div>
+          <div className="login-field"><label>Senha</label><input ref={loginPassRef} id="loginPass" type="password" placeholder="••••••••" onKeyPress={handleLoginKeyPress} /></div>
+          {loginError && <div className="login-error"><i className="fas fa-circle-exclamation" style={{marginRight:'.4rem'}}></i>Usuário ou senha inválidos</div>}
+          <button onClick={login} disabled={loginLoading} className="btn btn-primary" style={{width:'100%',justifyContent:'center',padding:'.75rem',fontSize:'.9rem'}}>
+            {loginLoading ? <><span className="spinner"></span> Entrando...</> : <><i className="fas fa-arrow-right-to-bracket"></i> Entrar</>}
+          </button>
+          <p className="login-hint">Diogo Ramos - Melolink Internet</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{minHeight:'100vh',background:'#F5F5F5'}}>
+      <header className="app-header">
+        <div className="header-brand">
+          <div className="header-logo"><i className="fas fa-wifi"></i></div>
+          <div><div className="header-name">Melolink</div><div className="header-tag">PAINEL ADMINISTRATIVO</div></div>
+        </div>
+        <div className="header-actions">
+          <a href="/" target="_blank" className="header-btn"><i className="fas fa-arrow-up-right-from-square"></i><span className="hide-sm">Pág. dos técnicos</span></a>
+          <a href="/admin-signature" className="header-btn"><i className="fas fa-signature"></i><span className="hide-sm">Assinatura da Empresa</span></a>
+          <button onClick={logout} className="header-btn header-btn-icon" title="Sair"><i className="fas fa-arrow-right-from-bracket"></i></button>
+        </div>
+      </header>
+
+      <div className="main-wrap">
+        <div className="stat-grid mb-5">
+          {[
+            { icon:'fa-calendar-check', val:stats.hoje, lbl:'Assinados Hoje' },
+            { icon:'fa-house', val:stats.instalacoes, lbl:'Instalações' },
+            { icon:'fa-right-left', val:stats.mudancas, lbl:'Mudanças' },
+            { icon:'fa-screwdriver-wrench', val:stats.os, lbl:'Ordens de Serviço' }
+          ].map(s=>(
+            <div key={s.lbl} className="stat-card">
+              <div className="stat-icon"><i className={`fas ${s.icon}`}></i></div>
+              <div><div className="stat-val">{s.val}</div><div className="stat-lbl">{s.lbl}</div></div>
+            </div>
+          ))}
+        </div>
+
+        <div className="tabs mb-5">
+          {[
+            {id:'contratos',icon:'fa-table-list',label:'Documentos',count:contratos.length},
+            {id:'templates',icon:'fa-layer-group',label:'Modelos',count:templates.length},
+            {id:'tecnicos',icon:'fa-users',label:'Técnicos',count:tecnicos.filter(t=>t.ativo!==0).length}
+          ].map(tab=>(
+            <button key={tab.id} onClick={()=>setActiveTab(tab.id)} className={`tab ${activeTab===tab.id?'active':''}`}>
+              <i className={`fas ${tab.icon}`}></i><span>{tab.label}</span><span className="tab-count">{tab.count}</span>
+            </button>
+          ))}
+        </div>
+
+        {activeTab === 'contratos' && (
+          <div className="card">
+            <div className="filter-bar">
+              <div className="filter-grid">
+                <div className="filter-field"><label>Início</label><input type="date" ref={inicioInputRef} onChange={e=>setFilters({...filters, inicio:e.target.value})} /></div>
+                <div className="filter-field"><label>Fim</label><input type="date" ref={fimInputRef} onChange={e=>setFilters({...filters, fim:e.target.value})} /></div>
+                <div className="filter-field"><label>Técnico</label><select ref={tecnicoSelectRef} onChange={e=>setFilters({...filters, tecnico:e.target.value})}><option value="">Todos</option>{tecnicos.filter(t=>t.ativo!==0).map(t=><option key={t.id} value={t.nome}>{t.nome}</option>)}</select></div>
+                <div className="filter-field"><label>Tipo</label><select ref={tipoSelectRef} onChange={e=>setFilters({...filters, tipo:e.target.value})}><option value="">Todos</option><option value="instalacao">Instalação</option><option value="mudanca_endereco">Mudança</option><option value="ordem_servico">OS</option></select></div>
+                <div className="filter-field-wide"><label>Buscar (Protocolo / Cliente)</label><input ref={buscaInputRef} placeholder="Protocolo ou nome do cliente" onChange={e=>setFilters({...filters, busca:e.target.value})} /></div>
+                <button onClick={limparFiltros} className="btn btn-ghost btn-sm" style={{alignSelf:'flex-end'}}><i className="fas fa-xmark"></i> Limpar</button>
+              </div>
+            </div>
+            <div className="table-wrap">
+              <table className="data-table">
+                <thead>
+                  <tr><th>Protocolo</th><th>Tipo</th><th>Cliente</th><th>Nº Cliente</th><th>CTOP</th><th>DB</th><th>Descrição OS</th><th>Técnico</th><th>Data</th><th>Status</th><th style={{textAlign:'center'}}>Ações</th></tr>
+                </thead>
+                <tbody>
+                  {loading ? (
+                    <tr><td colSpan="11"><div className="empty"><div className="spinner spinner-red" style={{margin:'0 auto .75rem',width:28,height:28,borderWidth:3}}></div><div className="empty-sub">Carregando...</div></div></td></tr>
+                  ) : contratosFiltrados.length === 0 ? (
+                    <tr><td colSpan="11"><div className="empty"><div className="empty-icon"><i className="fas fa-inbox"></i></div><div className="empty-title">Nenhum documento</div><div className="empty-sub">Ajuste os filtros ou aguarde</div></div></td></tr>
+                  ) : (
+                    contratosFiltrados.map(c => {
+                      const tc = tipoConfig[c.tipo_instalacao] || { badge:'badge-red', icon:'fa-file', text:c.tipo_instalacao||'—' };
+                      const nomeCliente = c.cliente_nome || '—';
+                      const statusInfo = getStatusBadge(c.signature_status);
+                      return (
+                        <tr key={c.id}>
+                          <td><span className="proto">{c.contrato_id||'—'}</span></td>
+                          <td><span className={`badge ${tc.badge}`}><i className={`fas ${tc.icon}`}></i> {tc.text}</span></td>
+                          <td style={{fontWeight:600,color:'var(--gray-900)'}}>{nomeCliente}</td>
+                          <td>{c.campo_cliente ? <span className="badge badge-blue">{c.campo_cliente}</span> : <span style={{color:'var(--gray-400)'}}>—</span>}</td>
+                          <td>{c.campo_ctop ? <span className="badge badge-amber">{c.campo_ctop}</span> : <span style={{color:'var(--gray-400)'}}>—</span>}</td>
+                          <td>{c.campo_db ? <span className="badge badge-teal">{c.campo_db}</span> : <span style={{color:'var(--gray-400)'}}>—</span>}</td>
+                          <td style={{maxWidth:140}}>{c.os_descricao ? <span style={{display:'block',overflow:'hidden',textOverflow:'ellipsis',maxWidth:140,color:'var(--gray-500)',fontSize:'.78rem'}} title={c.os_descricao}>{c.os_descricao}</span> : <span style={{color:'var(--gray-400)'}}>—</span>}</td>
+                          <td style={{color:'var(--gray-700)',fontWeight:500}}>{c.tecnico_nome||'—'}</td>
+                          <td style={{color:'var(--gray-500)',fontSize:'.78rem'}} className="mono">{formatarDataBR(c.data_hora)}</td>
+                          <td><span className={`badge ${statusInfo.badge}`}><i className={`fas ${statusInfo.icon}`}></i> {statusInfo.text}</span></td>
+                          <td>
+                            <div style={{display:'flex',gap:'.35rem',justifyContent:'center'}}>
+                              <button onClick={() => setContractDetail(c)} className="btn btn-outline btn-sm btn-icon" title="Ver detalhes completos">
+                                <i className="fas fa-eye"></i>
+                              </button>
+                              <a href={`/api/pdf/${c.id}`} target="_blank" className="btn btn-green btn-sm btn-icon" title="Download PDF"><i className="fas fa-download"></i></a>
+                              {c.signature_status === 'pending' && (
+                                <button onClick={() => { setDocEnvio({id:c.id, nome:c.contrato_id, cliente:nomeCliente}); setShowSendLinkModal(true); }} className="btn btn-blue btn-sm btn-icon" title="Enviar Link de Assinatura">
+                                  <i className="fas fa-link"></i>
+                                </button>
+                              )}
+                              <button onClick={()=>{setDocEnvio({id:c.id, nome:c.contrato_id, cliente:nomeCliente}); setShowMetodoModal(true);}} className="btn btn-primary btn-sm btn-icon" title="Enviar PDF">
+                                <i className="fas fa-share-nodes"></i>
+                              </button>
+                            </div>
+                           </td>
+                         </tr>
+                      );
+                    })
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'templates' && (
+          <div className="card">
+            <div className="section-head">
+              <div><div className="section-title"><i className="fas fa-layer-group" style={{color:'var(--red)'}}></i> Modelos</div><div className="section-sub">Gerencie PDF, TXT e OS</div></div>
+              <button onClick={()=>{setTipoSelecionado(null);setShowUpload(false);setShowTipoModal(true);}} className="btn btn-primary btn-sm"><i className="fas fa-plus"></i> Novo</button>
+            </div>
+            {showUpload && tipoSelecionado && (
+              <div style={{padding:'1.25rem',borderBottom:'1px solid var(--gray-200)',background:'var(--gray-50)'}}>
+                <div className="type-info"><strong>{tipoSelecionado==='instalacao'?'Instalação':tipoSelecionado==='mudanca_endereco'?'Mudança':'OS'}</strong> {tipoSelecionado==='instalacao'?'— PDF + TXT + OS obrigatórios':tipoSelecionado==='mudanca_endereco'?'— PDF + TXT obrigatórios, OS opcional':'— Apenas PDF'}</div>
+                <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:'.75rem',marginBottom:'.875rem'}}>
+                  <UploadZone title="PDF do documento" icon="fa-file-pdf" accept=".pdf" file={selectedPdf} onSelect={setSelectedPdf} required />
+                  {tipoSelecionado!=='ordem_servico'&&<UploadZone title="Arquivo TXT" icon="fa-file-lines" accept=".txt" file={selectedTxt} onSelect={setSelectedTxt} required />}
+                  {tipoSelecionado!=='ordem_servico'&&<UploadZone title="PDF da OS" icon="fa-clipboard-list" accept=".pdf" file={selectedOs} onSelect={setSelectedOs} required={tipoSelecionado==='instalacao'} note="Opcional" />}
+                </div>
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'.75rem',marginBottom:'.875rem'}}>
+                  <div><label>Nome do documento</label><input placeholder="Ex: João Silva - Instalação" value={docNome} onChange={e=>setDocNome(e.target.value)} /></div>
+                  <div><label>Descrição</label><input placeholder="Opcional" value={docDesc} onChange={e=>setDocDesc(e.target.value)} /></div>
+                </div>
+                <div style={{display:'flex',gap:'.5rem'}}>
+                  <button onClick={()=>setShowUpload(false)} className="btn btn-ghost">Cancelar</button>
+                  <button onClick={uploadDoc} disabled={uploading} className="btn btn-primary">{uploading?<><span className="spinner"></span> Salvando...</>:<><i className="fas fa-floppy-disk"></i> Salvar</>}</button>
+                </div>
+              </div>
+            )}
+            {templates.length===0&&!showUpload ? (
+              <div className="empty"><div className="empty-icon"><i className="fas fa-folder-open"></i></div><div className="empty-title">Nenhum modelo</div><div className="empty-sub" style={{marginBottom:'.875rem'}}>Cadastre o primeiro modelo</div><button onClick={()=>setShowTipoModal(true)} className="btn btn-primary btn-sm"><i className="fas fa-plus"></i> Cadastrar</button></div>
+            ) : templates.map(t=>{
+              const tc = tipoConfig[t.tipo]||{badge:'badge-red',icon:'fa-file',text:t.tipo};
+              return (
+                <div key={t.id} className="template-item">
+                  <div className="template-thumb"><i className="fas fa-file-pdf"></i></div>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div className="template-name">{t.nome}</div>
+                    <div className="template-meta">
+                      <span className={`badge ${tc.badge}`}><i className={`fas ${tc.icon}`}></i> {tc.text}</span>
+                      {t.has_txt&&<span className="badge badge-green"><i className="fas fa-check"></i> TXT</span>}
+                      {!t.has_txt&&t.tipo!=='ordem_servico'&&<span className="badge badge-red"><i className="fas fa-triangle-exclamation"></i> Sem TXT</span>}
+                      {t.has_os&&<span className="badge badge-purple"><i className="fas fa-clipboard-list"></i> OS</span>}
+                      <span style={{color:'var(--gray-400)'}}>{new Date(t.criado_em).toLocaleDateString('pt-BR')}</span>
+                    </div>
+                  </div>
+                  <div className="template-actions">
+                    <a href={`/api/templates/${t.id}/pdf-view`} target="_blank" className="btn btn-sm" style={{background:'var(--red-light)',color:'var(--red)',border:'none'}} title="PDF"><i className="fas fa-eye"></i></a>
+                    {t.has_txt&&<a href={`/api/templates/${t.id}/txt`} target="_blank" className="btn btn-sm" style={{background:'#DBEAFE',color:'#1E40AF',border:'none'}} title="TXT"><i className="fas fa-file-lines"></i></a>}
+                    {t.has_os&&<a href={`/api/templates/${t.id}/os-pdf`} target="_blank" className="btn btn-sm" style={{background:'#F3E8FF',color:'#6B21A8',border:'none'}} title="OS"><i className="fas fa-clipboard-list"></i></a>}
+                    <button onClick={()=>deleteTemplate(t.id,t.nome)} className="btn btn-sm btn-danger-ghost" title="Remover"><i className="fas fa-trash"></i></button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {activeTab === 'tecnicos' && (
+          <div className="card">
+            <div className="section-head">
+              <div><div className="section-title"><i className="fas fa-users" style={{color:'var(--red)'}}></i> Técnicos</div><div className="section-sub">Adicionar, desativar ou reativar</div></div>
+            </div>
+            <div style={{padding:'1rem 1.25rem',borderBottom:'1px solid var(--gray-200)',background:'var(--gray-50)'}}>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr auto',gap:'.625rem',alignItems:'flex-end'}}>
+                <div><label>Nome</label><input id="tecNome" placeholder="Nome completo" /></div>
+                <div><label>Matrícula</label><input id="tecMat" placeholder="Ex: TEC001" /></div>
+                <button onClick={addTecnico} className="btn btn-primary" style={{alignSelf:'flex-end'}}><i className="fas fa-plus"></i> Adicionar</button>
+              </div>
+            </div>
+            {tecnicos.length===0 ? (
+              <div className="empty"><div className="empty-icon"><i className="fas fa-user-slash"></i></div><div className="empty-title">Nenhum técnico</div></div>
+            ) : tecnicos.map(t=>(
+              <div key={t.id} className="tec-row">
+                <div className="tec-avatar">{t.nome.charAt(0).toUpperCase()}</div>
+                <div style={{flex:1,minWidth:0}}><div className="tec-name">{t.nome}</div><div className="tec-mat">{t.matricula}</div></div>
+                <div style={{display:'flex',alignItems:'center',gap:'.75rem'}}>
+                  {t.ativo!==0 ? <span style={{display:'inline-flex',alignItems:'center',gap:'.4rem',fontSize:'.75rem',color:'#16A34A',fontWeight:600}}><span className="dot dot-green"></span> Ativo</span> : <span style={{display:'inline-flex',alignItems:'center',gap:'.4rem',fontSize:'.75rem',color:'var(--gray-500)',fontWeight:600}}><span className="dot dot-gray"></span> Inativo</span>}
+                  {t.ativo!==0 ? <button onClick={()=>showModalMsg('Desativar',`Desativar <strong>${t.nome}</strong>?`,()=>toggleTecnico(t.id,t.nome,true),'Sim, desativar')} className="btn btn-danger-ghost btn-sm"><i className="fas fa-ban"></i> Desativar</button>
+                  : <button onClick={()=>showModalMsg('Reativar',`Reativar <strong>${t.nome}</strong>?`,()=>toggleTecnico(t.id,t.nome,false),'Sim, reativar','success')} className="btn btn-green btn-sm"><i className="fas fa-rotate-left"></i> Reativar</button>}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <Toast message={toast.message} type={toast.type} show={toast.show} onClose={()=>setToast({...toast,show:false})} />
+      <Modal isOpen={modal.isOpen} onClose={()=>setModal({...modal,isOpen:false})} {...modal} />
+
+      {showTipoModal && (
+        <div className="overlay" onClick={()=>setShowTipoModal(false)}>
+          <div className="modal" style={{maxWidth:480}} onClick={e=>e.stopPropagation()}>
+            <h3 style={{fontSize:'1.05rem',fontWeight:700,marginBottom:'.25rem',color:'var(--gray-900)'}}>Tipo de documento</h3>
+            <p style={{fontSize:'.8rem',color:'var(--gray-500)',marginBottom:'1.1rem'}}>Selecione o tipo de modelo</p>
+            <div style={{display:'flex',flexDirection:'column',gap:'.5rem',marginBottom:'1rem'}}>
+              {[
+                {id:'instalacao',nome:'Instalação',desc:'PDF + TXT + OS obrigatórios',icon:'fa-house',badge:'Completo',badgeClass:'badge-red'},
+                {id:'mudanca_endereco',nome:'Mudança',desc:'PDF + TXT obrigatórios, OS opcional',icon:'fa-right-left',badge:'TXT req.',badgeClass:'badge-amber'},
+                {id:'ordem_servico',nome:'Ordem de Serviço',desc:'Apenas PDF',icon:'fa-screwdriver-wrench',badge:'Simples',badgeClass:'badge-purple'}
+              ].map(tp=>(
+                <div key={tp.id} onClick={()=>{setTipoSelecionado(tp.id);setSelectedPdf(null);setSelectedTxt(null);setSelectedOs(null);setDocNome('');setDocDesc('');setShowUpload(true);setShowTipoModal(false);}} style={{display:'flex',alignItems:'center',gap:'.875rem',padding:'.9rem 1rem',border:'2px solid var(--gray-200)',borderRadius:'var(--radius-lg)',cursor:'pointer',transition:'all .15s'}} onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--red)';e.currentTarget.style.background='var(--red-light)';}} onMouseLeave={e=>{e.currentTarget.style.borderColor='var(--gray-200)';e.currentTarget.style.background='transparent';}}>
+                  <div style={{width:42,height:42,background:'var(--red-light)',borderRadius:'var(--radius)',display:'flex',alignItems:'center',justifyContent:'center',color:'var(--red)',fontSize:'1.05rem',flexShrink:0}}><i className={`fas ${tp.icon}`}></i></div>
+                  <div style={{flex:1}}><div style={{fontWeight:600,fontSize:'.875rem',color:'var(--gray-900)'}}>{tp.nome}</div><div style={{fontSize:'.75rem',color:'var(--gray-500)'}}>{tp.desc}</div></div>
+                  <span className={`badge ${tp.badgeClass}`}>{tp.badge}</span>
+                </div>
+              ))}
+            </div>
+            <button onClick={()=>setShowTipoModal(false)} className="btn btn-ghost" style={{width:'100%',justifyContent:'center'}}>Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {showMetodoModal && docEnvio && (
+        <div className="overlay" onClick={()=>setShowMetodoModal(false)}>
+          <div className="modal" style={{maxWidth:380}} onClick={e=>e.stopPropagation()}>
+            <h3 style={{fontSize:'1.05rem',fontWeight:700,marginBottom:'.25rem',color:'var(--gray-900)'}}>Enviar documento</h3>
+            <p style={{fontSize:'.8rem',color:'var(--gray-500)',marginBottom:'1rem'}}>{docEnvio.nome} · {docEnvio.cliente}</p>
+            <div style={{display:'flex',flexDirection:'column',gap:'.5rem',marginBottom:'1rem'}}>
+              <button onClick={()=>{setShowMetodoModal(false);setShowEmailModal(true);}} style={{display:'flex',alignItems:'center',gap:'.875rem',padding:'.875rem 1rem',border:'2px solid var(--gray-200)',borderRadius:'var(--radius-lg)',cursor:'pointer',background:'transparent',fontFamily:'inherit',transition:'all .15s',textAlign:'left'}} onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--red)';e.currentTarget.style.background='var(--red-light)';}} onMouseLeave={e=>{e.currentTarget.style.borderColor='var(--gray-200)';e.currentTarget.style.background='transparent';}}>
+                <div style={{width:42,height:42,background:'var(--red-light)',borderRadius:'var(--radius)',display:'flex',alignItems:'center',justifyContent:'center',color:'var(--red)',fontSize:'1.05rem',flexShrink:0}}><i className="fas fa-envelope"></i></div>
+                <div style={{flex:1}}><div style={{fontWeight:600,fontSize:'.875rem',color:'var(--gray-900)'}}>E-mail</div><div style={{fontSize:'.75rem',color:'var(--gray-500)'}}>PDF como anexo</div></div>
+                <i className="fas fa-chevron-right" style={{color:'var(--gray-400)',fontSize:'.75rem'}}></i>
+              </button>
+              <button onClick={()=>{setShowMetodoModal(false);setShowWhatsModal(true);}} style={{display:'flex',alignItems:'center',gap:'.875rem',padding:'.875rem 1rem',border:'2px solid var(--gray-200)',borderRadius:'var(--radius-lg)',cursor:'pointer',background:'transparent',fontFamily:'inherit',transition:'all .15s',textAlign:'left'}} onMouseEnter={e=>{e.currentTarget.style.borderColor='#16A34A';e.currentTarget.style.background='#F0FDF4';}} onMouseLeave={e=>{e.currentTarget.style.borderColor='var(--gray-200)';e.currentTarget.style.background='transparent';}}>
+                <div style={{width:42,height:42,background:'#DCFCE7',borderRadius:'var(--radius)',display:'flex',alignItems:'center',justifyContent:'center',color:'#16A34A',fontSize:'1.05rem',flexShrink:0}}><i className="fab fa-whatsapp"></i></div>
+                <div style={{flex:1}}><div style={{fontWeight:600,fontSize:'.875rem',color:'var(--gray-900)'}}>WhatsApp</div><div style={{fontSize:'.75rem',color:'var(--gray-500)'}}>Link do PDF</div></div>
+                <i className="fas fa-chevron-right" style={{color:'var(--gray-400)',fontSize:'.75rem'}}></i>
+              </button>
+            </div>
+            <button onClick={()=>setShowMetodoModal(false)} className="btn btn-ghost" style={{width:'100%',justifyContent:'center'}}>Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {showEmailModal && docEnvio && <EmailModal doc={docEnvio} onClose={()=>setShowEmailModal(false)} onSend={sendEmail} />}
+      {showWhatsModal && docEnvio && <WhatsModal doc={docEnvio} onClose={()=>setShowWhatsModal(false)} />}
+      
+      {/* NOVO Modal de Envio de Link */}
+      {showSendLinkModal && docEnvio && (
+        <SendLinkModal doc={docEnvio} onClose={()=>setShowSendLinkModal(false)} onSendLink={sendLinkAssinatura} />
+      )}
+
+      {contractDetail && (
+        <DetalhesContratoModal
+          contract={contractDetail}
+          onClose={() => setContractDetail(null)}
+          onEnviar={openEnvioFromDetails}
+          onDownload={(c) => window.open(`/api/pdf/${c.id}`, '_blank')}
+          onSendLink={openSendLinkFromDetails}
+        />
+      )}
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

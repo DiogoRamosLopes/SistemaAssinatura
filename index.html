@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <title>AssinaNet · Melolink Fibra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        :root {
+            --ml-red: #E31B23; --ml-red-dark: #B81218; --ml-red-light: #FEF0F0;
+            --ml-red-gradient: linear-gradient(135deg, #E31B23 0%, #B81218 100%);
+            --gray-900: #1A1A2E; --gray-700: #4A4A5A; --gray-500: #8E8E9A;
+            --gray-200: #EBEBEF; --gray-100: #F5F5F7; --white: #FFFFFF;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2;
+            --info: #3B82F6; --info-light: #DBEAFE;
+            --warning: #F59E0B; --warning-light: #FEF3C7;
+            --purple: #8B5CF6; --purple-light: #EDE9FE;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05); --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
+        }
+
+        html, body { height: 100%; overflow: hidden; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%); color: var(--gray-900); display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+        #mainScrollContainer { flex: 1; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+        .app-header { background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 0 20px; height: 64px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; z-index: 50; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 36px; height: 36px; background: var(--ml-red-gradient); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; }
+        .logo-text h1 { font-size: 16px; font-weight: 800; color: var(--gray-900); line-height: 1.2; }
+        .logo-text span { font-size: 10px; color: var(--gray-500); }
+        .btn-logout { background: transparent; border: 2px solid var(--gray-200); color: var(--gray-700); padding: 8px 16px; border-radius: 40px; font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; }
+        .btn-logout:hover { border-color: var(--ml-red); color: var(--ml-red); background: var(--ml-red-light); transform: translateY(-1px); }
+        .tipo-nav { display: flex; background: var(--white); border-bottom: 1px solid var(--gray-200); flex-shrink: 0; z-index: 40; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .tipo-nav-btn { flex: 1; min-width: 110px; padding: 14px 16px; border: none; background: transparent; font-size: 12px; font-weight: 600; color: var(--gray-500); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; border-bottom: 3px solid transparent; white-space: nowrap; font-family: 'Inter', sans-serif; }
+        .tipo-nav-btn.active { color: var(--ml-red); border-bottom-color: var(--ml-red); background: var(--ml-red-light); }
+        .tipo-nav-btn.instalacao.active { color: #059669; border-bottom-color: #059669; background: #D1FAE5; }
+        .tipo-nav-btn.mudanca.active { color: #D97706; border-bottom-color: #D97706; background: #FEF3C7; }
+        .tipo-nav-btn.os.active { color: #7C3AED; border-bottom-color: #7C3AED; background: #EDE9FE; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px 16px 40px; }
+        .tecnico-info { background: var(--success-light); padding: 10px 16px; border-radius: var(--radius-lg); font-size: 13px; font-weight: 500; color: var(--success-dark); display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+        .tipo-info-banner { padding: 14px 16px; border-radius: var(--radius-lg); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; }
+        .tipo-info-banner.instalacao { background: var(--success-light); color: #065F46; border: 1px solid #A7F3D0; }
+        .tipo-info-banner.mudanca { background: var(--warning-light); color: #92400E; border: 1px solid #FDE68A; }
+        .tipo-info-banner.os { background: var(--purple-light); color: #5B21B6; border: 1px solid #C4B5FD; }
+        .steps-wrapper { margin-bottom: 24px; background: var(--white); padding: 16px 12px; border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); }
+        .steps { display: flex; align-items: center; justify-content: space-between; position: relative; }
+        .steps::before { content: ''; position: absolute; top: 20px; left: 30px; right: 30px; height: 2px; background: var(--gray-200); z-index: 0; }
+        .step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+        .step-circle { width: 40px; height: 40px; background: var(--white); border: 2px solid var(--gray-200); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--gray-500); transition: all 0.3s; }
+        .step.active .step-circle { background: var(--ml-red); border-color: var(--ml-red); color: white; box-shadow: 0 0 0 4px var(--ml-red-light); }
+        .step.completed .step-circle { background: var(--success); border-color: var(--success); color: white; }
+        .step.completed .step-circle span { display: none; }
+        .step.completed .step-circle::after { content: '✓'; font-size: 16px; }
+        .step-label { font-size: 9px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.3px; }
+        .step.active .step-label { color: var(--ml-red); }
+        .step.completed .step-label { color: var(--success); }
+        .card { background: var(--white); border-radius: var(--radius-xl); margin-bottom: 20px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); }
+        .card-header { padding: 16px 20px; border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; gap: 12px; }
+        .card-icon { width: 42px; height: 42px; background: var(--ml-red-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--ml-red); font-size: 20px; flex-shrink: 0; }
+        .card-title { font-size: 16px; font-weight: 700; }
+        .card-subtitle { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+        .card-body { padding: 20px; }
+        .documento-list { display: flex; flex-direction: column; gap: 10px; }
+        .documento-item { display: flex; align-items: center; gap: 14px; padding: 14px; border: 2px solid var(--gray-200); border-radius: var(--radius-lg); cursor: pointer; transition: all 0.2s; position: relative; }
+        .documento-item:hover { border-color: var(--ml-red); background: var(--ml-red-light); }
+        .documento-item.selected { border-color: var(--ml-red); background: var(--ml-red-light); }
+        .documento-icon { width: 44px; height: 50px; background: var(--gray-100); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+        .documento-info { flex: 1; min-width: 0; }
+        .documento-nome { font-weight: 600; font-size: 14px; }
+        .documento-desc { font-size: 11px; color: var(--gray-500); }
+        .txt-badge { position: absolute; top: 6px; right: 6px; background: var(--info); color: white; font-size: 9px; padding: 2px 6px; border-radius: 20px; display: flex; align-items: center; gap: 3px; }
+        .os-badge { position: absolute; top: 6px; left: 6px; background: var(--purple); color: white; font-size: 9px; padding: 2px 6px; border-radius: 20px; display: flex; align-items: center; gap: 3px; }
+        .btn-view-documento { width: 100%; background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%); color: white; border: none; padding: 14px; border-radius: var(--radius-lg); font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3); font-family: 'Inter', sans-serif; }
+        .btn-view-os-index { width: 100%; background: var(--purple); color: white; border: none; padding: 12px; border-radius: var(--radius-lg); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Inter', sans-serif; }
+        .txt-viewer-panel { background: var(--gray-100); border-radius: var(--radius-lg); margin-top: 14px; overflow: hidden; display: none; border: 1px solid var(--gray-200); }
+        .txt-viewer-header { background: #F3F4F6; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--gray-200); }
+        .txt-viewer-content { padding: 16px; max-height: 300px; overflow-y: auto; -webkit-overflow-scrolling: touch; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.5; background: #FAFAFA; white-space: pre-wrap; }
+        .btn-txt-download { background: var(--success); color: white; border: none; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; font-family: 'Inter', sans-serif; }
+        .form-group { margin-bottom: 16px; }
+        .form-label { display: block; font-size: 12px; font-weight: 600; color: var(--gray-700); margin-bottom: 6px; }
+        .form-label .required { color: var(--ml-red); margin-left: 3px; }
+        .form-input { width: 100%; padding: 12px 14px; border: 2px solid var(--gray-200); border-radius: var(--radius-md); font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.2s; background: var(--white); }
+        .form-input:focus { outline: none; border-color: var(--ml-red); box-shadow: 0 0 0 3px var(--ml-red-light); }
+        textarea.form-input { resize: vertical; min-height: 120px; }
+        .helper-text { font-size: 10px; color: var(--gray-500); margin-top: 3px; }
+        .pending-signature { background: var(--warning-light); border-radius: var(--radius-lg); padding: 16px; margin-bottom: 16px; border: 1px solid #FDE68A; }
+        .pending-signature label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600; font-size: 14px; color: #92400E; }
+        .pending-signature input { width: 18px; height: 18px; cursor: pointer; }
+        .pending-warning { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: var(--radius-md); margin-top: 12px; display: none; font-size: 12px; color: #92400E; }
+        .pending-warning i { margin-right: 6px; }
+        .signature-container { border: 2px dashed var(--gray-300); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.2s; position: relative; background: white; }
+        .signature-container.has-signature { border-color: var(--success); border-style: solid; background: var(--success-light); }
+        #signatureCanvas { display: block; width: 100%; height: 250px; cursor: crosshair; background: white; touch-action: none; min-height: 250px; }
+        .signature-placeholder { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; opacity: 0.5; }
+        .signature-footer { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-top: 1px solid var(--gray-200); background: var(--white); flex-wrap: wrap; gap: 8px; }
+        .signature-status { font-size: 12px; color: var(--gray-500); display: flex; align-items: center; gap: 6px; }
+        .signature-status.ready { color: var(--success); font-weight: 600; }
+        .btn-clear { background: none; border: none; color: var(--error); font-size: 12px; cursor: pointer; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; }
+        .btn-fullscreen { background: var(--info); color: white; border: none; padding: 8px 16px; border-radius: 40px; font-size: 12px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-right: 10px; font-family: 'Inter', sans-serif; }
+        .signature-hidden { display: none !important; }
+        .summary-card { background: var(--gray-100); border-radius: var(--radius-lg); padding: 14px; }
+        .summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 12px; border-bottom: 1px solid var(--gray-200); }
+        .summary-row:last-child { border-bottom: none; }
+        .summary-label { color: var(--gray-500); }
+        .summary-value { font-weight: 600; text-align: right; max-width: 60%; word-break: break-word; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border: none; border-radius: 50px; font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s; width: 100%; }
+        .btn-primary { background: var(--ml-red-gradient); color: white; }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-outline { background: transparent; border: 2px solid var(--ml-red); color: var(--ml-red); }
+        .btn-success { background: var(--success); color: white; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .legal-note { background: var(--ml-red-light); padding: 14px; border-radius: var(--radius-lg); text-align: center; margin-bottom: 20px; font-size: 12px; }
+        .success-container { animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .success-hero { text-align: center; padding: 20px 0; }
+        .success-icon-circle { width: 80px; height: 80px; background: var(--success-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 40px; color: var(--success); animation: pulse 0.6s ease-out; }
+        @keyframes pulse { 0% { transform: scale(0); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .success-title { font-size: 24px; font-weight: 800; margin-top: 16px; }
+        .success-subtitle { font-size: 14px; color: var(--gray-500); margin-top: 4px; }
+        .audit-card { background: linear-gradient(135deg, var(--gray-900) 0%, #2D2D3D 100%); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 20px; }
+        .audit-header { background: rgba(255,255,255,0.1); padding: 14px 18px; display: flex; align-items: center; gap: 10px; }
+        .audit-header h3 { font-size: 14px; font-weight: 600; color: white; }
+        .audit-body { padding: 16px; }
+        .audit-section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+        .audit-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 12px; }
+        .audit-label { color: rgba(255,255,255,0.7); }
+        .audit-value { color: white; font-weight: 600; text-align: right; max-width: 60%; }
+        .audit-value.highlight { color: var(--success); font-family: monospace; }
+        .success-actions { display: flex; gap: 10px; margin-top: 8px; }
+        .btn-download { background: var(--success); color: white; flex: 2; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 50px; font-weight: 600; font-family: 'Inter', sans-serif; }
+        .btn-new { background: var(--white); border: 2px solid var(--gray-200); color: var(--gray-700); flex: 1; padding: 12px; border-radius: 50px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
+        .fullscreen-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #E31B23 0%, #991B1B 100%); backdrop-filter: blur(8px); z-index: 20000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .login-card { background: white; border-radius: 32px; max-width: 420px; width: 100%; padding: 40px 32px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .login-icon { width: 80px; height: 80px; background: var(--ml-red-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .login-icon i { font-size: 36px; color: var(--ml-red); }
+        .login-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .login-subtitle { font-size: 14px; color: var(--gray-500); margin-bottom: 20px; }
+        .login-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray-200); border-radius: 16px; font-size: 15px; margin-bottom: 20px; font-family: 'Inter', sans-serif; }
+        .login-btn { width: 100%; background: var(--ml-red-gradient); color: white; border: none; padding: 14px; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 16px; font-family: 'Inter', sans-serif; }
+        .login-admin-btn { width: 100%; background: transparent; color: var(--gray-700); border: 2px solid var(--gray-200); padding: 12px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Inter', sans-serif; }
+        .login-error { background: var(--error-light); color: var(--error); padding: 10px; border-radius: 12px; font-size: 12px; margin-top: 12px; display: none; }
+        .os-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 10000; display: flex; flex-direction: column; }
+        .os-modal-header { background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; color: white; }
+        .os-modal-header button { background: rgba(255,255,255,0.2); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 18px; }
+        .os-modal-body { flex: 1; position: relative; background: #f5f5f5; overflow: hidden; }
+        .os-modal-body iframe { width: 100%; height: 100%; border: none; background: white; }
+        .modal-loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background: white; padding: 20px; border-radius: 20px; }
+        .os-modal-footer { background: var(--purple-light); padding: 12px 16px; font-size: 12px; color: #5B21B6; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .spinner-small { width: 32px; height: 32px; border: 3px solid #EDE9FE; border-top-color: #7C3AED; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 8px; }
+        .loading-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+        .loading-overlay.active { display: flex; }
+        .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.2); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--gray-900); color: white; padding: 10px 20px; border-radius: 40px; font-size: 12px; z-index: 1001; transition: transform 0.3s; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .toast.success { background: var(--success); }
+        .toast.error { background: var(--error); }
+        .btn-view-termo { width: 100%; background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); color: white; border: none; padding: 14px; border-radius: var(--radius-lg); font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 2px 8px rgba(59,130,246,0.3); font-family: 'Inter', sans-serif; }
+        .btn-view-termo:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(59,130,246,0.4); }
+        @media (max-width: 480px) { .btn-group { flex-direction: column; } .success-actions { flex-direction: column; } .tipo-nav-btn { font-size: 11px; padding: 12px 10px; } #signatureCanvas { height: 200px; min-height: 200px; } .login-card { padding: 32px 20px; } }
+    </style>
+</head>
+<body>
+
+<header class="app-header" id="appHeader" style="display: none;">
+    <div class="logo">
+        <div class="logo-icon"><i class="fas fa-signature"></i></div>
+        <div class="logo-text">
+            <h1>AssinaNet</h1>
+            <span>Melolink Fibra</span>
+        </div>
+    </div>
+    <button class="btn-logout" onclick="fazerLogout()">
+        <i class="fas fa-sign-out-alt"></i> Sair
+    </button>
+</header>
+
+<nav class="tipo-nav" id="tipoNav" style="display: none;">
+    <button class="tipo-nav-btn instalacao active" onclick="selecionarTipo('instalacao')">
+        <i class="fas fa-home"></i> Instalação
+    </button>
+    <button class="tipo-nav-btn mudanca" onclick="selecionarTipo('mudanca')">
+        <i class="fas fa-exchange-alt"></i> Mudança
+    </button>
+    <button class="tipo-nav-btn os" onclick="selecionarTipo('os')">
+        <i class="fas fa-tools"></i> Ordem Serviço
+    </button>
+</nav>
+
+<div id="mainScrollContainer">
+    <div class="container" id="mainContent" style="display: none;">
+        
+        <div id="tecnicoInfo" class="tecnico-info" style="display:none;">
+            <i class="fas fa-user-check"></i>
+            <span id="tecnicoNomeDisplay"></span>
+        </div>
+
+        <div class="tipo-info-banner instalacao" id="tipoInfoBanner">
+            <i class="fas fa-home"></i>
+            <span><strong>Instalação:</strong> Preencha os dados.</span>
+        </div>
+
+        <div class="steps-wrapper">
+            <div class="steps">
+                <div class="step" data-step="1"><div class="step-circle"><span>1</span></div><span class="step-label">Login</span></div>
+                <div class="step" data-step="2"><div class="step-circle"><span>2</span></div><span class="step-label">Documento</span></div>
+                <div class="step" data-step="3"><div class="step-circle"><span>3</span></div><span class="step-label">Dados</span></div>
+                <div class="step" data-step="4"><div class="step-circle"><span>4</span></div><span class="step-label">Assinar</span></div>
+                <div class="step" data-step="5"><div class="step-circle"><span>✓</span></div><span class="step-label">Pronto</span></div>
+            </div>
+        </div>
+
+        <!-- STEP 2: SELEÇÃO DE DOCUMENTO -->
+        <div class="step-content" data-step="2" style="display:none">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                    <div>
+                        <div class="card-title" id="step2Title">Documento</div>
+                        <div class="card-subtitle">Selecione o modelo</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="documento-list" id="documentoList"><div style="text-align:center; padding:20px;">Carregando...</div></div>
+                    <div id="osPreviewPanel" style="display:none;"></div>
+                    <div id="termoViewPanel" style="display:none;">
+                        <button class="btn-view-termo" onclick="visualizarTermoPDF()">
+                            <i class="fas fa-file-pdf"></i> Visualizar Termo (PDF)
+                        </button>
+                        <div class="helper-text" style="margin-top:6px; text-align:center;">
+                            <i class="fas fa-info-circle"></i> Leia o termo antes de prosseguir
+                        </div>
+                    </div>
+                    <div id="txtViewerPanel" class="txt-viewer-panel" style="display:none">
+                        <div class="txt-viewer-header">
+                            <h4 style="font-size:12px; font-weight:600;"><i class="fas fa-file-alt"></i> Informações do Cliente</h4>
+                            <button class="btn-txt-download" onclick="downloadTxt()"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                        <div id="txtViewerContent" class="txt-viewer-content"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" id="nextStep2" onclick="goToStep(3)" disabled>
+                    Continuar <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 3: DADOS TÉCNICOS -->
+        <div class="step-content" data-step="3" style="display:none">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-server"></i></div>
+                    <div><div class="card-title">Dados Técnicos</div><div class="card-subtitle">Informações da instalação</div></div>
+                </div>
+                <div class="card-body">
+                    <div id="camposInstalacao">
+                        <div class="form-group"><label class="form-label">Nº Cliente (vaga CTOP) <span class="required">*</span></label><input type="text" class="form-input" id="campoCliente" placeholder="Ex: 03" oninput="validateStep3()"></div>
+                        <div class="form-group"><label class="form-label">Caixa CTOP <span class="required">*</span></label><input type="text" class="form-input" id="campoCtop" placeholder="Ex: CTOP 26" oninput="validateStep3()"></div>
+                        <div class="form-group"><label class="form-label">DB <span class="required">*</span></label><input type="text" class="form-input" id="campoDb" placeholder="Ex: DB -25" oninput="validateStep3()"></div>
+                    </div>
+                    <div id="camposOS" style="display:none">
+                        <div id="btnVisualizarDocumentoContainer" style="margin-bottom: 16px;"></div>
+                        <div class="form-group"><label class="form-label">Descrição do Serviço <span class="required">*</span></label><textarea class="form-input" id="osDescricao" placeholder="Descreva detalhadamente o serviço executado..." oninput="validateStep3()"></textarea><div class="helper-text"><i class="fas fa-info-circle"></i> Este texto será inserido no PDF</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-clipboard-list"></i></div><div><div class="card-title">Resumo</div></div></div>
+                <div class="card-body"><div class="summary-card" id="resumoStep3"></div></div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-outline" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Voltar</button>
+                <button class="btn btn-primary" id="nextStep3" onclick="goToStep(4)" disabled>Prosseguir <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- STEP 4: ASSINATURA -->
+        <div class="step-content" data-step="4" style="display:none">
+            <div class="card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-pen-fancy"></i></div><div><div class="card-title">Assinatura</div><div class="card-subtitle">Assine com o dedo ou mouse</div></div></div>
+                <div class="card-body">
+                    <div class="pending-signature">
+                        <label><input type="checkbox" id="pendingCheckbox" onchange="toggleSignatureArea()"><i class="fas fa-clock"></i> Assinatura pendente</label>
+                        <div id="pendingWarning" class="pending-warning"><i class="fas fa-exclamation-triangle"></i> ⚠ O documento será salvo sem assinatura. Acesse o painel admin para enviar o link ao cliente.</div>
+                    </div>
+                    <div id="signatureArea">
+                        <div class="signature-container" id="signatureContainer">
+                            <div style="position:relative">
+                                <canvas id="signatureCanvas" width="600" height="250"></canvas>
+                                <div class="signature-placeholder" id="signaturePlaceholder"><i class="fas fa-hand-peace" style="font-size:48px;color:var(--gray-400);display:block;margin-bottom:8px;"></i><span style="font-size:12px;color:var(--gray-500);">Assine aqui</span></div>
+                            </div>
+                            <div class="signature-footer">
+                                <div class="signature-status" id="signatureStatus"><i class="fas fa-info-circle"></i> Aguardando assinatura...</div>
+                                <div style="display:flex; gap:8px;"><button class="btn-fullscreen" onclick="openFullscreenSignature()"><i class="fas fa-expand"></i> Tela Cheia</button><button class="btn-clear" onclick="clearSignature()"><i class="fas fa-trash-alt"></i> Limpar</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="legal-note"><i class="fas fa-lock"></i> Validade jurídica - Lei 14.063/2020</div>
+            <div class="btn-group"><button class="btn btn-outline" onclick="goToStep(3)"><i class="fas fa-arrow-left"></i> Voltar</button><button class="btn btn-success" onclick="finalizarDocumento()"><i class="fas fa-check-circle"></i> Finalizar</button></div>
+        </div>
+
+        <!-- STEP 5: SUCESSO -->
+        <div class="step-content" data-step="5" style="display:none">
+            <div class="success-container">
+                <div class="success-hero"><div class="success-icon-circle"><i class="fas fa-check"></i></div><div class="success-title">Documento Assinado!</div><div class="success-subtitle">Registrado com sucesso</div></div>
+                <div class="audit-card"><div class="audit-header"><i class="fas fa-shield-alt"></i><h3>Certificado</h3></div><div class="audit-body"><div class="audit-section-title">IDENTIFICAÇÃO</div><div class="audit-row"><span class="audit-label">ID</span><span class="audit-value highlight" id="successId">—</span></div><div class="audit-row"><span class="audit-label">Documento</span><span class="audit-value" id="successContrato">—</span></div><div class="audit-row"><span class="audit-label">Data/Hora</span><span class="audit-value" id="successData">—</span></div><div class="audit-row"><span class="audit-label">Tipo</span><span class="audit-value" id="successTipo">—</span></div><div id="successExtras"></div><div style="margin-top:12px"><div class="audit-section-title">RESPONSÁVEL</div><div class="audit-row"><span class="audit-label">Técnico</span><span class="audit-value" id="successTecnico">—</span></div></div></div></div>
+                <div class="success-actions"><a class="btn-download" id="downloadPdfBtn" href="#" target="_blank"><i class="fas fa-download"></i> Baixar PDF</a><button class="btn-new" onclick="resetarParaNovo()"><i class="fas fa-plus"></i> Novo</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div><div style="color:white; font-weight:500;">Processando...</div></div>
+<div class="toast" id="toast"></div>
+<div id="loginOverlay" class="login-overlay">
+    <div class="login-card"><div class="login-icon"><i class="fas fa-wifi"></i></div><h2 class="login-title">AssinaNet</h2><p class="login-subtitle">Melolink Fibra · Acesso Técnico</p><input type="text" id="loginUsuarioModal" class="login-input" placeholder="Usuário" autocomplete="off"><input type="password" id="loginSenhaModal" class="login-input" placeholder="Senha" autocomplete="off"><button id="loginBtnModal" class="login-btn"><i class="fas fa-arrow-right-to-bracket"></i> Entrar</button><div style="margin-bottom:12px;"></div><button id="adminAccessBtn" class="login-admin-btn"><i class="fas fa-user-shield"></i> Acesso Administrativo</button><div id="loginErrorModal" class="login-error"></div></div>
+</div>
+
+<script>
+const TECNICOS_CREDENCIAIS = {
+    "joao": { nome: "João", id: "tec002", senha: "1910" },
+    "renato": { nome: "Renato", id: "tec001", senha: "1806" },
+    "rodrigo": { nome: "Rodrigo", id: "tec003", senha: "1503" }
+};
+
+let tipoSelecionado = 'instalacao';
+let currentStep = 1;
+let selectedTecnico = { id: null, nome: null };
+let selectedDocumento = { id: null, nome: null, hasTxt: false, hasOS: false, cliente_nome: null };
+let currentDocumentoTxt = null;
+let hasSignature = false;
+let isLoggedIn = false;
+let isSignaturePending = false;
+
+const canvas = document.getElementById('signatureCanvas');
+let ctx = null;
+let drawing = false;
+
+function showToast(msg, type) { 
+    const toast = document.getElementById('toast'); 
+    toast.textContent = msg; 
+    toast.className = 'toast ' + (type === 'success' ? 'success' : 'error'); 
+    toast.classList.add('show'); 
+    setTimeout(() => toast.classList.remove('show'), 3000); 
+}
+
+function showLoading(show) { 
+    const overlay = document.getElementById('loadingOverlay'); 
+    if (show) overlay.classList.add('active'); 
+    else overlay.classList.remove('active'); 
+}
+
+function escapeHtml(str) { 
+    if (!str) return ''; 
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); 
+}
+
+function goToStep(step) {
+    if (!isLoggedIn && step !== 1) { 
+        showToast('Faça login primeiro', 'error'); 
+        return; 
+    }
+    
+    if (step === 4) {
+        setTimeout(() => {
+            initCanvas();
+            if (!document.getElementById('pendingCheckbox').checked) {
+                toggleSignatureArea();
+            }
+        }, 100);
+    }
+    
+    for (let i = 1; i <= 5; i++) {
+        const stepEl = document.querySelector(`.step[data-step="${i}"]`);
+        const contentEl = document.querySelector(`.step-content[data-step="${i}"]`);
+        if (stepEl) {
+            stepEl.classList.remove('active', 'completed');
+            if (i < step) stepEl.classList.add('completed');
+            if (i === step) stepEl.classList.add('active');
+        }
+        if (contentEl) contentEl.style.display = i === step ? 'block' : 'none';
+    }
+    currentStep = step;
+    const scrollContainer = document.getElementById('mainScrollContainer');
+    if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleSignatureArea() {
+    const checkbox = document.getElementById('pendingCheckbox');
+    const signatureArea = document.getElementById('signatureArea');
+    const warningDiv = document.getElementById('pendingWarning');
+    if (!checkbox || !signatureArea) return;
+    
+    if (checkbox.checked) {
+        signatureArea.classList.add('signature-hidden');
+        if (warningDiv) warningDiv.style.display = 'block';
+        isSignaturePending = true;
+        hasSignature = false;
+    } else {
+        signatureArea.classList.remove('signature-hidden');
+        if (warningDiv) warningDiv.style.display = 'none';
+        isSignaturePending = false;
+        
+        if (ctx && canvas.width > 0 && canvas.height > 0) {
+            try {
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                let isBlank = true;
+                for (let i = 0; i < imageData.data.length; i += 4) {
+                    if (imageData.data[i] !== 255 || imageData.data[i+1] !== 255 || imageData.data[i+2] !== 255) {
+                        isBlank = false;
+                        break;
+                    }
+                }
+                if (!isBlank) {
+                    hasSignature = true;
+                    const placeholder = document.getElementById('signaturePlaceholder');
+                    const container = document.getElementById('signatureContainer');
+                    const status = document.getElementById('signatureStatus');
+                    if (placeholder) placeholder.style.opacity = '0';
+                    if (container) container.classList.add('has-signature');
+                    if (status) { status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; status.classList.add('ready'); }
+                } else {
+                    hasSignature = false;
+                }
+            } catch(e) {
+                console.warn("Canvas não está pronto para leitura:", e);
+                hasSignature = false;
+            }
+        } else {
+            hasSignature = false;
+        }
+    }
+}
+
+function fazerLoginModal(usuario, senha) {
+    const tecnico = TECNICOS_CREDENCIAIS[usuario];
+    if (tecnico && tecnico.senha === senha) {
+        selectedTecnico = { id: tecnico.id, nome: tecnico.nome };
+        isLoggedIn = true;
+        document.getElementById('appHeader').style.display = 'flex';
+        document.getElementById('tipoNav').style.display = 'flex';
+        document.getElementById('mainContent').style.display = 'block';
+        document.getElementById('tecnicoNomeDisplay').textContent = `Técnico: ${tecnico.nome}`;
+        document.getElementById('tecnicoInfo').style.display = 'flex';
+        document.getElementById('loginOverlay').style.display = 'none';
+        goToStep(2);
+        carregarDocumentos();
+        showToast(`Bem-vindo, ${tecnico.nome}!`, 'success');
+        return true;
+    }
+    return false;
+}
+
+function acessarAdmin() { window.location.href = '/admin'; }
+
+function fazerLogout() {
+    isLoggedIn = false;
+    selectedTecnico = { id: null, nome: null };
+    selectedDocumento = { id: null, nome: null, hasTxt: false, hasOS: false, cliente_nome: null };
+    hasSignature = false;
+    isSignaturePending = false;
+    resetTudo();
+    document.getElementById('appHeader').style.display = 'none';
+    document.getElementById('tipoNav').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('tecnicoInfo').style.display = 'none';
+    document.getElementById('loginUsuarioModal').value = '';
+    document.getElementById('loginSenhaModal').value = '';
+    document.getElementById('loginOverlay').style.display = 'flex';
+    const chk = document.getElementById('pendingCheckbox');
+    if (chk) chk.checked = false;
+    currentStep = 1;
+    showToast('Logout realizado', 'success');
+}
+
+function selecionarTipo(tipo) {
+    if (!isLoggedIn) { showToast('Faça login primeiro', 'error'); return; }
+    tipoSelecionado = tipo;
+    document.querySelectorAll('.tipo-nav-btn').forEach(b => b.classList.remove('active'));
+    const activeBtn = document.querySelector(`.tipo-nav-btn.${tipo}`);
+    if (activeBtn) activeBtn.classList.add('active');
+    const banner = document.getElementById('tipoInfoBanner');
+    banner.className = `tipo-info-banner ${tipo}`;
+    if (tipo === 'instalacao') banner.innerHTML = '<i class="fas fa-home"></i> <span><strong>Instalação:</strong> Preencha os dados.</span>';
+    else if (tipo === 'mudanca') banner.innerHTML = '<i class="fas fa-exchange-alt"></i> <span><strong>Mudança:</strong> Preencha os dados.</span>';
+    else banner.innerHTML = '<i class="fas fa-tools"></i> <span><strong>Ordem de Serviço:</strong> Descreva o serviço realizado.</span>';
+    document.getElementById('camposInstalacao').style.display = tipo === 'os' ? 'none' : 'block';
+    document.getElementById('camposOS').style.display = tipo === 'os' ? 'block' : 'none';
+    document.getElementById('step2Title').textContent = tipo === 'os' ? 'Ordem de Serviço' : 'Contrato';
+    selectedDocumento = { id: null, nome: null, hasTxt: false, hasOS: false, cliente_nome: null };
+    document.getElementById('documentoList').innerHTML = '<div style="text-align:center; padding:20px;">Carregando...</div>';
+    document.getElementById('txtViewerPanel').style.display = 'none';
+    document.getElementById('osPreviewPanel').style.display = 'none';
+    document.getElementById('termoViewPanel').style.display = 'none';
+    document.getElementById('nextStep2').disabled = true;
+    document.getElementById('nextStep3').disabled = true;
+    document.getElementById('campoCliente').value = '';
+    document.getElementById('campoCtop').value = '';
+    document.getElementById('campoDb').value = '';
+    document.getElementById('osDescricao').value = '';
+    const chk = document.getElementById('pendingCheckbox');
+    if (chk) { chk.checked = false; toggleSignatureArea(); }
+    carregarDocumentos();
+    validateStep3();
+    if (currentStep > 2) goToStep(2);
+}
+
+async function carregarDocumentos() {
+    const tipo = tipoSelecionado === 'instalacao' ? 'instalacao' : tipoSelecionado === 'mudanca' ? 'mudanca_endereco' : 'ordem_servico';
+    try {
+        const res = await fetch(`/api/templates?tipo=${tipo}`);
+        const docs = await res.json();
+        const list = document.getElementById('documentoList');
+        if (docs.length) {
+            list.innerHTML = docs.map(t => {
+                let badgeHtml = '';
+                if (t.has_txt) badgeHtml = '<div class="txt-badge"><i class="fas fa-file-alt"></i> TXT</div>';
+                let osBadgeHtml = '';
+                if (t.has_os && tipo !== 'ordem_servico') osBadgeHtml = '<div class="os-badge"><i class="fas fa-clipboard-list"></i> OS</div>';
+                return `<div class="documento-item" onclick="selectDocumento('${t.id}','${escapeHtml(t.nome)}',${t.has_txt||false},this,${t.has_os||false})">${badgeHtml}${osBadgeHtml}<div class="documento-icon"><i class="fas ${tipo==='ordem_servico'?'fa-tools':'fa-file-pdf'}"></i></div><div class="documento-info"><div class="documento-nome">${escapeHtml(t.nome)}</div><div class="documento-desc">${escapeHtml(t.descricao||'')}</div></div></div>`;
+            }).join('');
+        } else {
+            list.innerHTML = '<div style="text-align:center; padding:20px; color:var(--gray-500);">Nenhum documento encontrado</div>';
+        }
+    } catch(e) {
+        document.getElementById('documentoList').innerHTML = '<div style="text-align:center; padding:20px; color:var(--error);">Erro ao carregar</div>';
+    }
+}
+
+async function selectDocumento(id, nome, hasTxt, el, hasOS = false) {
+    document.querySelectorAll('.documento-item').forEach(t => t.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedDocumento = { id, nome, hasTxt, hasOS, cliente_nome: nome };
+    document.getElementById('nextStep2').disabled = false;
+    
+    const osPreviewPanel = document.getElementById('osPreviewPanel');
+    if (hasOS && tipoSelecionado !== 'os') {
+        osPreviewPanel.innerHTML = `<button class="btn-view-os-index" onclick="visualizarOSVinculada()"><i class="fas fa-eye"></i> Visualizar OS Vinculada</button>`;
+        osPreviewPanel.style.display = 'block';
+    } else {
+        osPreviewPanel.style.display = 'none';
+    }
+    const termoPanel = document.getElementById('termoViewPanel');
+    termoPanel.style.display = tipoSelecionado !== 'os' ? 'block' : 'none';
+    
+    const txtPanel = document.getElementById('txtViewerPanel');
+    const txtContent = document.getElementById('txtViewerContent');
+    if (hasTxt) {
+        txtPanel.style.display = 'block';
+        txtContent.innerHTML = '<div style="text-align:center;padding:20px;"><i class="fas fa-spinner fa-spin"></i> Carregando...</div>';
+        try {
+            const resp = await fetch(`/api/templates/${id}/txt`);
+            if (resp.ok) {
+                const textContentRaw = await resp.text();
+                currentDocumentoTxt = textContentRaw;
+                txtContent.innerHTML = `<pre style="margin:0; font-family:monospace; font-size:11px; white-space:pre-wrap;">${escapeHtml(textContentRaw)}</pre>`;
+                showToast('Informações TXT carregadas!', 'success');
+            } else {
+                txtPanel.style.display = 'none';
+                showToast('Erro ao carregar TXT', 'error');
+            }
+        } catch(e) {
+            txtPanel.style.display = 'none';
+            showToast('Erro de conexão', 'error');
+        }
+    } else {
+        txtPanel.style.display = 'none';
+    }
+}
+
+function visualizarTermoPDF() {
+    if (!selectedDocumento.id) { showToast('Selecione um documento', 'error'); return; }
+    window.open(`/api/templates/${selectedDocumento.id}/pdf-view`, '_blank');
+}
+
+function downloadTxt() { 
+    if (currentDocumentoTxt) { 
+        const blob = new Blob([currentDocumentoTxt], { type: 'text/plain' }); 
+        const a = document.createElement('a'); 
+        a.href = URL.createObjectURL(blob); 
+        a.download = 'informacoes.txt'; 
+        a.click(); 
+        URL.revokeObjectURL(a.href); 
+        showToast('Download iniciado!', 'success'); 
+    } else { showToast('Nenhum TXT disponível', 'error'); }
+}
+
+function visualizarOSVinculada() { 
+    if (!selectedDocumento.id) { showToast('Selecione um documento', 'error'); return; } 
+    window.open(`/api/templates/${selectedDocumento.id}/os-pdf`, '_blank'); 
+}
+
+function visualizarDocumentoOS() {
+    if (!selectedDocumento.id) { showToast('Selecione um documento', 'error'); return; }
+    window.open(`/api/templates/${selectedDocumento.id}/pdf-view`, '_blank');
+}
+
+function validateStep3() {
+    let ok = true;
+    if (tipoSelecionado === 'os') {
+        ok = document.getElementById('osDescricao').value.trim().length >= 10;
+    } else {
+        ok = document.getElementById('campoCliente').value.trim().length > 0 &&
+             document.getElementById('campoCtop').value.trim().length > 0 &&
+             document.getElementById('campoDb').value.trim().length > 0;
+    }
+    document.getElementById('nextStep3').disabled = !ok;
+    
+    const resumoDiv = document.getElementById('resumoStep3');
+    if (resumoDiv) {
+        const clienteVal = document.getElementById('campoCliente').value.trim();
+        const ctopVal = document.getElementById('campoCtop').value.trim();
+        const dbVal = document.getElementById('campoDb').value.trim();
+        const osDescVal = document.getElementById('osDescricao').value.trim();
+        resumoDiv.innerHTML = `<div class="summary-row"><span class="summary-label"> Data/Hora:</span><span class="summary-value">${new Date().toLocaleString('pt-BR')}</span></div>
+            <div class="summary-row"><span class="summary-label"> Técnico:</span><span class="summary-value">${escapeHtml(selectedTecnico.nome || '—')}</span></div>
+            <div class="summary-row"><span class="summary-label"> Documento:</span><span class="summary-value">${escapeHtml(selectedDocumento.nome || '—')}</span></div>
+            <div class="summary-row"><span class="summary-label"> Tipo:</span><span class="summary-value">${tipoSelecionado === 'instalacao' ? 'Instalação' : tipoSelecionado === 'mudanca' ? 'Mudança' : 'OS'}</span></div>
+            ${tipoSelecionado !== 'os' ? `<div class="summary-row"><span class="summary-label"> Nº Cliente:</span><span class="summary-value">${escapeHtml(clienteVal || '—')}</span></div>
+            <div class="summary-row"><span class="summary-label"> Caixa CTOP:</span><span class="summary-value">${escapeHtml(ctopVal || '—')}</span></div>
+            <div class="summary-row"><span class="summary-label"> DB:</span><span class="summary-value">${escapeHtml(dbVal || '—')}</span></div>` : `
+            <div class="summary-row"><span class="summary-label"> Descrição:</span><span class="summary-value" style="max-width:70%;word-break:break-word;">${escapeHtml(osDescVal.substring(0, 100))}${osDescVal.length > 100 ? '...' : ''}</span></div>`}
+            ${selectedDocumento.hasOS && tipoSelecionado !== 'os' ? '<div class="summary-row"><span class="summary-label"> OS:</span><span class="summary-value">Vinculada ao contrato</span></div>' : ''}`;
+    }
+}
+
+function initCanvas() {
+    if (!canvas) return;
+    const container = canvas.parentElement;
+    if (!container) return;
+    let w = Math.min(container.clientWidth, 600);
+    if (w === 0) w = 500; 
+    canvas.width = w;
+    canvas.height = 250;
+    canvas.style.cssText = 'width:100%;height:250px';
+    ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#1A1A2E';
+    ctx.lineWidth = 2.5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+}
+
+function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: Math.max(0, Math.min(canvas.width, (clientX - rect.left) * scaleX)), y: Math.max(0, Math.min(canvas.height, (clientY - rect.top) * scaleY)) };
+}
+
+function startDraw(e) { 
+    e.preventDefault(); 
+    drawing = true; 
+    const pos = getPos(e); 
+    ctx.beginPath(); 
+    ctx.moveTo(pos.x, pos.y); 
+    if (!hasSignature) { 
+        hasSignature = true; 
+        const placeholder = document.getElementById('signaturePlaceholder');
+        const container = document.getElementById('signatureContainer');
+        const status = document.getElementById('signatureStatus');
+        if (placeholder) placeholder.style.opacity = '0';
+        if (container) container.classList.add('has-signature');
+        if (status) { status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; status.classList.add('ready'); }
+    } 
+}
+
+function draw(e) { 
+    if (!drawing) return; 
+    e.preventDefault(); 
+    const pos = getPos(e); 
+    ctx.lineTo(pos.x, pos.y); 
+    ctx.stroke(); 
+    ctx.beginPath(); 
+    ctx.moveTo(pos.x, pos.y); 
+}
+
+function endDraw() { drawing = false; ctx.beginPath(); }
+
+function clearSignature() { 
+    ctx.fillStyle = 'white'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height); 
+    ctx.beginPath(); 
+    hasSignature = false; 
+    const placeholder = document.getElementById('signaturePlaceholder');
+    const container = document.getElementById('signatureContainer');
+    const status = document.getElementById('signatureStatus');
+    if (placeholder) placeholder.style.opacity = '0.5';
+    if (container) container.classList.remove('has-signature');
+    if (status) { status.innerHTML = '<i class="fas fa-info-circle"></i> Aguardando assinatura...'; status.classList.remove('ready'); }
+}
+
+canvas.addEventListener('mousedown', startDraw);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', endDraw);
+canvas.addEventListener('mouseleave', endDraw);
+canvas.addEventListener('touchstart', startDraw, { passive: false });
+canvas.addEventListener('touchmove', draw, { passive: false });
+canvas.addEventListener('touchend', endDraw);
+
+function openFullscreenSignature() {
+    const modal = document.createElement('div');
+    modal.className = 'fullscreen-modal';
+    const currentImageData = canvas.toDataURL();
+    modal.innerHTML = `<div style="background:white; border-radius:24px; padding:20px; text-align:center; max-width:90vw;"><h3 style="margin-bottom:16px;"><i class="fas fa-pencil-alt" style="color:#E31B23;"></i> Assinatura em Tela Cheia</h3><canvas id="fullscreenCanvas" width="800" height="350" style="border:2px solid #E5E7EB; border-radius:16px; background:white; touch-action:none; width:100%; height:auto;"></canvas><div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;"><button id="fsClearBtn" style="background:#EF4444; color:white; border:none; padding:12px 24px; border-radius:40px; cursor:pointer;"><i class="fas fa-eraser"></i> Limpar</button><button id="fsSaveBtn" style="background:#10B981; color:white; border:none; padding:12px 32px; border-radius:40px; cursor:pointer;"><i class="fas fa-check"></i> Salvar</button><button id="fsCloseBtn" style="background:#6B7280; color:white; border:none; padding:12px 24px; border-radius:40px; cursor:pointer;"><i class="fas fa-times"></i> Cancelar</button></div></div>`;
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+    const fsCanvas = document.getElementById('fullscreenCanvas');
+    const fsCtx = fsCanvas.getContext('2d');
+    fsCanvas.width = 800; fsCanvas.height = 350;
+    fsCtx.fillStyle = 'white'; fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height);
+    fsCtx.strokeStyle = '#1A1A2E'; fsCtx.lineWidth = 3; fsCtx.lineCap = 'round';
+    const img = new Image(); img.onload = () => fsCtx.drawImage(img, 0, 0, fsCanvas.width, fsCanvas.height); img.src = currentImageData;
+    let fsDrawing = false;
+    const fsGetPos = (e, canvasEl) => { const rect = canvasEl.getBoundingClientRect(); const scaleX = canvasEl.width / rect.width; const scaleY = canvasEl.height / rect.height; let clientX = e.touches ? e.touches[0].clientX : e.clientX; let clientY = e.touches ? e.touches[0].clientY : e.clientY; return { x: Math.max(0, Math.min(canvasEl.width, (clientX - rect.left) * scaleX)), y: Math.max(0, Math.min(canvasEl.height, (clientY - rect.top) * scaleY)) }; };
+    const fsStart = (e) => { e.preventDefault(); fsDrawing = true; const pos = fsGetPos(e, fsCanvas); fsCtx.beginPath(); fsCtx.moveTo(pos.x, pos.y); fsCtx.stroke(); };
+    const fsDraw = (e) => { if (!fsDrawing) return; e.preventDefault(); const pos = fsGetPos(e, fsCanvas); fsCtx.lineTo(pos.x, pos.y); fsCtx.stroke(); fsCtx.beginPath(); fsCtx.moveTo(pos.x, pos.y); };
+    const fsEnd = () => { fsDrawing = false; fsCtx.beginPath(); };
+    const fsClear = () => { fsCtx.fillStyle = 'white'; fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height); fsCtx.beginPath(); };
+    const fsSave = () => { const originalCtx = canvas.getContext('2d'); originalCtx.clearRect(0, 0, canvas.width, canvas.height); originalCtx.drawImage(fsCanvas, 0, 0, canvas.width, canvas.height); hasSignature = true; const placeholder = document.getElementById('signaturePlaceholder'); const container = document.getElementById('signatureContainer'); const status = document.getElementById('signatureStatus'); if (placeholder) placeholder.style.opacity = '0'; if (container) container.classList.add('has-signature'); if (status) { status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; status.classList.add('ready'); } modal.remove(); document.body.style.overflow = ''; showToast('Assinatura salva!', 'success'); };
+    const fsClose = () => { modal.remove(); document.body.style.overflow = ''; };
+    fsCanvas.addEventListener('mousedown', fsStart); fsCanvas.addEventListener('mousemove', fsDraw); fsCanvas.addEventListener('mouseup', fsEnd); fsCanvas.addEventListener('mouseleave', fsEnd); fsCanvas.addEventListener('touchstart', fsStart, { passive: false }); fsCanvas.addEventListener('touchmove', fsDraw, { passive: false }); fsCanvas.addEventListener('touchend', fsEnd);
+    document.getElementById('fsClearBtn').onclick = fsClear; document.getElementById('fsSaveBtn').onclick = fsSave; document.getElementById('fsCloseBtn').onclick = fsClose;
+}
+
+async function finalizarDocumento() {
+    const isPending = document.getElementById('pendingCheckbox').checked;
+    if (!isPending && !hasSignature) { showToast('Assine primeiro', 'error'); return; }
+    if (!selectedDocumento.id) { showToast('Selecione um documento', 'error'); return; }
+    
+    const payload = {
+        tecnico_id: selectedTecnico.id,
+        template_id: selectedDocumento.id,
+        tipo_instalacao: tipoSelecionado === 'instalacao' ? 'instalacao' : tipoSelecionado === 'mudanca' ? 'mudanca_endereco' : 'ordem_servico',
+        signature_pending: isPending,
+        cliente_nome: selectedDocumento.cliente_nome || ''
+    };
+    
+    if (!isPending) payload.assinatura_base64 = canvas.toDataURL('image/png');
+    else payload.assinatura_base64 = null;
+    
+    if (tipoSelecionado === 'os') payload.os_descricao = document.getElementById('osDescricao').value.trim();
+    else {
+        payload.campo_cliente = document.getElementById('campoCliente').value.trim();
+        payload.campo_ctop = document.getElementById('campoCtop').value.trim();
+        payload.campo_db = document.getElementById('campoDb').value.trim();
+    }
+    
+    showLoading(true);
+    try {
+        const res = await fetch('/api/salvar-contrato', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        const data = await res.json();
+        showLoading(false);
+        if (data.sucesso) {
+            document.getElementById('successId').textContent = (data.id || '').substring(0, 12) + '...';
+            document.getElementById('successContrato').textContent = data.contrato_id || '—';
+            document.getElementById('successData').textContent = data.data_hora ? data.data_hora.replace('T', ' ') : new Date().toLocaleString('pt-BR');
+            document.getElementById('successTipo').textContent = tipoSelecionado === 'instalacao' ? (data.status === 'pending' ? 'Instalação (Pendente)' : 'Instalação') : tipoSelecionado === 'mudanca' ? (data.status === 'pending' ? 'Mudança (Pendente)' : 'Mudança') : (data.status === 'pending' ? 'OS (Pendente)' : 'OS');
+            document.getElementById('successTecnico').textContent = selectedTecnico.nome;
+            if (data.status === 'pending') {
+                document.getElementById('downloadPdfBtn').href = '#';
+                document.getElementById('downloadPdfBtn').style.opacity = '0.5';
+                document.getElementById('downloadPdfBtn').style.pointerEvents = 'none';
+                const extrasDiv = document.getElementById('successExtras');
+                extrasDiv.innerHTML = `<div style="margin-top:12px; background: #FEF3C7; padding: 12px; border-radius: 12px;"><i class="fas fa-clock"></i> Documento aguardando assinatura.<br>O link será enviado pelo administrador.</div>`;
+                showToast('Documento salvo como pendente!', 'success');
+            } else {
+                document.getElementById('downloadPdfBtn').href = data.pdf_url || '#';
+                document.getElementById('downloadPdfBtn').style.opacity = '1';
+                document.getElementById('downloadPdfBtn').style.pointerEvents = 'auto';
+                const extrasDiv = document.getElementById('successExtras');
+                if (tipoSelecionado === 'os') extrasDiv.innerHTML = `<div style="margin-top:12px"><div class="audit-section-title">DESCRIÇÃO</div><div class="audit-row" style="flex-direction:column;"><span class="audit-value" style="max-width:100%;text-align:left;white-space:pre-wrap">${escapeHtml(payload.os_descricao)}</span></div></div>`;
+                else extrasDiv.innerHTML = `<div style="margin-top:12px"><div class="audit-section-title">DADOS TÉCNICOS</div><div class="audit-row"><span class="audit-label">Nº Cliente</span><span class="audit-value">${escapeHtml(payload.campo_cliente)}</span></div><div class="audit-row"><span class="audit-label">Caixa CTOP</span><span class="audit-value">${escapeHtml(payload.campo_ctop)}</span></div><div class="audit-row"><span class="audit-label">DB</span><span class="audit-value">${escapeHtml(payload.campo_db)}</span></div></div>`;
+                showToast('Documento finalizado!', 'success');
+            }
+            goToStep(5);
+        } else { showToast('Erro: ' + (data.erro || 'Falha ao salvar'), 'error'); }
+    } catch(e) { showLoading(false); showToast('Erro de conexão', 'error'); }
+}
+
+function resetTudo() {
+    selectedDocumento = { id: null, nome: null, hasTxt: false, hasOS: false, cliente_nome: null };
+    currentDocumentoTxt = null;
+    hasSignature = false;
+    isSignaturePending = false;
+    const chk = document.getElementById('pendingCheckbox');
+    if (chk) { chk.checked = false; toggleSignatureArea(); }
+    document.getElementById('campoCliente').value = '';
+    document.getElementById('campoCtop').value = '';
+    document.getElementById('campoDb').value = '';
+    document.getElementById('osDescricao').value = '';
+    document.querySelectorAll('.documento-item').forEach(c => c.classList.remove('selected'));
+    document.getElementById('txtViewerPanel').style.display = 'none';
+    document.getElementById('txtViewerContent').innerHTML = '';
+    document.getElementById('osPreviewPanel').style.display = 'none';
+    document.getElementById('termoViewPanel').style.display = 'none';
+    if (ctx) { ctx.fillStyle = 'white'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+    const placeholder = document.getElementById('signaturePlaceholder');
+    const container = document.getElementById('signatureContainer');
+    const status = document.getElementById('signatureStatus');
+    if (placeholder) placeholder.style.opacity = '0.5';
+    if (container) container.classList.remove('has-signature');
+    if (status) { status.innerHTML = '<i class="fas fa-info-circle"></i> Aguardando assinatura...'; status.classList.remove('ready'); }
+    document.getElementById('nextStep2').disabled = true;
+    document.getElementById('nextStep3').disabled = true;
+    const resumoDiv = document.getElementById('resumoStep3');
+    if (resumoDiv) resumoDiv.innerHTML = '';
+    const btnContainer = document.getElementById('btnVisualizarDocumentoContainer');
+    if (btnContainer) btnContainer.innerHTML = '';
+}
+
+function resetarParaNovo() {
+    resetTudo();
+    carregarDocumentos();
+    goToStep(2);
+    document.getElementById('campoCliente').value = '';
+    document.getElementById('campoCtop').value = '';
+    document.getElementById('campoDb').value = '';
+    document.getElementById('osDescricao').value = '';
+    const scrollContainer = document.getElementById('mainScrollContainer');
+    if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast('Pronto para novo documento!', 'success');
+}
+
+document.getElementById('campoCliente')?.addEventListener('input', validateStep3);
+document.getElementById('campoCtop')?.addEventListener('input', validateStep3);
+document.getElementById('campoDb')?.addEventListener('input', validateStep3);
+document.getElementById('osDescricao')?.addEventListener('input', validateStep3);
+
+document.getElementById('loginBtnModal').addEventListener('click', () => {
+    const usuario = document.getElementById('loginUsuarioModal').value.trim().toLowerCase();
+    const senha = document.getElementById('loginSenhaModal').value.trim();
+    const errorDiv = document.getElementById('loginErrorModal');
+    if (fazerLoginModal(usuario, senha)) {
+        document.getElementById('loginUsuarioModal').value = '';
+        document.getElementById('loginSenhaModal').value = '';
+        errorDiv.style.display = 'none';
+    } else {
+        errorDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Usuário ou senha inválidos';
+        errorDiv.style.display = 'block';
+        setTimeout(() => errorDiv.style.display = 'none', 3000);
+    }
+});
+
+document.getElementById('adminAccessBtn').addEventListener('click', acessarAdmin);
+document.getElementById('loginSenhaModal').addEventListener('keypress', e => { if (e.key === 'Enter') document.getElementById('loginBtnModal').click(); });
+document.getElementById('loginUsuarioModal').addEventListener('keypress', e => { if (e.key === 'Enter') document.getElementById('loginBtnModal').click(); });
+
+window.addEventListener('load', () => { initCanvas(); selecionarTipo('instalacao'); });
+</script>
+</body>
+</html>
