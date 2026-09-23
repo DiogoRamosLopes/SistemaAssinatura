@@ -1,419 +1,842 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-<title>Assinatura Remota · Melolink Internet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <title>Assinatura Remota · Melolink Internet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-    :root {
-        --ml-red: #E31B23;
-        --ml-red-dark: #B81218;
-        --ml-red-light: #FEF0F0;
-        --ml-red-gradient: linear-gradient(135deg, #E31B23 0%, #B81218 100%);
-        --gray-900: #1A1A2E;
-        --gray-700: #4A4A5A;
-        --gray-500: #8E8E9A;
-        --gray-200: #EBEBEF;
-        --gray-100: #F5F5F7;
-        --white: #FFFFFF;
-        --success: #10B981;
-        --success-light: #D1FAE5;
-        --error: #EF4444;
-        --error-light: #FEE2E2;
-        --warning: #F59E0B;
-        --warning-light: #FEF3C7;
-        --info: #3B82F6;
-        --info-light: #DBEAFE;
-        --radius-sm: 8px;
-        --radius-md: 12px;
-        --radius-lg: 16px;
-        --radius-xl: 24px;
-        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-        --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-        --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
-    }
+        :root {
+            --ml-red: #E31B23;
+            --ml-red-dark: #B81218;
+            --ml-red-light: #FEF0F0;
+            --ml-red-gradient: linear-gradient(135deg, #E31B23 0%, #B81218 100%);
+            --gray-900: #1A1A2E;
+            --gray-700: #4A4A5A;
+            --gray-500: #8E8E9A;
+            --gray-200: #EBEBEF;
+            --gray-100: #F5F5F7;
+            --white: #FFFFFF;
+            --success: #10B981;
+            --success-light: #D1FAE5;
+            --success-dark: #059669;
+            --error: #EF4444;
+            --error-light: #FEE2E2;
+            --warning: #F59E0B;
+            --warning-light: #FEF3C7;
+            --info: #3B82F6;
+            --info-light: #DBEAFE;
+            --indigo: #4F46E5;
+            --indigo-light: #E0E7FF;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+        }
 
-    body {
-        font-family: 'Inter', sans-serif;
-        background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #ffe8e8 0%, #ffffff 45%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
 
-    .container {
-        max-width: 600px;
-        width: 100%;
-        margin: 0 auto;
-    }
+        .container {
+            max-width: 620px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeInUp 0.6s ease;
+        }
 
-    .card {
-        background: var(--white);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-lg);
-        overflow: hidden;
-        border: 1px solid var(--gray-200);
-        animation: fadeInUp 0.5s ease;
-    }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
 
-    .card-header {
-        background: var(--ml-red-gradient);
-        padding: 24px;
-        text-align: center;
-        color: white;
-    }
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid rgba(227, 27, 35, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .card-header i {
-        font-size: 48px;
-        margin-bottom: 12px;
-        background: rgba(255,255,255,0.2);
-        padding: 12px;
-        border-radius: 60px;
-    }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
 
-    .card-header h1 {
-        font-size: 24px;
-        font-weight: 800;
-        margin-bottom: 4px;
-    }
+        /* ===== HEADER ===== */
+        .card-header {
+            background: var(--ml-red-gradient);
+            padding: 28px 24px 22px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .card-header p {
-        font-size: 14px;
-        opacity: 0.9;
-    }
+        .card-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
 
-    .card-body {
-        padding: 28px 24px;
-    }
+        .card-header i {
+            font-size: 44px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.15);
+            padding: 14px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+        }
 
-    .info-box {
-        background: var(--gray-100);
-        border-radius: var(--radius-lg);
-        padding: 20px;
-        margin-bottom: 24px;
-        border: 1px solid var(--gray-200);
-    }
+        .card-header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 2px;
+            letter-spacing: -0.5px;
+        }
 
-    .info-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 8px 0;
-        border-bottom: 1px solid var(--gray-200);
-        font-size: 14px;
-    }
+        .card-header p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+            margin: 0;
+        }
 
-    .info-row:last-child {
-        border-bottom: none;
-    }
+        .card-body {
+            padding: 28px 28px 32px;
+        }
 
-    .info-label {
-        font-weight: 600;
-        color: var(--gray-700);
-    }
+        /* ===== GREETING ===== */
+        .greeting {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
 
-    .info-value {
-        color: var(--gray-900);
-        font-weight: 500;
-        text-align: right;
-        max-width: 60%;
-        word-break: break-word;
-    }
+        .greeting-sub {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
 
-    .expiry-warning {
-        background: var(--warning-light);
-        border-left: 4px solid var(--warning);
-        padding: 12px 16px;
-        border-radius: var(--radius-md);
-        margin-bottom: 24px;
-        font-size: 13px;
-        color: #92400E;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+        /* ===== STEPS ===== */
+        .steps-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 22px;
+            padding: 0 4px;
+            position: relative;
+        }
 
-    .signature-container {
-        border: 2px dashed var(--gray-300);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        transition: all 0.2s;
-        background: white;
-        margin-bottom: 20px;
-    }
+        .steps-row::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 30px;
+            right: 30px;
+            height: 2px;
+            background: var(--gray-200);
+            z-index: 0;
+        }
 
-    .signature-container.has-signature {
-        border-color: var(--success);
-        border-style: solid;
-        background: var(--success-light);
-    }
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            z-index: 1;
+            flex: 1;
+        }
 
-    #signatureCanvas {
-        display: block;
-        width: 100%;
-        height: 250px;
-        cursor: crosshair;
-        background: white;
-        touch-action: none;
-        min-height: 250px;
-    }
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gray-200);
+            color: var(--gray-500);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
 
-    .signature-placeholder {
-        position: relative;
-        text-align: center;
-        margin-top: -50px;
-        pointer-events: none;
-        opacity: 0.5;
-    }
+        .step-circle.active {
+            background: var(--ml-red);
+            color: white;
+            border-color: var(--ml-red);
+            box-shadow: 0 0 0 4px var(--ml-red-light);
+        }
 
-    .signature-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 16px;
-        border-top: 1px solid var(--gray-200);
-        background: var(--gray-50);
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+        .step-circle.done {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
 
-    .signature-status {
-        font-size: 12px;
-        color: var(--gray-500);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
+        .step-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            text-align: center;
+        }
 
-    .signature-status.ready {
-        color: var(--success);
-        font-weight: 600;
-    }
+        .step-label.active {
+            color: var(--ml-red);
+        }
 
-    .btn-clear {
-        background: none;
-        border: none;
-        color: var(--error);
-        font-size: 12px;
-        cursor: pointer;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-family: 'Inter', sans-serif;
-    }
+        .step-label.done {
+            color: var(--success);
+        }
 
-    .btn-fullscreen {
-        background: var(--info);
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 40px;
-        font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-family: 'Inter', sans-serif;
-    }
+        /* ===== INFO BOX ===== */
+        .info-box {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            border: 1px solid var(--gray-200);
+        }
 
-    .btn {
-        display: block;
-        width: 100%;
-        padding: 14px 20px;
-        border: none;
-        border-radius: 50px;
-        font-size: 16px;
-        font-weight: 700;
-        font-family: 'Inter', sans-serif;
-        cursor: pointer;
-        transition: all 0.2s;
-        text-align: center;
-    }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 6px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
 
-    .btn-primary {
-        background: var(--ml-red-gradient);
-        color: white;
-        box-shadow: 0 4px 12px rgba(227, 27, 35, 0.3);
-    }
+        .info-row:last-child {
+            border-bottom: none;
+        }
 
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(227, 27, 35, 0.4);
-    }
+        .info-row .icon {
+            width: 28px;
+            color: var(--ml-red);
+            font-size: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
 
-    .btn-primary:disabled {
-        opacity: 0.5;
-        transform: none;
-        cursor: not-allowed;
-    }
+        .info-row .label {
+            color: var(--gray-500);
+            font-weight: 500;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
 
-    .alert {
-        padding: 14px 16px;
-        border-radius: var(--radius-lg);
-        margin-bottom: 20px;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+        .info-row .value {
+            color: var(--gray-900);
+            font-weight: 600;
+            word-break: break-word;
+        }
 
-    .alert-error {
-        background: var(--error-light);
-        border: 1px solid #FCA5A5;
-        color: #991B1B;
-    }
+        .info-row .value.highlight {
+            color: var(--ml-red);
+        }
 
-    .alert-success {
-        background: var(--success-light);
-        border: 1px solid #6EE7B7;
-        color: #065F46;
-    }
+        /* ===== EXPIRY TIMER ===== */
+        .expiry-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--warning-light);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border: 1px solid #FDE68A;
+        }
 
-    .loading {
-        text-align: center;
-        padding: 40px;
-        color: var(--gray-500);
-    }
+        .expiry-box i {
+            color: var(--warning);
+            font-size: 18px;
+        }
 
-    .spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid var(--gray-200);
-        border-top-color: var(--ml-red);
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin: 0 auto 12px;
-    }
+        .expiry-box .timer {
+            font-weight: 700;
+            color: #92400E;
+            font-size: 14px;
+        }
 
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
+        .expiry-box .timer-label {
+            font-size: 13px;
+            color: #92400E;
+        }
 
-    .fullscreen-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+        /* ===== LEGAL BOX ===== */
+        .legal-box {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-left: 5px solid #2563EB;
+            padding: 16px 18px;
+            border-radius: var(--radius-md);
+            margin-bottom: 22px;
+        }
 
-    .footer-note {
-        text-align: center;
-        font-size: 11px;
-        color: var(--gray-500);
-        margin-top: 20px;
-        padding: 16px;
-    }
+        .legal-box i {
+            color: #2563EB;
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
 
-    @media (max-width: 480px) {
-        .card-body { padding: 20px 16px; }
-        .info-row { font-size: 12px; }
-        .btn { padding: 12px 16px; font-size: 14px; }
-        #signatureCanvas { height: 200px; min-height: 200px; }
-    }
-</style>
+        .legal-box strong {
+            color: #1E40AF;
+            font-size: 13px;
+        }
+
+        .legal-box p {
+            margin-top: 4px;
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ===== SIGNATURE ===== */
+        .signature-container {
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s;
+            background: white;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .signature-container.has-signature {
+            border-color: var(--success);
+            border-style: solid;
+            background: var(--success-light);
+        }
+
+        .signature-container.has-signature .signature-glow {
+            opacity: 1;
+        }
+
+        .signature-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        #signatureCanvas {
+            display: block;
+            width: 100%;
+            height: 220px;
+            cursor: crosshair;
+            background: white;
+            touch-action: none;
+            min-height: 220px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .signature-placeholder i {
+            font-size: 36px;
+            color: var(--gray-400);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .signature-placeholder span {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .signature-placeholder .sub {
+            font-size: 11px;
+            color: var(--gray-400);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .signature-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            border-top: 1px solid var(--gray-200);
+            background: var(--gray-50);
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature-status {
+            font-size: 12px;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .signature-status.ready {
+            color: var(--success-dark);
+            font-weight: 600;
+        }
+
+        .btn-clear {
+            background: none;
+            border: 2px solid var(--gray-200);
+            color: var(--error);
+            font-size: 12px;
+            cursor: pointer;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-clear:hover {
+            background: var(--error-light);
+            border-color: var(--error);
+        }
+
+        .btn-fullscreen {
+            background: var(--info);
+            color: white;
+            border: none;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-fullscreen:hover {
+            background: #2563EB;
+            transform: scale(1.02);
+        }
+
+        /* ===== BUTTON ===== */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--ml-red-gradient);
+            color: white;
+            box-shadow: 0 4px 16px rgba(227, 27, 35, 0.3);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 8px 28px rgba(227, 27, 35, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
+        }
+
+        .btn-primary .btn-spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-300);
+        }
+
+        /* ===== ALERTS ===== */
+        .alert {
+            padding: 14px 16px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 18px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .alert-error {
+            background: var(--error-light);
+            border: 1px solid #FCA5A5;
+            color: #991B1B;
+        }
+
+        .alert-success {
+            background: var(--success-light);
+            border: 1px solid #6EE7B7;
+            color: #065F46;
+        }
+
+        .alert-success .icon-big {
+            font-size: 28px;
+            color: var(--success);
+        }
+
+        /* ===== LOADING ===== */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray-500);
+        }
+
+        .spinner-big {
+            width: 44px;
+            height: 44px;
+            border: 3px solid var(--gray-200);
+            border-top-color: var(--ml-red);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 14px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-top: 20px;
+            padding: 12px 0 4px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .footer-note .security-badge {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .footer-note .security-badge span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray-500);
+        }
+
+        .footer-note .security-badge i {
+            color: var(--success);
+            font-size: 12px;
+        }
+
+        .footer-note .lock-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gray-500);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .footer-note .lock-icon i {
+            color: var(--success);
+        }
+
+        .footer-note a {
+            color: var(--ml-red);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FULLSCREEN MODAL ===== */
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .fullscreen-modal .modal-content {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 24px 28px 28px;
+            text-align: center;
+            max-width: 92vw;
+            max-height: 92vh;
+            overflow: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .fullscreen-modal .modal-content h3 {
+            font-size: 20px;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .fullscreen-modal .modal-content .sub {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 14px;
+        }
+
+        .fullscreen-modal .modal-content #fullscreenCanvas {
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            background: white;
+            touch-action: none;
+            width: 100%;
+            height: auto;
+            max-width: 700px;
+        }
+
+        .fullscreen-modal .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .fullscreen-modal .modal-actions button {
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .fullscreen-modal .modal-actions .btn-fs-clear {
+            background: #EF4444;
+            color: white;
+        }
+
+        .fullscreen-modal .modal-actions .btn-fs-clear:hover {
+            background: #DC2626;
+            transform: scale(1.02);
+        }
+
+        .fullscreen-modal .modal-actions .btn-fs-save {
+            background: var(--success);
+            color: white;
+        }
+
+        .fullscreen-modal .modal-actions .btn-fs-save:hover {
+            background: var(--success-dark);
+            transform: scale(1.02);
+        }
+
+        .fullscreen-modal .modal-actions .btn-fs-close {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .fullscreen-modal .modal-actions .btn-fs-close:hover {
+            background: var(--gray-300);
+        }
+
+        /* ===== SUCCESS PAGE ===== */
+        .success-hero {
+            text-align: center;
+            padding: 12px 0 8px;
+        }
+
+        .success-hero .icon-big {
+            font-size: 56px;
+            color: var(--success);
+            background: var(--success-light);
+            padding: 16px;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        .success-hero h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin: 12px 0 4px;
+        }
+
+        .success-hero p {
+            font-size: 15px;
+            color: var(--gray-500);
+        }
+
+        .success-info {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border: 1px solid var(--gray-200);
+        }
+
+        .success-info .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 14px;
+        }
+
+        .success-info .row .label {
+            color: var(--gray-500);
+        }
+
+        .success-info .row .value {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 500px) {
+            .card-body { padding: 20px 16px 24px; }
+            .card-header { padding: 20px 16px; }
+            .card-header h1 { font-size: 20px; }
+            .greeting { font-size: 17px; }
+            .info-row { font-size: 12px; }
+            .info-row .label { min-width: 60px; }
+            .btn { font-size: 14px; padding: 13px 16px; }
+            #signatureCanvas { height: 180px; min-height: 180px; }
+            .steps-row { padding: 0; }
+            .steps-row::before { left: 20px; right: 20px; }
+            .step-circle { width: 28px; height: 28px; font-size: 10px; }
+            .step-label { font-size: 8px; }
+            .legal-box { padding: 14px; gap: 10px; }
+            .legal-box i { font-size: 18px; }
+            .fullscreen-modal .modal-content { padding: 16px; }
+            .fullscreen-modal .modal-content h3 { font-size: 17px; }
+        }
+    </style>
 </head>
 <body>
 <div class="container" id="app"></div>
 
 <script>
+// ===== CONFIGURAÇÕES =====
+const BASE_URL = (() => {
+    const url = window.location.origin;
+    if (url.includes('localhost') || url.includes('127.0.0.1')) return url;
+    if (window.BASE_URL) return window.BASE_URL;
+    return url;
+})();
+
+console.log('🌐 BASE_URL:', BASE_URL);
+
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
-function showLoading() {
-    document.getElementById('app').innerHTML = `
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-spinner fa-pulse"></i>
-                <h1>Carregando</h1>
-                <p>Aguarde um momento...</p>
-            </div>
-            <div class="card-body">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Verificando seu link de assinatura...</p>
-                </div>
-            </div>
-        </div>
-    `;
-}
+const TIPO_DOCUMENTO = {
+    'instalacao': 'Contrato de Instalação',
+    'mudanca_endereco': 'Termo de Mudança de Endereço',
+    'mudanca_assinante': 'Termo de Mudança de Assinante',
+    'ordem_servico': 'Ordem de Serviço',
+    'retirada_sistema': 'Termo de Retirada'
+};
 
-function showError(message, detail = '') {
-    document.getElementById('app').innerHTML = `
-        <div class="card">
-            <div class="card-header" style="background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);">
-                <i class="fas fa-exclamation-triangle"></i>
-                <h1>Link Inválido</h1>
-                <p>Não foi possível processar sua solicitação</p>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-error">
-                    <i class="fas fa-circle-exclamation" style="font-size: 20px;"></i>
-                    <div>
-                        <strong>${escapeHtml(message)}</strong>
-                        ${detail ? `<p style="margin-top: 6px; font-size: 13px;">${escapeHtml(detail)}</p>` : ''}
-                    </div>
-                </div>
-                <div class="footer-note">
-                    <i class="fas fa-headset"></i> Em caso de dúvidas, entre em contato com o suporte Melolink.
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function showSuccess(contractId, signedAt) {
-    const formattedDate = new Date(signedAt).toLocaleString('pt-BR');
-    document.getElementById('app').innerHTML = `
-        <div class="card">
-            <div class="card-header" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
-                <i class="fas fa-check-circle"></i>
-                <h1>Assinatura Confirmada!</h1>
-                <p>Documento assinado com sucesso</p>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-success">
-                    <i class="fas fa-file-signature" style="font-size: 20px;"></i>
-                    <div>
-                        <strong>Protocolo: ${escapeHtml(contractId)}</strong><br>
-                        Data e hora: ${formattedDate}
-                    </div>
-                </div>
-                <div class="info-box" style="background: #F0FDF4; border-color: #BBF7D0;">
-                    <p style="text-align: center; margin: 0;">
-                        <i class="fas fa-envelope"></i> Você receberá uma cópia do documento por e-mail em breve.
-                    </p>
-                </div>
-                <button class="btn btn-primary" onclick="window.close()">
-                    <i class="fas fa-check"></i> Fechar
-                </button>
-                <div class="footer-note">
-                    <i class="fas fa-lock"></i> Assinatura digital com validade jurídica (Lei 14.063/2020)
-                </div>
-            </div>
-        </div>
-    `;
+function getTipoDocumentoTexto(tipo) {
+    return TIPO_DOCUMENTO[tipo] || 'Documento';
 }
 
 function escapeHtml(str) {
@@ -421,21 +844,97 @@ function escapeHtml(str) {
     return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
 }
 
+function formatTimeLeft(expiryDate) {
+    const now = new Date();
+    const diff = expiryDate - now;
+    if (diff <= 0) return '⏳ Expirado';
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    if (hours > 0) {
+        return `${hours}h ${minutes}min`;
+    }
+    return `${minutes} minutos`;
+}
+
+function processSignatureImage(dataUrl) {
+    return new Promise((resolve) => {
+        try {
+            const img = new Image();
+            img.onload = function() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width;
+                    tempCanvas.height = canvas.height;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.filter = 'contrast(1.4) brightness(1.05)';
+                    tempCtx.drawImage(canvas, 0, 0);
+                    const sharpCanvas = document.createElement('canvas');
+                    sharpCanvas.width = tempCanvas.width;
+                    sharpCanvas.height = tempCanvas.height;
+                    const sharpCtx = sharpCanvas.getContext('2d');
+                    sharpCtx.filter = 'contrast(1.1)';
+                    sharpCtx.drawImage(tempCanvas, 0, 0);
+                    resolve(sharpCanvas.toDataURL('image/png'));
+                } catch (err) {
+                    console.warn('Erro no processamento (fallback):', err);
+                    resolve(dataUrl);
+                }
+            };
+            img.onerror = function() { resolve(dataUrl); };
+            img.src = dataUrl;
+        } catch (err) {
+            resolve(dataUrl);
+        }
+    });
+}
+
+function showToast(msg, type) {
+    const existing = document.querySelector('.toast-floating');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = 'toast-floating';
+    toast.style.cssText = `
+        position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+        background: ${type === 'success' ? '#10B981' : '#EF4444'};
+        color: white; padding: 12px 24px; border-radius: 50px;
+        font-size: 14px; font-weight: 600; font-family: 'Inter', sans-serif;
+        z-index: 10001; box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        animation: fadeInUp 0.3s ease;
+        max-width: 90%;
+        text-align: center;
+    `;
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 400);
+    }, 3500);
+}
+
+// ===== VARIÁVEIS =====
+let token = null;
+let documentData = null;
 let canvas = null;
 let ctx = null;
 let drawing = false;
 let hasSignature = false;
+let timerInterval = null;
 
 function initCanvas() {
     canvas = document.getElementById('signatureCanvas');
     if (!canvas) return;
-    
     const container = canvas.parentElement;
     const width = Math.min(container.clientWidth, 600);
     canvas.width = width;
-    canvas.height = 250;
-    canvas.style.cssText = 'width:100%;height:250px';
-    
+    canvas.height = 220;
+    canvas.style.cssText = 'width:100%;height:220px';
     ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -443,10 +942,8 @@ function initCanvas() {
     ctx.lineWidth = 2.5;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    
     const placeholder = document.getElementById('signaturePlaceholder');
-    if (placeholder) placeholder.style.opacity = '0.5';
-    
+    if (placeholder) placeholder.style.opacity = '0.4';
     canvas.addEventListener('mousedown', startDraw);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', endDraw);
@@ -462,60 +959,68 @@ function getPos(e) {
     const scaleY = canvas.height / rect.height;
     let clientX = e.touches ? e.touches[0].clientX : e.clientX;
     let clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    return { 
-        x: Math.max(0, Math.min(canvas.width, (clientX - rect.left) * scaleX)), 
-        y: Math.max(0, Math.min(canvas.height, (clientY - rect.top) * scaleY)) 
+    return {
+        x: Math.max(0, Math.min(canvas.width, (clientX - rect.left) * scaleX)),
+        y: Math.max(0, Math.min(canvas.height, (clientY - rect.top) * scaleY))
     };
 }
 
-function startDraw(e) { 
-    e.preventDefault(); 
-    drawing = true; 
-    const pos = getPos(e); 
-    ctx.beginPath(); 
-    ctx.moveTo(pos.x, pos.y); 
-    if (!hasSignature) { 
-        hasSignature = true; 
+function startDraw(e) {
+    e.preventDefault();
+    drawing = true;
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+    if (!hasSignature) {
+        hasSignature = true;
         const placeholder = document.getElementById('signaturePlaceholder');
         const container = document.getElementById('signatureContainer');
         const status = document.getElementById('signatureStatus');
         if (placeholder) placeholder.style.opacity = '0';
-        if (container) container.classList.add('has-signature');
-        if (status) { 
-            status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; 
-            status.classList.add('ready'); 
+        if (container) {
+            container.classList.add('has-signature');
+            const glow = container.querySelector('.signature-glow');
+            if (glow) glow.style.opacity = '1';
         }
-    } 
+        if (status) {
+            status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado';
+            status.classList.add('ready');
+        }
+    }
 }
 
-function draw(e) { 
-    if (!drawing) return; 
-    e.preventDefault(); 
-    const pos = getPos(e); 
-    ctx.lineTo(pos.x, pos.y); 
-    ctx.stroke(); 
-    ctx.beginPath(); 
-    ctx.moveTo(pos.x, pos.y); 
+function draw(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
 }
 
-function endDraw() { 
-    drawing = false; 
-    ctx.beginPath(); 
+function endDraw() {
+    drawing = false;
+    ctx.beginPath();
 }
 
-function clearSignature() { 
-    ctx.fillStyle = 'white'; 
-    ctx.fillRect(0, 0, canvas.width, canvas.height); 
-    ctx.beginPath(); 
-    hasSignature = false; 
+function clearSignature() {
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    hasSignature = false;
     const placeholder = document.getElementById('signaturePlaceholder');
     const container = document.getElementById('signatureContainer');
     const status = document.getElementById('signatureStatus');
-    if (placeholder) placeholder.style.opacity = '0.5';
-    if (container) container.classList.remove('has-signature');
-    if (status) { 
-        status.innerHTML = '<i class="fas fa-info-circle"></i> Aguardando assinatura...'; 
-        status.classList.remove('ready'); 
+    if (placeholder) placeholder.style.opacity = '0.4';
+    if (container) {
+        container.classList.remove('has-signature');
+        const glow = container.querySelector('.signature-glow');
+        if (glow) glow.style.opacity = '0';
+    }
+    if (status) {
+        status.innerHTML = '<i class="fas fa-info-circle"></i> Aguardando assinatura...';
+        status.classList.remove('ready');
     }
 }
 
@@ -523,199 +1028,306 @@ function openFullscreenSignature() {
     const modal = document.createElement('div');
     modal.className = 'fullscreen-modal';
     const currentImageData = canvas.toDataURL();
-    
     modal.innerHTML = `
-        <div style="background:white; border-radius:24px; padding:20px; text-align:center; max-width:90vw; max-height:90vh; overflow:auto;">
-            <h3 style="margin-bottom:16px;">
-                <i class="fas fa-pencil-alt" style="color:#E31B23;"></i> Assinatura em Tela Cheia
-            </h3>
-            <canvas id="fullscreenCanvas" width="800" height="350" 
-                style="border:2px solid #E5E7EB; border-radius:16px; background:white; touch-action:none; width:100%; height:auto;">
+        <div class="modal-content">
+            <h3><i class="fas fa-pencil-alt" style="color:#E31B23;"></i> Assinatura em Tela Cheia</h3>
+            <p class="sub">Desenhe sua assinatura abaixo e clique em "Salvar"</p>
+            <canvas id="fullscreenCanvas" width="800" height="350"
+                style="border:2px solid #E5E7EB; border-radius:16px; background:white; touch-action:none; width:100%; height:auto; max-width:700px;">
             </canvas>
-            <div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
-                <button id="fsClearBtn" style="background:#EF4444; color:white; border:none; padding:12px 24px; border-radius:40px; cursor:pointer;">
-                    <i class="fas fa-eraser"></i> Limpar
-                </button>
-                <button id="fsSaveBtn" style="background:#10B981; color:white; border:none; padding:12px 32px; border-radius:40px; cursor:pointer;">
-                    <i class="fas fa-check"></i> Salvar
-                </button>
-                <button id="fsCloseBtn" style="background:#6B7280; color:white; border:none; padding:12px 24px; border-radius:40px; cursor:pointer;">
-                    <i class="fas fa-times"></i> Cancelar
-                </button>
+            <div class="modal-actions">
+                <button class="btn-fs-clear" id="fsClearBtn"><i class="fas fa-eraser"></i> Limpar</button>
+                <button class="btn-fs-save" id="fsSaveBtn"><i class="fas fa-check"></i> Salvar</button>
+                <button class="btn-fs-close" id="fsCloseBtn"><i class="fas fa-times"></i> Cancelar</button>
             </div>
-        </div>`;
-    
+        </div>
+    `;
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
-    
+
     const fsCanvas = document.getElementById('fullscreenCanvas');
     const fsCtx = fsCanvas.getContext('2d');
-    fsCanvas.width = 800; 
+    fsCanvas.width = 800;
     fsCanvas.height = 350;
-    fsCtx.fillStyle = 'white'; 
+    fsCtx.fillStyle = 'white';
     fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height);
-    fsCtx.strokeStyle = '#1A1A2E'; 
-    fsCtx.lineWidth = 3; 
+    fsCtx.strokeStyle = '#1A1A2E';
+    fsCtx.lineWidth = 3;
     fsCtx.lineCap = 'round';
-    
-    const img = new Image(); 
-    img.onload = () => fsCtx.drawImage(img, 0, 0, fsCanvas.width, fsCanvas.height); 
+
+    const img = new Image();
+    img.onload = () => fsCtx.drawImage(img, 0, 0, fsCanvas.width, fsCanvas.height);
     img.src = currentImageData;
-    
+
     let fsDrawing = false;
-    
-    const fsGetPos = (e, canvasEl) => { 
-        const rect = canvasEl.getBoundingClientRect(); 
-        const scaleX = canvasEl.width / rect.width; 
-        const scaleY = canvasEl.height / rect.height; 
-        let clientX = e.touches ? e.touches[0].clientX : e.clientX; 
-        let clientY = e.touches ? e.touches[0].clientY : e.clientY; 
-        return { 
-            x: Math.max(0, Math.min(canvasEl.width, (clientX - rect.left) * scaleX)), 
-            y: Math.max(0, Math.min(canvasEl.height, (clientY - rect.top) * scaleY)) 
-        }; 
+    const fsGetPos = (e, el) => {
+        const rect = el.getBoundingClientRect();
+        const scaleX = el.width / rect.width;
+        const scaleY = el.height / rect.height;
+        let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return {
+            x: Math.max(0, Math.min(el.width, (clientX - rect.left) * scaleX)),
+            y: Math.max(0, Math.min(el.height, (clientY - rect.top) * scaleY))
+        };
     };
-    
-    const fsStart = (e) => { 
-        e.preventDefault(); 
-        fsDrawing = true; 
-        const pos = fsGetPos(e, fsCanvas); 
-        fsCtx.beginPath(); 
-        fsCtx.moveTo(pos.x, pos.y); 
+
+    const fsStart = (e) => {
+        e.preventDefault();
+        fsDrawing = true;
+        const pos = fsGetPos(e, fsCanvas);
+        fsCtx.beginPath();
+        fsCtx.moveTo(pos.x, pos.y);
     };
-    
-    const fsDraw = (e) => { 
-        if (!fsDrawing) return; 
-        e.preventDefault(); 
-        const pos = fsGetPos(e, fsCanvas); 
-        fsCtx.lineTo(pos.x, pos.y); 
-        fsCtx.stroke(); 
-        fsCtx.beginPath(); 
-        fsCtx.moveTo(pos.x, pos.y); 
+    const fsDraw = (e) => {
+        if (!fsDrawing) return;
+        e.preventDefault();
+        const pos = fsGetPos(e, fsCanvas);
+        fsCtx.lineTo(pos.x, pos.y);
+        fsCtx.stroke();
+        fsCtx.beginPath();
+        fsCtx.moveTo(pos.x, pos.y);
     };
-    
-    const fsEnd = () => { 
-        fsDrawing = false; 
-        fsCtx.beginPath(); 
+    const fsEnd = () => { fsDrawing = false; fsCtx.beginPath(); };
+    const fsClear = () => {
+        fsCtx.fillStyle = 'white';
+        fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height);
+        fsCtx.beginPath();
     };
-    
-    const fsClear = () => { 
-        fsCtx.fillStyle = 'white'; 
-        fsCtx.fillRect(0, 0, fsCanvas.width, fsCanvas.height); 
-        fsCtx.beginPath(); 
-    };
-    
-    const fsSave = () => { 
-        const originalCtx = canvas.getContext('2d'); 
-        originalCtx.clearRect(0, 0, canvas.width, canvas.height); 
-        originalCtx.drawImage(fsCanvas, 0, 0, canvas.width, canvas.height); 
-        hasSignature = true; 
+    const fsSave = () => {
+        const origCtx = canvas.getContext('2d');
+        origCtx.clearRect(0, 0, canvas.width, canvas.height);
+        origCtx.drawImage(fsCanvas, 0, 0, canvas.width, canvas.height);
+        hasSignature = true;
         const placeholder = document.getElementById('signaturePlaceholder');
         const container = document.getElementById('signatureContainer');
         const status = document.getElementById('signatureStatus');
         if (placeholder) placeholder.style.opacity = '0';
-        if (container) container.classList.add('has-signature');
-        if (status) { 
-            status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado'; 
-            status.classList.add('ready'); 
+        if (container) {
+            container.classList.add('has-signature');
+            const glow = container.querySelector('.signature-glow');
+            if (glow) glow.style.opacity = '1';
         }
-        modal.remove(); 
-        document.body.style.overflow = ''; 
-        showToastLocal('Assinatura salva!', 'success'); 
-    };
-    
-    const fsClose = () => {
+        if (status) {
+            status.innerHTML = '<i class="fas fa-check-circle"></i> Assinado';
+            status.classList.add('ready');
+        }
         modal.remove();
         document.body.style.overflow = '';
+        showToast('✅ Assinatura salva!', 'success');
     };
-    
-    fsCanvas.addEventListener('mousedown', fsStart); 
-    fsCanvas.addEventListener('mousemove', fsDraw); 
-    fsCanvas.addEventListener('mouseup', fsEnd); 
-    fsCanvas.addEventListener('mouseleave', fsEnd); 
-    fsCanvas.addEventListener('touchstart', fsStart, { passive: false }); 
-    fsCanvas.addEventListener('touchmove', fsDraw, { passive: false }); 
+    const fsClose = () => { modal.remove(); document.body.style.overflow = ''; };
+
+    fsCanvas.addEventListener('mousedown', fsStart);
+    fsCanvas.addEventListener('mousemove', fsDraw);
+    fsCanvas.addEventListener('mouseup', fsEnd);
+    fsCanvas.addEventListener('mouseleave', fsEnd);
+    fsCanvas.addEventListener('touchstart', fsStart, { passive: false });
+    fsCanvas.addEventListener('touchmove', fsDraw, { passive: false });
     fsCanvas.addEventListener('touchend', fsEnd);
-    
-    document.getElementById('fsClearBtn').onclick = fsClear; 
-    document.getElementById('fsSaveBtn').onclick = fsSave; 
+
+    document.getElementById('fsClearBtn').onclick = fsClear;
+    document.getElementById('fsSaveBtn').onclick = fsSave;
     document.getElementById('fsCloseBtn').onclick = fsClose;
 }
 
-function showToastLocal(msg, type) {
-    const toastDiv = document.createElement('div');
-    toastDiv.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#333; color:white; padding:8px 16px; border-radius:40px; font-size:12px; z-index:10001;';
-    if (type === 'success') toastDiv.style.background = '#10B981';
-    else toastDiv.style.background = '#EF4444';
-    toastDiv.textContent = msg;
-    document.body.appendChild(toastDiv);
-    setTimeout(() => toastDiv.remove(), 3000);
+// ===== START TIMER =====
+function startTimer(expiryDate) {
+    if (timerInterval) clearInterval(timerInterval);
+    const timerEl = document.getElementById('timerDisplay');
+    if (!timerEl) return;
+    timerInterval = setInterval(() => {
+        const timeLeft = formatTimeLeft(expiryDate);
+        timerEl.textContent = timeLeft;
+        if (timeLeft === '⏳ Expirado') {
+            clearInterval(timerInterval);
+            timerEl.style.color = '#DC2626';
+        }
+    }, 10000);
 }
 
-let token = null;
-let documentData = null;
+// ===== SHOW FUNCTIONS =====
+function showLoading() {
+    document.getElementById('app').innerHTML = `
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-spinner fa-pulse"></i>
+                <h1>Carregando</h1>
+                <p>Aguarde um momento...</p>
+            </div>
+            <div class="card-body">
+                <div class="loading">
+                    <div class="spinner-big"></div>
+                    <p>Verificando seu link de assinatura...</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
+function showError(message, detail = '') {
+    if (timerInterval) clearInterval(timerInterval);
+    document.getElementById('app').innerHTML = `
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h1>Link Inválido</h1>
+                <p>Não foi possível processar sua solicitação</p>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-error">
+                    <i class="fas fa-circle-exclamation" style="font-size: 20px;"></i>
+                    <div>
+                        <strong>${escapeHtml(message)}</strong>
+                        ${detail ? `<p style="margin-top: 6px; font-size: 13px;">${escapeHtml(detail)}</p>` : ''}
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; flex-direction: column;">
+                    <button onclick="window.location.href='/'" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Voltar para o início
+                    </button>
+                    <button onclick="window.location.reload()" class="btn btn-secondary">
+                        <i class="fas fa-sync"></i> Tentar novamente
+                    </button>
+                </div>
+                <div class="footer-note">
+                    <i class="fas fa-headset"></i> Em caso de dúvidas, entre em contato com o suporte Melolink.
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function showSuccess(contractId, signedAt) {
+    if (timerInterval) clearInterval(timerInterval);
+    const formattedDate = new Date(signedAt).toLocaleString('pt-BR');
+    document.getElementById('app').innerHTML = `
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                <i class="fas fa-check-circle"></i>
+                <h1>Documento Assinado!</h1>
+                <p>Obrigado por confiar na Melolink</p>
+            </div>
+            <div class="card-body">
+                <div class="success-hero">
+                    <div class="icon-big">🎉</div>
+                    <h2>Sua assinatura foi registrada!</h2>
+                    <p>O documento já está disponível para a equipe da Melolink.</p>
+                </div>
+                <div class="success-info">
+                    <div class="row"><span class="label">Protocolo</span><span class="value">${escapeHtml(contractId)}</span></div>
+                    <div class="row"><span class="label">Data/Hora</span><span class="value">${formattedDate}</span></div>
+                </div>
+                <div class="alert alert-success" style="margin-bottom:0;">
+                    <i class="fas fa-envelope" style="font-size:18px;"></i>
+                    <div>Você receberá uma cópia do documento por e-mail em breve.</div>
+                </div>
+                <button class="btn btn-success" onclick="window.location.href='/'" style="margin-top:16px;">
+                    <i class="fas fa-check"></i> Voltar ao início
+                </button>
+                <div class="footer-note">
+                    <div class="lock-icon"><i class="fas fa-lock"></i> Conexão criptografada</div>
+                    <div class="security-badge">
+                        <span><i class="fas fa-check-circle"></i> Assinatura eletrônica</span>
+                        <span><i class="fas fa-link"></i> Link exclusivo</span>
+                        <span><i class="fas fa-shield-alt"></i> HTTPS</span>
+                        <span><i class="fas fa-gavel"></i> Lei 14.063/2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// ===== MAIN INIT =====
 async function init() {
     token = getQueryParam('token');
-    
     if (!token) {
         showError('Token não informado', 'O link de assinatura está incompleto. Verifique o endereço ou solicite um novo.');
         return;
     }
-    
+
     showLoading();
-    
+
     try {
-        const res = await fetch(`/api/verificar-token/${token}`);
+        const res = await fetch(`${BASE_URL}/api/verificar-token/${token}`);
         const data = await res.json();
-        
+
         if (!res.ok || !data.valido) {
             let msg = data.razao || 'Link inválido';
             let detalhe = '';
             if (msg === 'Token expirado') detalhe = 'O prazo de 24 horas para assinar este documento expirou. Solicite um novo link ao administrador.';
             else if (msg === 'Documento já foi assinado') detalhe = 'Este documento já foi assinado anteriormente.';
+            else if (msg === 'Token inválido') detalhe = 'O link de assinatura não é válido. Verifique se o endereço está correto.';
             else detalhe = 'Verifique se o link está correto ou solicite um novo.';
             showError(msg, detalhe);
             return;
         }
-        
+
         documentData = data;
-        
+
         const expiryDate = new Date(data.expira_em);
         const expiryFormatted = expiryDate.toLocaleString('pt-BR');
-        const tipoDocumentoTexto = data.tipo_documento === 'instalacao' ? 'Contrato de Instalação' 
-                                 : data.tipo_documento === 'mudanca_endereco' ? 'Termo de Mudança' 
-                                 : 'Ordem de Serviço';
-        
+        const tipoDocumentoTexto = getTipoDocumentoTexto(data.tipo_documento);
+        const timeLeft = formatTimeLeft(expiryDate);
+
         document.getElementById('app').innerHTML = `
             <div class="card">
                 <div class="card-header">
-                    <i class="fas fa-file-signature"></i>
-                    <h1>Assinatura Digital</h1>
-                    <p>Confirme seus dados e assine o documento</p>
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>Assinatura Digital Segura</h1>
+                    <p>Confira as informações abaixo. Caso estejam corretas, realize sua assinatura para concluir o atendimento.</p>
                 </div>
                 <div class="card-body">
+                    <!-- GREETING -->
+                    <div class="greeting">Olá 👋 ${escapeHtml(data.cliente_nome)}</div>
+                    <div class="greeting-sub">Confira se as informações abaixo estão corretas.</div>
+
+                    <!-- STEPS -->
+                    <div class="steps-row">
+                        <div class="step-item"><div class="step-circle done">✓</div><span class="step-label done">Dados</span></div>
+                        <div class="step-item"><div class="step-circle active">2</div><span class="step-label active">Assinar</span></div>
+                        <div class="step-item"><div class="step-circle">3</div><span class="step-label">Confirmar</span></div>
+                        <div class="step-item"><div class="step-circle">4</div><span class="step-label">Pronto</span></div>
+                    </div>
+
+                    <!-- INFO BOX -->
                     <div class="info-box">
-                        <div class="info-row"><span class="info-label">Cliente:</span><span class="info-value">${escapeHtml(data.cliente_nome)}</span></div>
-                        <div class="info-row"><span class="info-label">Protocolo:</span><span class="info-value">${escapeHtml(data.contrato_id)}</span></div>
-                        <div class="info-row"><span class="info-label">Tipo:</span><span class="info-value">${escapeHtml(tipoDocumentoTexto)}</span></div>
-                        ${data.campo_cliente ? `<div class="info-row"><span class="info-label">Nº Cliente:</span><span class="info-value">${escapeHtml(data.campo_cliente)}</span></div>` : ''}
-                        ${data.campo_ctop ? `<div class="info-row"><span class="info-label">CTOP:</span><span class="info-value">${escapeHtml(data.campo_ctop)}</span></div>` : ''}
-                        ${data.campo_db ? `<div class="info-row"><span class="info-label">DB:</span><span class="info-value">${escapeHtml(data.campo_db)}</span></div>` : ''}
-                        ${data.os_descricao ? `<div class="info-row" style="flex-direction:column; align-items:flex-start;"><span class="info-label">Descrição do Serviço:</span><span class="info-value" style="text-align:left; max-width:100%; margin-top:6px;">${escapeHtml(data.os_descricao)}</span></div>` : ''}
+                        <div class="info-row"><span class="icon"><i class="fas fa-user"></i></span><span class="label">Cliente</span><span class="value">${escapeHtml(data.cliente_nome)}</span></div>
+                        <div class="info-row"><span class="icon"><i class="fas fa-file-contract"></i></span><span class="label">Documento</span><span class="value">${escapeHtml(tipoDocumentoTexto)}</span></div>
+                        <div class="info-row"><span class="icon"><i class="fas fa-hashtag"></i></span><span class="label">Protocolo</span><span class="value highlight">${escapeHtml(data.contrato_id)}</span></div>
+                        <div class="info-row"><span class="icon"><i class="fas fa-calendar-day"></i></span><span class="label">Emissão</span><span class="value">${new Date().toLocaleDateString('pt-BR')}</span></div>
+                        ${data.campo_cliente ? `<div class="info-row"><span class="icon"><i class="fas fa-hashtag"></i></span><span class="label">Nº Cliente</span><span class="value">${escapeHtml(data.campo_cliente)}</span></div>` : ''}
+                        ${data.campo_ctop ? `<div class="info-row"><span class="icon"><i class="fas fa-network-wired"></i></span><span class="label">CTOP</span><span class="value">${escapeHtml(data.campo_ctop)}</span></div>` : ''}
+                        ${data.campo_db ? `<div class="info-row"><span class="icon"><i class="fas fa-database"></i></span><span class="label">DB</span><span class="value">${escapeHtml(data.campo_db)}</span></div>` : ''}
+                        ${data.os_descricao ? `<div class="info-row"><span class="icon"><i class="fas fa-align-left"></i></span><span class="label">Descrição</span><span class="value" style="font-size:12px;">${escapeHtml(data.os_descricao)}</span></div>` : ''}
                     </div>
-                    
-                    <div class="expiry-warning">
+
+                    <!-- EXPIRY TIMER -->
+                    <div class="expiry-box">
                         <i class="fas fa-hourglass-half"></i>
-                        <span>Este link expira em: <strong>${expiryFormatted}</strong>. Assine antes do prazo.</span>
+                        <span class="timer-label">⏳ Seu link expira em</span>
+                        <span class="timer" id="timerDisplay">${timeLeft}</span>
                     </div>
-                    
+
+                    <!-- LEGAL BOX -->
+                    <div class="legal-box">
+                        <i class="fas fa-circle-info"></i>
+                        <div>
+                            <strong>Leia antes de assinar</strong>
+                            <p>Ao clicar em <b>Assinar Documento</b>, você declara estar de acordo com os termos deste documento e reconhece a validade jurídica desta assinatura eletrônica.</p>
+                        </div>
+                    </div>
+
+                    <!-- SIGNATURE -->
                     <div class="signature-container" id="signatureContainer">
-                        <div style="position:relative">
-                            <canvas id="signatureCanvas" width="600" height="250"></canvas>
+                        <div class="signature-glow"></div>
+                        <div style="position:relative; z-index:1;">
+                            <canvas id="signatureCanvas"></canvas>
                             <div class="signature-placeholder" id="signaturePlaceholder">
-                                <i class="fas fa-hand-peace" style="font-size:48px;color:var(--gray-400);display:block;margin-bottom:8px;"></i>
-                                <span style="font-size:12px;color:var(--gray-500);">Assine aqui</span>
+                                <i class="fas fa-pencil-alt"></i>
+                                <span>Assine utilizando o dedo ou o mouse</span>
+                                <span class="sub">Sua assinatura deve ser semelhante à utilizada em documentos físicos.</span>
                             </div>
                         </div>
                         <div class="signature-footer">
@@ -732,62 +1344,83 @@ async function init() {
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- SUBMIT -->
                     <button class="btn btn-primary" id="submitBtn" onclick="submitSignature()">
-                        <i class="fas fa-check-circle"></i> Confirmar Assinatura
+                        <i class="fas fa-check-circle"></i> Assinar Documento
                     </button>
+
+                    <!-- FOOTER -->
                     <div class="footer-note">
-                        <i class="fas fa-lock"></i> Assinatura digital com validade jurídica (Lei 14.063/2020)
+                        <div class="lock-icon"><i class="fas fa-lock"></i> Conexão criptografada</div>
+                        <div class="security-badge">
+                            <span><i class="fas fa-check-circle"></i> Assinatura eletrônica</span>
+                            <span><i class="fas fa-link"></i> Link exclusivo</span>
+                            <span><i class="fas fa-shield-alt"></i> HTTPS</span>
+                            <span><i class="fas fa-gavel"></i> Lei 14.063/2020</span>
+                        </div>
+                        <div style="margin-top:8px; font-size:11px;">
+                            🔒 Todas as informações são protegidas por criptografia e utilizadas exclusivamente para este documento.
+                        </div>
                     </div>
                 </div>
             </div>
         `;
-        
+
         initCanvas();
-        
+        startTimer(expiryDate);
+
     } catch (err) {
-        console.error(err);
-        showError('Erro de conexão', 'Não foi possível conectar ao servidor. Tente novamente mais tarde.');
+        console.error('Erro na inicialização:', err);
+        showError('Erro de conexão', 'Não foi possível conectar ao servidor. Verifique sua conexão com a internet e tente novamente.');
     }
 }
 
+// ===== SUBMIT =====
 async function submitSignature() {
     if (!hasSignature) {
-        alert('Por favor, realize a assinatura antes de confirmar.');
+        showToast('⚠️ Por favor, realize a assinatura antes de confirmar.', 'error');
         return;
     }
-    
-    const signatureData = canvas.toDataURL('image/png');
+
     const submitBtn = document.getElementById('submitBtn');
-    
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processando...';
-    
+    submitBtn.innerHTML = '<span class="btn-spinner"></span> Enviando assinatura...';
+
     try {
-        const res = await fetch(`/api/assinatura-remota/${token}`, {
+        const rawSignature = canvas.toDataURL('image/png');
+        console.log('🔄 Processando assinatura...');
+        const processedSignature = await processSignatureImage(rawSignature);
+        console.log('✅ Assinatura processada!');
+
+        console.log('📤 Enviando assinatura...');
+        const res = await fetch(`${BASE_URL}/api/assinatura-remota/${token}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ assinatura_base64: signatureData })
+            body: JSON.stringify({ assinatura_base64: processedSignature })
         });
-        
+
         const data = await res.json();
-        
+        console.log('📥 Resposta:', data);
+
         if (res.ok && data.sucesso) {
             showSuccess(data.contrato_id || documentData?.contrato_id || 'Documento', data.data_assinatura || new Date().toISOString());
         } else {
-            alert('Erro ao registrar assinatura: ' + (data.erro || 'Tente novamente'));
+            const erroMsg = data.erro || 'Tente novamente';
+            showToast(`❌ Erro: ${erroMsg}`, 'error');
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirmar Assinatura';
+            submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Assinar Documento';
         }
     } catch (err) {
-        console.error(err);
-        alert('Erro de conexão. Verifique sua internet e tente novamente.');
+        console.error('❌ Erro no envio:', err);
+        showToast('❌ Erro de conexão. Verifique sua internet e tente novamente.', 'error');
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Confirmar Assinatura';
+        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Assinar Documento';
     }
 }
 
-init();
+// ===== START =====
+document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>

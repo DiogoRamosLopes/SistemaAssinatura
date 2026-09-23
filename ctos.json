@@ -1,0 +1,5136 @@
+{
+  "5": {
+    "codigo": 5,
+    "nome": "CTOP 3 - NOVA VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 976",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "7": {
+    "codigo": 7,
+    "nome": "CTOP 4 - NOVA VILA NOVA",
+    "endereco": "Rua Sete de Setembro, 724",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "9": {
+    "codigo": 9,
+    "nome": "CTOP 5 - NOVA VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 562",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "13": {
+    "codigo": 13,
+    "nome": "CTOP 7 - NOVA VILA NOVA",
+    "endereco": "Rua Rio de Janeiro, 1121",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "15": {
+    "codigo": 15,
+    "nome": "CTOP 8 - NOVA VILA NOVA",
+    "endereco": "Rua Dom Pedro I, 851",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "17": {
+    "codigo": 17,
+    "nome": "CTOP 9 - NOVA VILA NOVA",
+    "endereco": "Rua Dom Pedro II / Monte Castelo, 0",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT4 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "19": {
+    "codigo": 19,
+    "nome": "CTOP 10 - NOVA VILA NOVA",
+    "endereco": "Rua Rio de Janeiro, 670",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "21": {
+    "codigo": 21,
+    "nome": "CTOP 12 E 1 - NOVA VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 256",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "23": {
+    "codigo": 23,
+    "nome": "CTOP 13/47 - NOVA VILA NOVA 1 AO 8",
+    "endereco": "Rua São Luiz, 204",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "25": {
+    "codigo": 25,
+    "nome": "CTOP 15 - NOVA VILA NOVA",
+    "endereco": "Avenida Nossa Senhora da Lapa, 401",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "27": {
+    "codigo": 27,
+    "nome": "CTOP 16 - NOVA VILA NOVA",
+    "endereco": "Rua Primeiro de Maio, 320",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "29": {
+    "codigo": 29,
+    "nome": "CTOP 11 - NOVA VILA NOVA",
+    "endereco": "Rua Dom Pedro I/Av Nações Unidas, 0",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "31": {
+    "codigo": 31,
+    "nome": "CTOP 1 ZTE - CURTUME",
+    "endereco": "Rua Doutor Renato Rangel Villela, 0",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 8 - PON 2",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "33": {
+    "codigo": 33,
+    "nome": "CTOP 2 - CURTUME",
+    "endereco": "Avenida Monteiro Lobato, 0",
+    "bairro": "Padre Manoel da Nóbrega",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 6 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "35": {
+    "codigo": 35,
+    "nome": "CTOP 3 - CURTUME",
+    "endereco": "Avenida Cruzeiro do Sul, 593",
+    "bairro": "Costa Muniz",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 6 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "37": {
+    "codigo": 37,
+    "nome": "CTOP 4 ZTE - CURTUME",
+    "endereco": "Avenida Cruzeiro do Sul, 831",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 8 - PON 2",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "39": {
+    "codigo": 39,
+    "nome": "CTOP 5 - CURTUME",
+    "endereco": "Rua do Curtume, 409",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 6 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "41": {
+    "codigo": 41,
+    "nome": "CTOP 6 - CURTUME",
+    "endereco": "Rua José Luiz de Melo, 122",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 6 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "43": {
+    "codigo": 43,
+    "nome": "CTOP 7 - CURTUME",
+    "endereco": "Rua B, 0",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 6 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "45": {
+    "codigo": 45,
+    "nome": "CTOP 8 - CURTUME",
+    "endereco": "Rua José Luiz de Melo, 12",
+    "bairro": "Vila Costa Muniz",
+    "cidade": "Cubatão",
+    "area_atuacao": "MONTEIRO LOBATO - OLT 6 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "47": {
+    "codigo": 47,
+    "nome": "CTOP 2 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Francisco Roman Torres Filho, 0",
+    "bairro": "Conjunto Afonso Schmidt",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "49": {
+    "codigo": 49,
+    "nome": "CTOP 27 E 3 - COSTA E SILVA 9 A 16",
+    "endereco": "Rua Padre Primo Maria Vieira, 352",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "53": {
+    "codigo": 53,
+    "nome": "CTOP 5 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Arthur Bernardes, 622",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "55": {
+    "codigo": 55,
+    "nome": "CTOP 6 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua São Paulo, 487",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "57": {
+    "codigo": 57,
+    "nome": "CTOP 7 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Bernardino de Pinho Gomes, 499",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "59": {
+    "codigo": 59,
+    "nome": "CTOP 8 E 4 - JARDIM SÃO FRANCISCO 1 AO 8",
+    "endereco": "Rua Armando de Salles Oliveira, 405",
+    "bairro": "Vila Couto",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "61": {
+    "codigo": 61,
+    "nome": "CTOP 9 - JARDIM SÃO FRANCISCO",
+    "endereco": "Avenida Joaquim Miguel Couto, 305",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "63": {
+    "codigo": 63,
+    "nome": "CTOP 10 - JARDIM SÃO FRANCISCO",
+    "endereco": "Avenida Joaquim Miguel Couto, 91",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "65": {
+    "codigo": 65,
+    "nome": "CTOP 11 - JARDIM SÃO FRANCISCO",
+    "endereco": "Avenida Joaquim Miguel Couto, 22",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "67": {
+    "codigo": 67,
+    "nome": "CTOP 13 + CTOP 01 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Arthur Bernardes, 350",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "69": {
+    "codigo": 69,
+    "nome": "CTOP 14 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Arthur Bernardes, 175",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 9,
+    "portas_inicio": 1
+  },
+  "71": {
+    "codigo": 71,
+    "nome": "CTOP 15 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Theodoro Soares Fernandes/Avenida nove de Abril, 0",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "73": {
+    "codigo": 73,
+    "nome": "CTOP 16 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua São Paulo/Avenida nove de Abril, 0",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "75": {
+    "codigo": 75,
+    "nome": "CTOP 12 E 38 - JARDIM SÃO FRANCISCO 1 AO 8",
+    "endereco": "Rua José Vicente, 0",
+    "bairro": "Sítio Cafezal",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "77": {
+    "codigo": 77,
+    "nome": "CTOP 1 - VILA SÃO JOSÉ",
+    "endereco": "Rua Hilário Balula, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "79": {
+    "codigo": 79,
+    "nome": "CTOP 2 - VILA SÃO JOSÉ",
+    "endereco": "Rua Pastor Horácio Francisco Valentim, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "81": {
+    "codigo": 81,
+    "nome": "CTOP 3 - VILA SÃO JOSÉ",
+    "endereco": "Rua Yolanda Damião do Amaral, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "83": {
+    "codigo": 83,
+    "nome": "CTOP 4 - VILA SÃO JOSÉ",
+    "endereco": "Rua Francisco Marculino Moura, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "85": {
+    "codigo": 85,
+    "nome": "CTOP 5 - VILA SÃO JOSÉ",
+    "endereco": "Rua Hilário de Souza, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "87": {
+    "codigo": 87,
+    "nome": "CTOP 6/23 - VILA SÃO JOSÉ",
+    "endereco": "Rua Margarida Lourenço, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "89": {
+    "codigo": 89,
+    "nome": "CTOP 7 - VILA SÃO JOSÉ",
+    "endereco": "Rua Manoel Sobrinho, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "91": {
+    "codigo": 91,
+    "nome": "CTOP 8 - VILA SÃO JOSÉ",
+    "endereco": "Rua Vereador Olavo Tibiriçá, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "111": {
+    "codigo": 111,
+    "nome": "CTOP 17 - VILA SÃO JOSÉ",
+    "endereco": "Rua Vereador Álvaro Dias, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "113": {
+    "codigo": 113,
+    "nome": "CTOP 18 - VILA SÃO JOSÉ",
+    "endereco": "Rua São José, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "115": {
+    "codigo": 115,
+    "nome": "CTOP 19 - VILA SÃO JOSÉ",
+    "endereco": "Rua Vereador Hugo Scanavacca, 33",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "117": {
+    "codigo": 117,
+    "nome": "CTOP 20 - VILA SÃO JOSÉ",
+    "endereco": "Rua Nossa Senhora da Aparecida, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "119": {
+    "codigo": 119,
+    "nome": "CTOP 21 - VILA SÃO JOSÉ",
+    "endereco": "Rua Nossa Senhora da Aparecida, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "121": {
+    "codigo": 121,
+    "nome": "CTOP 22 - VILA SÃO JOSÉ",
+    "endereco": "Rua Nossa Senhora da Aparecida, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "123": {
+    "codigo": 123,
+    "nome": "CTOP 24 - VILA SÃO JOSÉ",
+    "endereco": "Rua Nossa Senhora da Aparecida, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "125": {
+    "codigo": 125,
+    "nome": "CTOP 9 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "135": {
+    "codigo": 135,
+    "nome": "CTOP 10 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "137": {
+    "codigo": 137,
+    "nome": "CTOP 11 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "139": {
+    "codigo": 139,
+    "nome": "CTOP 12 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "141": {
+    "codigo": 141,
+    "nome": "CTOP 13 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "143": {
+    "codigo": 143,
+    "nome": "CTOP 14 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "145": {
+    "codigo": 145,
+    "nome": "CTOP 15 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "147": {
+    "codigo": 147,
+    "nome": "CTOP 16 - VILA SÃO JOSÉ",
+    "endereco": "Via Anchieta, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "149": {
+    "codigo": 149,
+    "nome": "CTOP 25 - VILA SÃO JOSÉ",
+    "endereco": "Rua Vereador Luis Campos Reis, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "151": {
+    "codigo": 151,
+    "nome": "CTOP 26 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santo Antônio de Pádua, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "153": {
+    "codigo": 153,
+    "nome": "CTOP 27 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santo Antônio de Pádua, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "155": {
+    "codigo": 155,
+    "nome": "CTOP 28 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santo Antônio de Pádua, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "157": {
+    "codigo": 157,
+    "nome": "CTOP 29 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santo Antônio de Pádua, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "159": {
+    "codigo": 159,
+    "nome": "CTOP 30 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santo Antônio de Pádua, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "161": {
+    "codigo": 161,
+    "nome": "CTOP 31 - VILA SÃO JOSÉ",
+    "endereco": "Avenida Doutor Tancredo de Almeida Neves, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "163": {
+    "codigo": 163,
+    "nome": "CTOP 32 - VILA SÃO JOSÉ",
+    "endereco": "Rua São José, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT4 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "165": {
+    "codigo": 165,
+    "nome": "CTOP 33 - VILA SÃO JOSÉ",
+    "endereco": "Rua São Francisco de Assis, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "167": {
+    "codigo": 167,
+    "nome": "CTOP 35 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santa Terezinha, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "169": {
+    "codigo": 169,
+    "nome": "CTOP 36 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santa Terezinha, 50",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "171": {
+    "codigo": 171,
+    "nome": "CTOP 37 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santa Terezinha, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "173": {
+    "codigo": 173,
+    "nome": "CTOP 38 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santa Terezinha, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "175": {
+    "codigo": 175,
+    "nome": "CTOP 39 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santa Terezinha, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "177": {
+    "codigo": 177,
+    "nome": "CTOP 40 - VILA SÃO JOSÉ",
+    "endereco": "Rua Santa Terezinha, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "179": {
+    "codigo": 179,
+    "nome": "CTOP 41 - VILA SÃO JOSÉ",
+    "endereco": "Rua São Francisco de Assis, 71",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "181": {
+    "codigo": 181,
+    "nome": "CTOP 42 - VILA SÃO JOSÉ",
+    "endereco": "Rua São Francisco de Assis, 49",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "183": {
+    "codigo": 183,
+    "nome": "CTOP 43 - VILA SÃO JOSÉ",
+    "endereco": "Rua São Francisco de Assis, 29",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "185": {
+    "codigo": 185,
+    "nome": "CTOP 44 - VILA SÃO JOSÉ",
+    "endereco": "Rua São Francisco de Assis, 17",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "187": {
+    "codigo": 187,
+    "nome": "CTOP 45 - VILA SÃO JOSÉ",
+    "endereco": "Rua São Francisco de Assis, 4220",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "189": {
+    "codigo": 189,
+    "nome": "CTOP 46 - VILA SÃO JOSÉ",
+    "endereco": "Avenida Nossa Senhora da Lapa, 1318",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "191": {
+    "codigo": 191,
+    "nome": "CTOP 47 - VILA SÃO JOSÉ",
+    "endereco": "Avenida Nossa Senhora da Lapa, 1110",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "193": {
+    "codigo": 193,
+    "nome": "CTOP 48 - VILA SÃO JOSÉ",
+    "endereco": "Avenida Nossa Senhora da Lapa, 1153",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ EX 48 - OLT2 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "195": {
+    "codigo": 195,
+    "nome": "CTOP 6 E 8 VN ANTIGA - NOVA VILA NOVA 9 AO 16",
+    "endereco": "Rua Primeiro de Maio, 137",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "197": {
+    "codigo": 197,
+    "nome": "CTOP 1 - VILA NOVA",
+    "endereco": "Avenida Nossa Senhora da Lapa, 834",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "199": {
+    "codigo": 199,
+    "nome": "CTOP 2 - VILA NOVA",
+    "endereco": "Avenida Nossa Senhora da Lapa, 456",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "201": {
+    "codigo": 201,
+    "nome": "CTOP 3 - VILA NOVA",
+    "endereco": "Avenida Cruzeiro do Sul, 77",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "203": {
+    "codigo": 203,
+    "nome": "CTOP 4 - VILA NOVA",
+    "endereco": "Rua João Pessoa, 506",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "205": {
+    "codigo": 205,
+    "nome": "CTOP 5 - VILA NOVA",
+    "endereco": "Rua Dom Idílio José Soares, 670",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "207": {
+    "codigo": 207,
+    "nome": "CTOP 6 - VILA NOVA",
+    "endereco": "Rua Dom Idílio José Soares, 504",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "209": {
+    "codigo": 209,
+    "nome": "CTOP 7 - VILA NOVA",
+    "endereco": "Rua Dom Idílio José Soares, 332",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "211": {
+    "codigo": 211,
+    "nome": "CTOP 9 - VILA NOVA",
+    "endereco": "Rua Brigadeiro José Vicente de Faria Lima, 490",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "213": {
+    "codigo": 213,
+    "nome": "CTOP 10 - VILA NOVA",
+    "endereco": "Rua Treze de Maio, 856",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "215": {
+    "codigo": 215,
+    "nome": "CTOP 11 - VILA NOVA",
+    "endereco": "Rua Monte Castelo, 286",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "217": {
+    "codigo": 217,
+    "nome": "CTOP 12 - VILA NOVA",
+    "endereco": "Rua Treze de Maio, 570",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "219": {
+    "codigo": 219,
+    "nome": "CTOP 13 - VILA NOVA",
+    "endereco": "Rua Brigadeiro José Vicente de Faria Lima, 654",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "221": {
+    "codigo": 221,
+    "nome": "CTOP 14 - VILA NOVA",
+    "endereco": "Rua Brigadeiro José Vicente de Faria Lima, 292",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "223": {
+    "codigo": 223,
+    "nome": "CTOP 15 - VILA NOVA",
+    "endereco": "Avenida das Nações Unidas, 124",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "225": {
+    "codigo": 225,
+    "nome": "CTOP 16 - VILA NOVA",
+    "endereco": "Rua João Pessoa, 110",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "227": {
+    "codigo": 227,
+    "nome": "CTOP 17 E 18 - VILA NOVA",
+    "endereco": "Rua Paraíba, 490",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "229": {
+    "codigo": 229,
+    "nome": "CTOP 19 - VILA NOVA",
+    "endereco": "Avenida das Nações Unidas, 956",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "231": {
+    "codigo": 231,
+    "nome": "CTOP 20 - VILA NOVA",
+    "endereco": "Rua Eládio Vicente Ferreira, 378",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "233": {
+    "codigo": 233,
+    "nome": "CTOP 21 - VILA NOVA",
+    "endereco": "Rua Eládio Vicente Ferreira, 236",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "235": {
+    "codigo": 235,
+    "nome": "CTOP 22 - VILA NOVA",
+    "endereco": "Avenida Cruzeiro do Sul, 329",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "237": {
+    "codigo": 237,
+    "nome": "CTOP 23 - VILA NOVA",
+    "endereco": "Rua Jefferson Damião do Amaral, 300",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "239": {
+    "codigo": 239,
+    "nome": "CTOP 24 - VILA NOVA",
+    "endereco": "Rua Jefferson Damião do Amaral, 102",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 11 E 15 - OLT2 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "241": {
+    "codigo": 241,
+    "nome": "CTOP 31 - VILA NOVA",
+    "endereco": "Rua Primeiro de Maio, 448",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "243": {
+    "codigo": 243,
+    "nome": "CTOP 32 - VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 131",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "245": {
+    "codigo": 245,
+    "nome": "CTOP 46 - VILA NOVA",
+    "endereco": "Avenida Nossa Senhora da Lapa, 370",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "249": {
+    "codigo": 249,
+    "nome": "CTOP 6/23 - VILA SÃO JOSÉ 9 AO 16",
+    "endereco": "Rua Margarida Lourenço, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "251": {
+    "codigo": 251,
+    "nome": "CTOP 6 E 8 VN ANTIGA - NOVA VILA NOVA",
+    "endereco": "Rua Primeiro de Maio, 137",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NOVA ANTIGA EX 8 - OLT3 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "253": {
+    "codigo": 253,
+    "nome": "CTOP 8 E 4 - JARDIM SÃO FRANCISCO 9 AO 16",
+    "endereco": "Rua Armando de Salles Oliveira, 405",
+    "bairro": "Vila Couto",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "255": {
+    "codigo": 255,
+    "nome": "CTOP 13/47 - NOVA VILA NOVA 9 AO 16",
+    "endereco": "Rua São Luiz, 204",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "257": {
+    "codigo": 257,
+    "nome": "CTOP 10 - COSTA E SILVA",
+    "endereco": "Rua Sinval Duarte Pereira, 73",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "259": {
+    "codigo": 259,
+    "nome": "CTOP 11 - COSTA E SILVA",
+    "endereco": "Rua Machado de Assis, 489",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "261": {
+    "codigo": 261,
+    "nome": "CTOP 19 - COSTA E SILVA",
+    "endereco": "Rua Mercedes Cunha Evangelista, 35",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "263": {
+    "codigo": 263,
+    "nome": "CTOP 30 - COSTA E SILVA",
+    "endereco": "Rua Maria Alta de Oliveira Ventura, 65",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "265": {
+    "codigo": 265,
+    "nome": "CTOP 26 - COSTA E SILVA",
+    "endereco": "Rua Antônio Ortega Domingues, 32",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "267": {
+    "codigo": 267,
+    "nome": "CTOP 32 - COSTA E SILVA",
+    "endereco": "Avenida Tiradentes, 75",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "269": {
+    "codigo": 269,
+    "nome": "CTOP 14 - COSTA E SILVA",
+    "endereco": "Avenida Marechal Costa e Silva, 181",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "271": {
+    "codigo": 271,
+    "nome": "CTOP 16 - COSTA E SILVA",
+    "endereco": "Praça Santos Dumont, 385",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "273": {
+    "codigo": 273,
+    "nome": "CTOP 1 - COSTA E SILVA",
+    "endereco": "Rua Carlos Caldeira, 43",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "275": {
+    "codigo": 275,
+    "nome": "CTOP 2 - COSTA E SILVA",
+    "endereco": "Rua Domingos Trombino, 78",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "277": {
+    "codigo": 277,
+    "nome": "CTOP 5 - COSTA E SILVA",
+    "endereco": "Rua Firmino Otto Stock, 171",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "279": {
+    "codigo": 279,
+    "nome": "CTOP 7 - COSTA E SILVA",
+    "endereco": "Avenida Marechal Costa e Silva, 485",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "281": {
+    "codigo": 281,
+    "nome": "CTOP 8 - COSTA E SILVA",
+    "endereco": "Rua Avelina Couto, 50",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "283": {
+    "codigo": 283,
+    "nome": "CTOP 9 - COSTA E SILVA",
+    "endereco": "Rua Doutor Júlio Prestes de Albuquerque, 67",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "285": {
+    "codigo": 285,
+    "nome": "CTOP 13 - COSTA E SILVA",
+    "endereco": "Rua Antônio Cunha, 57",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "287": {
+    "codigo": 287,
+    "nome": "CTOP 15 - COSTA E SILVA",
+    "endereco": "Rua Albertino Antônio do Couto, 191",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "289": {
+    "codigo": 289,
+    "nome": "CTOP 17 - COSTA E SILVA",
+    "endereco": "Rua Castro Alves, 68",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "291": {
+    "codigo": 291,
+    "nome": "CTOP 18 - COSTA E SILVA",
+    "endereco": "Rua Doutor Oswaldo Martins de Oliveira/Antonio Augusto Bastos, 245",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "293": {
+    "codigo": 293,
+    "nome": "CTOP 20 - COSTA E SILVA",
+    "endereco": "Rua Benjamin Constant, 155",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "295": {
+    "codigo": 295,
+    "nome": "CTOP 21 - COSTA E SILVA",
+    "endereco": "Rua Doutor Antônio Sylvio Cunha Bueno, 80",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "297": {
+    "codigo": 297,
+    "nome": "CTOP 23 - COSTA E SILVA",
+    "endereco": "Rua Doutor Francisco La Scala, 56",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "299": {
+    "codigo": 299,
+    "nome": "CTOP 24 - COSTA E SILVA",
+    "endereco": "Rua Salgado Filho, 224",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "301": {
+    "codigo": 301,
+    "nome": "CTOP 25 - COSTA E SILVA",
+    "endereco": "Rua Treze de Março, 32",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "303": {
+    "codigo": 303,
+    "nome": "CTOP 31 - COSTA E SILVA",
+    "endereco": "Rua José Gonçalves Torres, 279",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "305": {
+    "codigo": 305,
+    "nome": "CTOP 27 E 3 - COSTA E SILVA 1 A 8",
+    "endereco": "Rua Padre Primo Maria Vieira, 352",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "307": {
+    "codigo": 307,
+    "nome": "CTOP 29 E 28 - COSTA E SILVA",
+    "endereco": "Rua Santos, 387",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "309": {
+    "codigo": 309,
+    "nome": "CTOP 22 E 12 - COSTA E SILVA 1 AO 8",
+    "endereco": "Rua João Damaso, 420",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "311": {
+    "codigo": 311,
+    "nome": "CTOP 22 E 12 - COSTA E SILVA 9 AO 16",
+    "endereco": "Rua João Damaso, 420",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 18,22,27,28,29 - OLT 3 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "315": {
+    "codigo": 315,
+    "nome": "CTOP 2 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua General Osório, 166",
+    "bairro": "Jardim Trinta e Um de Março",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "317": {
+    "codigo": 317,
+    "nome": "CTOP 3 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua João Oléa Aguilar, 321",
+    "bairro": "Jardim Trinta e Um de Março",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "319": {
+    "codigo": 319,
+    "nome": "CTOP 5 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua Doutor Salim Farah, 235",
+    "bairro": "Jardim Trinta e Um de Março",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "321": {
+    "codigo": 321,
+    "nome": "CTOP 6 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua Abel Tenório de Oliveira, 0",
+    "bairro": "Jardim Trinta e Um de Março",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "323": {
+    "codigo": 323,
+    "nome": "CTOP 7 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua Treze de Maio, 83",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "325": {
+    "codigo": 325,
+    "nome": "CTOP 8 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua Sergipe, 132",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "327": {
+    "codigo": 327,
+    "nome": "CTOP 9 - JARDIM 31 DE MARÇO",
+    "endereco": "Avenida Nossa Senhora da Lapa, 30",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "329": {
+    "codigo": 329,
+    "nome": "CTOP 10 - JARDIM 31 DE MARÇO",
+    "endereco": "Avenida Martins Fontes, 0",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "331": {
+    "codigo": 331,
+    "nome": "CTOP 11 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua Maranhão, 21",
+    "bairro": "Vila Santa Rosa",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "333": {
+    "codigo": 333,
+    "nome": "CTOP 12 - JARDIM 31 DE MARÇO",
+    "endereco": "Rua Rio de Janeiro, 167",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "335": {
+    "codigo": 335,
+    "nome": "CTOP 17 - VILA NATAL",
+    "endereco": "Rua dos Cravos, 57",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "337": {
+    "codigo": 337,
+    "nome": "CTOP 18 - VILA NATAL",
+    "endereco": "Rua dos Cravos, 167",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "339": {
+    "codigo": 339,
+    "nome": "CTOP 19 - VILA NATAL",
+    "endereco": "Rua dos Girassóis, 473",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "341": {
+    "codigo": 341,
+    "nome": "CTOP 20 - VILA NATAL",
+    "endereco": "Rua dos Girassóis, 353",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "343": {
+    "codigo": 343,
+    "nome": "CTOP 21 - VILA NATAL",
+    "endereco": "Rua dos Girassóis, 159",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "345": {
+    "codigo": 345,
+    "nome": "CTOP 22 - VILA NATAL",
+    "endereco": "Rua dos Cravos, 307",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "347": {
+    "codigo": 347,
+    "nome": "CTOP 23 - VILA NATAL",
+    "endereco": "Rua das Acácias, 709",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "349": {
+    "codigo": 349,
+    "nome": "CTOP 24 - VILA NATAL",
+    "endereco": "Rua das Acácias, 545",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "351": {
+    "codigo": 351,
+    "nome": "CTOP 1 - VILA NATAL",
+    "endereco": "Rua das Azaléias, 409",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "353": {
+    "codigo": 353,
+    "nome": "CTOP 2 - VILA NATAL",
+    "endereco": "Rua das Palmas, 402",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "355": {
+    "codigo": 355,
+    "nome": "CTOP 3 - VILA NATAL",
+    "endereco": "Rua das Palmas, 168",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "357": {
+    "codigo": 357,
+    "nome": "CTOP 5 - VILA NATAL",
+    "endereco": "Rua das Papoulas, 89",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "359": {
+    "codigo": 359,
+    "nome": "CTOP 6 - VILA NATAL",
+    "endereco": "Rua das Azaléias, 471",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "361": {
+    "codigo": 361,
+    "nome": "CTOP 7 - VILA NATAL",
+    "endereco": "Rua das Azaléias, 247",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "363": {
+    "codigo": 363,
+    "nome": "CTOP 8 - VILA NATAL",
+    "endereco": "Rua das Azaléias, 29",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "365": {
+    "codigo": 365,
+    "nome": "CTOP 9 - VILA NATAL",
+    "endereco": "Rua das Violetas, 483",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "367": {
+    "codigo": 367,
+    "nome": "CTOP 10 - VILA NATAL",
+    "endereco": "Rua das Violetas, 395",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "369": {
+    "codigo": 369,
+    "nome": "CTOP 11 - VILA NATAL",
+    "endereco": "Rua das Violetas, 307",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "371": {
+    "codigo": 371,
+    "nome": "CTOP 12 - VILA NATAL",
+    "endereco": "Rua das Violetas, 31",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "373": {
+    "codigo": 373,
+    "nome": "CTOP 15 - VILA NATAL",
+    "endereco": "Rua dos Cravos, 419",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "375": {
+    "codigo": 375,
+    "nome": "CTOP 16 - VILA NATAL",
+    "endereco": "Rua das Azaléias, 189",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "377": {
+    "codigo": 377,
+    "nome": "CTOP 25 - VILA NATAL",
+    "endereco": "Rua das Acácias, 469",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "379": {
+    "codigo": 379,
+    "nome": "CTOP 26 - VILA NATAL",
+    "endereco": "Rua dos Lírios, 871",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "381": {
+    "codigo": 381,
+    "nome": "CTOP 27 - VILA NATAL",
+    "endereco": "Rua das Rosas, 699",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "383": {
+    "codigo": 383,
+    "nome": "CTOP 28 - VILA NATAL",
+    "endereco": "Rua das Rosas, 761",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "385": {
+    "codigo": 385,
+    "nome": "CTOP 29 - VILA NATAL",
+    "endereco": "Rua das Rosas, 355",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "387": {
+    "codigo": 387,
+    "nome": "CTOP 48 - VILA NATAL",
+    "endereco": "Rua das Begônias, 43",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "389": {
+    "codigo": 389,
+    "nome": "CTOP 45 - VILA NATAL",
+    "endereco": "Rua dos Girassóis, 23",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "391": {
+    "codigo": 391,
+    "nome": "CTOP 30 - VILA NATAL",
+    "endereco": "Rua Vinte e Cinco de Dezembro, 0",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 31 E 32 - OLT1 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "393": {
+    "codigo": 393,
+    "nome": "CTOP 33 - CAMINHO 2",
+    "endereco": "Rua Comendador Germano Augusto Soares Tomé, 97",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "395": {
+    "codigo": 395,
+    "nome": "CTOP 34 - CAMINHO 2",
+    "endereco": "Rua Edson Pereira França, 40",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "397": {
+    "codigo": 397,
+    "nome": "CTOP 38 - CAMINHO 2",
+    "endereco": "Rua Edson Pereira França, 72",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "399": {
+    "codigo": 399,
+    "nome": "CTOP 35 - CAMINHO 2",
+    "endereco": "Rua Vereador Salvador Evangelista, 20",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "401": {
+    "codigo": 401,
+    "nome": "CTOP 36 - CAMINHO 2",
+    "endereco": "Rua Manoel Grillo, 96",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "403": {
+    "codigo": 403,
+    "nome": "CTOP 44 - CAMINHO 2",
+    "endereco": "Rua Manoel Grillo, 40",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "405": {
+    "codigo": 405,
+    "nome": "CTOP 39 - CAMINHO 2",
+    "endereco": "Rua Paulo César do Nascimento, 104",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "407": {
+    "codigo": 407,
+    "nome": "CTOP 37 - CAMINHO 2",
+    "endereco": "Rua Vereador Santiago Garcia Diegues, 97",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "409": {
+    "codigo": 409,
+    "nome": "CTOP 40 - CAMINHO 2",
+    "endereco": "Rua João Carlos Campos, 89",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "411": {
+    "codigo": 411,
+    "nome": "CTOP 41 - CAMINHO 2",
+    "endereco": "Rua Damião Ferreira de Aquino, 72",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "413": {
+    "codigo": 413,
+    "nome": "CTOP 43 - CAMINHO 2",
+    "endereco": "Rua Vereador Salvador Evangelista, 405",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "415": {
+    "codigo": 415,
+    "nome": "CTOP 42 - CAMINHO 2",
+    "endereco": "Rua Antônio Rodrigues, 57",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL EX 46 E 47 - OLT1 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "417": {
+    "codigo": 417,
+    "nome": "PREDIO 10 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 10",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "419": {
+    "codigo": 419,
+    "nome": "PREDIO 20 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 20",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "421": {
+    "codigo": 421,
+    "nome": "PREDIO 31 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 31",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "423": {
+    "codigo": 423,
+    "nome": "PREDIO 41 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 41",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "425": {
+    "codigo": 425,
+    "nome": "PREDIO 51 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 51",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "427": {
+    "codigo": 427,
+    "nome": "PREDIO 61 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 61",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "429": {
+    "codigo": 429,
+    "nome": "PREDIO 71 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 71",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "431": {
+    "codigo": 431,
+    "nome": "PREDIO 70 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 70",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "433": {
+    "codigo": 433,
+    "nome": "PREDIO 80 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 80",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "435": {
+    "codigo": 435,
+    "nome": "PREDIO 81 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 81",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "437": {
+    "codigo": 437,
+    "nome": "PREDIO 90 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 90",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "439": {
+    "codigo": 439,
+    "nome": "PREDIO 100 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 100",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "441": {
+    "codigo": 441,
+    "nome": "PREDIO 101 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 101",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "443": {
+    "codigo": 443,
+    "nome": "PREDIO 141 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 141",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "445": {
+    "codigo": 445,
+    "nome": "PREDIO 111 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 111",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "447": {
+    "codigo": 447,
+    "nome": "PREDIO 20 - RUA ANTONIO JOSE - VILA NATAL",
+    "endereco": "Rua Antônio José Silva, 20",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "449": {
+    "codigo": 449,
+    "nome": "PREDIO 131 - VILA NATAL 1 AO 8",
+    "endereco": "Rua Julio Amaro Ribeiro, 131",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "451": {
+    "codigo": 451,
+    "nome": "PREDIO 131 - VILA NATAL 9 AO 16",
+    "endereco": "Rua Julio Amaro Ribeiro, 131",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "453": {
+    "codigo": 453,
+    "nome": "PREDIO 42 - VILA NATAL 1 AO 8",
+    "endereco": "Rua Antônio Pimenta Cabral, 42",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "455": {
+    "codigo": 455,
+    "nome": "PREDIO 42 - VILA NATAL 9 AO 16",
+    "endereco": "Rua Antônio Pimenta Cabral, 42",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT1 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "457": {
+    "codigo": 457,
+    "nome": "CTOP 2 - VILA COUTO",
+    "endereco": "Rua Pedro de Toledo, 510",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "459": {
+    "codigo": 459,
+    "nome": "CTOP 3 - VILA COUTO",
+    "endereco": "Rua Pedro de Toledo, 316",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "461": {
+    "codigo": 461,
+    "nome": "CTOP 4 - VILA COUTO",
+    "endereco": "Rua Manoel Jorge, 77",
+    "bairro": "Centro",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "463": {
+    "codigo": 463,
+    "nome": "CTOP 6 - VILA COUTO",
+    "endereco": "Rua Antônio Lemos, 203",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "465": {
+    "codigo": 465,
+    "nome": "CTOP 8 - VILA COUTO (1 a 8)",
+    "endereco": "Rua Antônio Lemos, 263",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "467": {
+    "codigo": 467,
+    "nome": "CTOP 9 - VILA COUTO",
+    "endereco": "Rua Bernardo Pinto, 319",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "469": {
+    "codigo": 469,
+    "nome": "CTOP 10 E 11 - VILA COUTO",
+    "endereco": "Rua Ana Neri, 130",
+    "bairro": "Vila Couto",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "471": {
+    "codigo": 471,
+    "nome": "CTOP 16 - VILA COUTO",
+    "endereco": "Avenida Pedro José Cardoso, 721",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "473": {
+    "codigo": 473,
+    "nome": "CTOP 1 - VILA COUTO",
+    "endereco": "Rua Manoel Jorge, 342",
+    "bairro": "Centro",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 9,
+    "portas_inicio": 1
+  },
+  "475": {
+    "codigo": 475,
+    "nome": "CTOP 5 - VILA COUTO",
+    "endereco": "Rua Ceará, 87",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "477": {
+    "codigo": 477,
+    "nome": "CTOP 7 - VILA COUTO",
+    "endereco": "Rua Ceará, 218",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "479": {
+    "codigo": 479,
+    "nome": "CTOP 12 - VILA COUTO",
+    "endereco": "Rua Professora Ana Dias, 162",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "481": {
+    "codigo": 481,
+    "nome": "CTOP 13 - VILA COUTO",
+    "endereco": "Rua José Búcolo Sobrinho, 116",
+    "bairro": "Vila Couto",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "483": {
+    "codigo": 483,
+    "nome": "CTOP 14 - VILA COUTO",
+    "endereco": "Avenida Joaquim Miguel Couto, 678",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "485": {
+    "codigo": 485,
+    "nome": "CTOP 15 - VILA COUTO",
+    "endereco": "Rua Professora Ana Dias, 295",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "487": {
+    "codigo": 487,
+    "nome": "CTOP 17 - VILA COUTO",
+    "endereco": "Avenida Doutor Fernando Costa, 389",
+    "bairro": "Vila Couto",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "489": {
+    "codigo": 489,
+    "nome": "CTOP 26 - ILHA CARAGUATA",
+    "endereco": "Rua João Maria Catarino, 232",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "491": {
+    "codigo": 491,
+    "nome": "CTOP 11 - ILHA CARAGUATA",
+    "endereco": "Rua Doutor Fernando Generoso Silva Salvador, 65",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "493": {
+    "codigo": 493,
+    "nome": "CTOP 48 - ILHA CARAGUATA",
+    "endereco": "Rua José de Castro, 238",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "495": {
+    "codigo": 495,
+    "nome": "CTOP 37 - ILHA CARAGUATA",
+    "endereco": "Rua Dez, 37",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "497": {
+    "codigo": 497,
+    "nome": "CTOP 17 - ILHA CARAGUATA",
+    "endereco": "Rua Engenheiro Ernesto Otto Stock, 97",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "499": {
+    "codigo": 499,
+    "nome": "CTOP 2 - ILHA CARAGUATA",
+    "endereco": "Rua Ralce Pereira, 53",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "501": {
+    "codigo": 501,
+    "nome": "CTOP 24 - ILHA CARAGUATA",
+    "endereco": "Rua Pastor Pedro Rosalino de Carvalho, 74",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "503": {
+    "codigo": 503,
+    "nome": "CTOP 21 - ILHA CARAGUATA",
+    "endereco": "Rua Luiz Gonzaga do Nascimento, 73",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "505": {
+    "codigo": 505,
+    "nome": "CTOP 28 - ILHA CARAGUATA",
+    "endereco": "Rua Professora Terezinha Silva, 90",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "507": {
+    "codigo": 507,
+    "nome": "CTOP 33 - ILHA CARAGUATA",
+    "endereco": "Rua Flávio Cardoso, 73",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "509": {
+    "codigo": 509,
+    "nome": "CTOP 29 - ILHA CARAGUATA",
+    "endereco": "Rua Nelson Nunes de Azevedo, 97",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "511": {
+    "codigo": 511,
+    "nome": "CTOP 4 - ILHA CARAGUATA",
+    "endereco": "Rua João Batista Reis, 65",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "513": {
+    "codigo": 513,
+    "nome": "CTOP 6 - ILHA CARAGUATA",
+    "endereco": "Rua Doutor Carlos Roberto Morilhas, 164",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "515": {
+    "codigo": 515,
+    "nome": "CTOP 14 - ILHA CARAGUATA",
+    "endereco": "Avenida Michajlo Halajko, 79",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "517": {
+    "codigo": 517,
+    "nome": "CTOP 42 - ILHA CARAGUATA",
+    "endereco": "Rua José de Castro, 308",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "519": {
+    "codigo": 519,
+    "nome": "CTOP 34 - ILHA CARAGUATA",
+    "endereco": "Rua José Ramos Ferreira, 78",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "521": {
+    "codigo": 521,
+    "nome": "CTOP 1 - ILHA CARAGUATA",
+    "endereco": "Rua Ralce Pereira, 124",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "523": {
+    "codigo": 523,
+    "nome": "CTOP 47 - ILHA CARAGUATA",
+    "endereco": "Avenida Nadir Tereza Esteves, 86",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "525": {
+    "codigo": 525,
+    "nome": "CTOP 8 - ILHA CARAGUATA",
+    "endereco": "Rua Laércio José dos Santos, 30",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "527": {
+    "codigo": 527,
+    "nome": "CTOP 19 - ILHA CARAGUATA",
+    "endereco": "Rua Engenheiro Alberto Pinto de Aguiar, 97",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "529": {
+    "codigo": 529,
+    "nome": "CTOP 15 - ILHA CARAGUATA",
+    "endereco": "Rua Francisco da Costa, 283",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "531": {
+    "codigo": 531,
+    "nome": "CTOP 38 - ILHA CARAGUATA",
+    "endereco": "Rua Dez, 98",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "533": {
+    "codigo": 533,
+    "nome": "CTOP 30 - ILHA CARAGUATA",
+    "endereco": "Rua João Francisco de Oliveira, 70",
+    "bairro": "Vila São Benedito",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "535": {
+    "codigo": 535,
+    "nome": "CTOP 43 - ILHA CARAGUATA",
+    "endereco": "Rua Nicolau Cuqui, 594",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "537": {
+    "codigo": 537,
+    "nome": "CTOP 45 - ILHA CARAGUATA",
+    "endereco": "Rua Nicolau Cuqui, 384",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "539": {
+    "codigo": 539,
+    "nome": "CTOP 40 - ILHA CARAGUATA",
+    "endereco": "Rua José de Castro, 596",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "541": {
+    "codigo": 541,
+    "nome": "CTOP 12 - ILHA CARAGUATA",
+    "endereco": "Rua José Cascardi, 446",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "543": {
+    "codigo": 543,
+    "nome": "CTOP 38 - CASQUEIRO",
+    "endereco": "Rua João Marion, 734",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "545": {
+    "codigo": 545,
+    "nome": "CTOP 53 - CASQUEIRO",
+    "endereco": "Avenida Europa, 391",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "547": {
+    "codigo": 547,
+    "nome": "CTOP 60 - CASQUEIRO",
+    "endereco": "Avenida Brasil, 129",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "549": {
+    "codigo": 549,
+    "nome": "CTOP 2 - CASQUEIRO",
+    "endereco": "Rua Carlos Gomes, 625",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "551": {
+    "codigo": 551,
+    "nome": "CTOP 11 - CASQUEIRO",
+    "endereco": "Avenida Beira Mar, 1629",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "553": {
+    "codigo": 553,
+    "nome": "CTOP 19 - CASQUEIRO",
+    "endereco": "Rua Martim Afonso, 111",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "555": {
+    "codigo": 555,
+    "nome": "CTOP 18 - CASQUEIRO",
+    "endereco": "Rua Maria do Carmo, 786",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "557": {
+    "codigo": 557,
+    "nome": "CTOP 64 - CASQUEIRO",
+    "endereco": "Rua Maria Graziela, 452",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "559": {
+    "codigo": 559,
+    "nome": "CTOP 16 - CASQUEIRO",
+    "endereco": "Avenida Beira Mar, 1233",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "561": {
+    "codigo": 561,
+    "nome": "CTOP 8 - CASQUEIRO",
+    "endereco": "Rua Vereador Manoel Lourenço dos Santos, 415",
+    "bairro": "Vila Ponte Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "563": {
+    "codigo": 563,
+    "nome": "CTOP 37 - CASQUEIRO",
+    "endereco": "Rua João Marion, 90",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "565": {
+    "codigo": 565,
+    "nome": "CTOP 21 - CASQUEIRO",
+    "endereco": "Rua Carlos Gomes, 102",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "567": {
+    "codigo": 567,
+    "nome": "CTOP 41 - CASQUEIRO",
+    "endereco": "Avenida Martim Francisco, 440",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "569": {
+    "codigo": 569,
+    "nome": "CTOP 36 - CASQUEIRO",
+    "endereco": "Avenida Brasil, 799",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "571": {
+    "codigo": 571,
+    "nome": "CTOP 48 - CASQUEIRO",
+    "endereco": "Avenida Brasil, 545",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "573": {
+    "codigo": 573,
+    "nome": "CTOP 49 - CASQUEIRO",
+    "endereco": "Rua Estados Unidos, 541",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "575": {
+    "codigo": 575,
+    "nome": "CTOP 5 - CASQUEIRO",
+    "endereco": "Rua Carlos Gomes, 450",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "577": {
+    "codigo": 577,
+    "nome": "CTOP 24 - CASQUEIRO",
+    "endereco": "Rua São Vicente, 87",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "579": {
+    "codigo": 579,
+    "nome": "CTOP 45 - CASQUEIRO",
+    "endereco": "Rua Maria Cristina, 497",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "581": {
+    "codigo": 581,
+    "nome": "CTOP 43 - CASQUEIRO",
+    "endereco": "Rua Ana Maria, 491",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "583": {
+    "codigo": 583,
+    "nome": "CTOP 59 - CASQUEIRO",
+    "endereco": "Avenida Brasil, 234",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "585": {
+    "codigo": 585,
+    "nome": "CTOP 3 - CASQUEIRO",
+    "endereco": "Rua Boa Vista, 294",
+    "bairro": "Vila Ponte Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "587": {
+    "codigo": 587,
+    "nome": "CTOP 61 - CASQUEIRO",
+    "endereco": "Rua São Pedro, 180",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "589": {
+    "codigo": 589,
+    "nome": "CTOP 25 - CASQUEIRO",
+    "endereco": "Rua Ana Maria/Rua Sao vicente, 252",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "591": {
+    "codigo": 591,
+    "nome": "CTOP 12 - CASQUEIRO",
+    "endereco": "Avenida Beira Mar, 1563",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "593": {
+    "codigo": 593,
+    "nome": "CTOP 26 - CASQUEIRO",
+    "endereco": "Avenida Beira Mar, 885",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "595": {
+    "codigo": 595,
+    "nome": "CTOP 30 - CASQUEIRO",
+    "endereco": "Rua Maria Cristina, 1042",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "597": {
+    "codigo": 597,
+    "nome": "CTOP 46 - CASQUEIRO",
+    "endereco": "Rua Maria Cristina, 335",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "599": {
+    "codigo": 599,
+    "nome": "CTOP 44 - CASQUEIRO",
+    "endereco": "Rua Ana Maria, 340",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "601": {
+    "codigo": 601,
+    "nome": "CTOP 56 - CASQUEIRO",
+    "endereco": "Rua Maria Graziela, 448",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "603": {
+    "codigo": 603,
+    "nome": "CTOP 52 - CASQUEIRO",
+    "endereco": "Rua Maria do Carmo, 467",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "605": {
+    "codigo": 605,
+    "nome": "CTOP 4 - CASQUEIRO",
+    "endereco": "Rua Comendador Rubens Roncari, 410",
+    "bairro": "Vila Ponte Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "607": {
+    "codigo": 607,
+    "nome": "CTOP 47 - CASQUEIRO",
+    "endereco": "Rua Maria Cristina, 120",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "609": {
+    "codigo": 609,
+    "nome": "CTOP 10 - CASQUEIRO",
+    "endereco": "Rua Maria Graziela, 1106",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "611": {
+    "codigo": 611,
+    "nome": "CTOP 7 - CASQUEIRO",
+    "endereco": "Rua Jornalista Donato Ribeiro, 429",
+    "bairro": "Vila Ponte Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "613": {
+    "codigo": 613,
+    "nome": "CTOP 62 - CASQUEIRO",
+    "endereco": "Rua Chile, 168",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "615": {
+    "codigo": 615,
+    "nome": "CTOP 55 - CASQUEIRO",
+    "endereco": "Rua Espanha, 256",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "617": {
+    "codigo": 617,
+    "nome": "CTOP 28 - CASQUEIRO",
+    "endereco": "Rua Maria Cristina, 904",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "619": {
+    "codigo": 619,
+    "nome": "CTOP 13 - CASQUEIRO",
+    "endereco": "Rua Espanha, 1134",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "621": {
+    "codigo": 621,
+    "nome": "CTOP 1 - CASQUEIRO",
+    "endereco": "Avenida Felícia Olivieri Trombino, 603",
+    "bairro": "Vila Ponte Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "623": {
+    "codigo": 623,
+    "nome": "CTOP 15 - CASQUEIRO",
+    "endereco": "Rua Marechal Humberto de Alencar Castelo Branco, 41",
+    "bairro": "Vila Ponte Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "625": {
+    "codigo": 625,
+    "nome": "CTOP 14 - CASQUEIRO",
+    "endereco": "Rua Espanha, 924",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "627": {
+    "codigo": 627,
+    "nome": "CTOP 31 - CASQUEIRO",
+    "endereco": "Rua Brasília, 327",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "631": {
+    "codigo": 631,
+    "nome": "CTOP 23 - CASQUEIRO",
+    "endereco": "Rua Portugal, 665",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "633": {
+    "codigo": 633,
+    "nome": "CTOP 33 - CASQUEIRO",
+    "endereco": "Avenida Beira Mar, 301",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "635": {
+    "codigo": 635,
+    "nome": "CTOP 40 - CASQUEIRO",
+    "endereco": "Avenida Martim Francisco, 153",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "637": {
+    "codigo": 637,
+    "nome": "CTOP 30 ZTE - ALIVIO VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 180",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO VILA NOVA NOVA - OLT 8 - PON 1",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "639": {
+    "codigo": 639,
+    "nome": "CTOP 20 - PREDIO 542 ALIVIO",
+    "endereco": "Rua São João, 150",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "641": {
+    "codigo": 641,
+    "nome": "CTOP 22 - ALIVIO VILA NOVA",
+    "endereco": "Rua São João, 296",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "643": {
+    "codigo": 643,
+    "nome": "CTOP 18 - ALIVIO VILA NOVA",
+    "endereco": "Rua São João/Av nove de abril, 3370",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "645": {
+    "codigo": 645,
+    "nome": "CTOP 17 - ALIVIO VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 1129",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "647": {
+    "codigo": 647,
+    "nome": "CTOP 29 - ALIVIO VILA NOVA",
+    "endereco": "Rua Rio de Janeiro, 363",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "649": {
+    "codigo": 649,
+    "nome": "CTOP 27 - ALIVIO VILA NOVA",
+    "endereco": "Rua Dom Pedro I, 620",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "651": {
+    "codigo": 651,
+    "nome": "CTOP 31 + CTOP 32 - ALIVIO VILA NOVA",
+    "endereco": "Avenida Nove de Abril, 3200",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "653": {
+    "codigo": 653,
+    "nome": "CTOP 19 - ALIVIO VILA NOVA",
+    "endereco": "Rua Dom Pedro I, 996",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "655": {
+    "codigo": 655,
+    "nome": "CTOP 24 - ALIVIO VILA NOVA",
+    "endereco": "Rua Monte Castelo, 335",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "657": {
+    "codigo": 657,
+    "nome": "CTOP 26 - ALIVIO VILA NOVA",
+    "endereco": "Rua Quinze de Novembro, 638",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "659": {
+    "codigo": 659,
+    "nome": "CTOP 23 - ALIVIO VILA NOVA",
+    "endereco": "Avenida Nossa Senhora da Lapa, 891",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "661": {
+    "codigo": 661,
+    "nome": "CTOP 28 - ALIVIO VILA NOVA",
+    "endereco": "Rua Dom Pedro I, 344",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "663": {
+    "codigo": 663,
+    "nome": "CTOP 21 - ALIVIO VILA NOVA",
+    "endereco": "Rua Rio de Janeiro, 1165",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "665": {
+    "codigo": 665,
+    "nome": "CTOP 25 - ALIVIO VILA NOVA",
+    "endereco": "Rua Sete de Setembro, 424",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA ALIVIO - OLT5 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "667": {
+    "codigo": 667,
+    "nome": "CTOP 33 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Belarmino Amaral, 514",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "669": {
+    "codigo": 669,
+    "nome": "CTOP 34 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Santos, 298",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "671": {
+    "codigo": 671,
+    "nome": "CTOP 35 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Avenida Joaquim Miguel Couto, 59",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "673": {
+    "codigo": 673,
+    "nome": "CTOP 36 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Avenida Joaquim Miguel Couto, 213",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "675": {
+    "codigo": 675,
+    "nome": "CTOP 37 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Guarujá, 116",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "677": {
+    "codigo": 677,
+    "nome": "CTOP 12 E 38 - ALIVIO JARDIM SAO FRANCISCO 9 AO 16",
+    "endereco": "Rua José Vicente, 18",
+    "bairro": "Sítio Cafezal",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "679": {
+    "codigo": 679,
+    "nome": "CTOP 39 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua São Paulo, 2",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "681": {
+    "codigo": 681,
+    "nome": "CTOP 40 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Marechal Carmona, 207",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "683": {
+    "codigo": 683,
+    "nome": "CTOP 41 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Padre Primo Maria Vieira, 56",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "685": {
+    "codigo": 685,
+    "nome": "CTOP 42 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Padre Primo Maria Vieira, 248",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "687": {
+    "codigo": 687,
+    "nome": "CTOP 43 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Belarmino Amaral, 899",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "689": {
+    "codigo": 689,
+    "nome": "CTOP 44 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Francisco Roman Torres Filho, 138",
+    "bairro": "Conjunto Afonso Schmidt",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "691": {
+    "codigo": 691,
+    "nome": "CTOP 45 - ALIVO JARDIM SAO FRANCISCO",
+    "endereco": "Rua Manoel Leal, 352",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "693": {
+    "codigo": 693,
+    "nome": "CTOP 46 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Avenida Marechal Costa e Silva, 665",
+    "bairro": "Jardim Costa e Silva",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "695": {
+    "codigo": 695,
+    "nome": "CTOP 47 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua João Damaso, 563",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "697": {
+    "codigo": 697,
+    "nome": "CTOP 48 - ALIVIO JARDIM SAO FRANCISCO",
+    "endereco": "Rua João Damaso, 273",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "699": {
+    "codigo": 699,
+    "nome": "CTOP 1 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Ponto final, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "703": {
+    "codigo": 703,
+    "nome": "CTOP 3 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Ponto final, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "705": {
+    "codigo": 705,
+    "nome": "CTOP 4 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Ponto final, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "707": {
+    "codigo": 707,
+    "nome": "CTOP 5 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Ponto final, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "709": {
+    "codigo": 709,
+    "nome": "CTOP 6 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Ponto final, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "711": {
+    "codigo": 711,
+    "nome": "CTOP 7 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Ponto final, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "713": {
+    "codigo": 713,
+    "nome": "CTOP 8 - VILA ESPERANÇA",
+    "endereco": "Avenida Imigrantes, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "715": {
+    "codigo": 715,
+    "nome": "CTOP 9 E 12 - VILA ESPERANÇA",
+    "endereco": "Avenida Imigrantes, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "717": {
+    "codigo": 717,
+    "nome": "CTOP 10 - VILA ESPERANÇA",
+    "endereco": "Avenida Imigrantes, 4323",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "719": {
+    "codigo": 719,
+    "nome": "CTOP 11 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "721": {
+    "codigo": 721,
+    "nome": "CTOP 12 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 4171",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "723": {
+    "codigo": 723,
+    "nome": "CTOP 13 E 15 - VILA ESPERANÇA",
+    "endereco": "Caminho Boa Vista, 4130",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "725": {
+    "codigo": 725,
+    "nome": "CTOP 14 - VILA ESPERANÇA",
+    "endereco": "Caminho Paraiba, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "729": {
+    "codigo": 729,
+    "nome": "CTOP 18 E 19 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Beco Maranhao, 3905",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "731": {
+    "codigo": 731,
+    "nome": "CTOP 20 - VILA ESPERANÇA",
+    "endereco": "Morro do Indio, 1216",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "733": {
+    "codigo": 733,
+    "nome": "CTOP 22 E 21 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 1361",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "735": {
+    "codigo": 735,
+    "nome": "CTOP 23 + CTOP 17 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 1501",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "739": {
+    "codigo": 739,
+    "nome": "CTOP 25 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 1129",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "741": {
+    "codigo": 741,
+    "nome": "CTOP 24 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 1641",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "743": {
+    "codigo": 743,
+    "nome": "CTOP 26 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 1648",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "745": {
+    "codigo": 745,
+    "nome": "CTOP 27 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 1666",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "747": {
+    "codigo": 747,
+    "nome": "CTOP 28 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 3757",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "749": {
+    "codigo": 749,
+    "nome": "CTOP 29 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 3571",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "751": {
+    "codigo": 751,
+    "nome": "CTOP 30 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 3509",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "753": {
+    "codigo": 753,
+    "nome": "CTOP 31 - VILA ESPERANÇA",
+    "endereco": "Caminho Santa Rita de Cássia, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "755": {
+    "codigo": 755,
+    "nome": "CTOP 32 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 3403",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "757": {
+    "codigo": 757,
+    "nome": "CTOP 33 - VILA ESPERANÇA",
+    "endereco": "Caminho São Cristóvão, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "759": {
+    "codigo": 759,
+    "nome": "CTOP 34 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 3351",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "761": {
+    "codigo": 761,
+    "nome": "CTOP 35 - VILA ESPERANÇA",
+    "endereco": "Caminho São Cristóvão, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "763": {
+    "codigo": 763,
+    "nome": "CTOP 36 E 37 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 2951",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "765": {
+    "codigo": 765,
+    "nome": "CTOP 38 - VILA ESPERANÇA",
+    "endereco": "Atravessa Sao Jorge, 215",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "767": {
+    "codigo": 767,
+    "nome": "CTOP 39 - VILA ESPERANÇA",
+    "endereco": "Caminho do Papa, 594",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "769": {
+    "codigo": 769,
+    "nome": "CTOP 40 - VILA ESPERANÇA",
+    "endereco": "Santa Barbara, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "771": {
+    "codigo": 771,
+    "nome": "CTOP 41 - VILA ESPERANÇA",
+    "endereco": "Santa Barbara, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "773": {
+    "codigo": 773,
+    "nome": "CTOP 42 - VILA ESPERANÇA",
+    "endereco": "Santa Barbara, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "775": {
+    "codigo": 775,
+    "nome": "CTOP 43 - VILA ESPERANÇA",
+    "endereco": "Rua Santa Barbara, 549",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "777": {
+    "codigo": 777,
+    "nome": "CTOP 44 - VILA ESPERANÇA",
+    "endereco": "Rua Santa Barbara, 1863",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "779": {
+    "codigo": 779,
+    "nome": "CTOP 45 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 1843",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "781": {
+    "codigo": 781,
+    "nome": "CTOP 46 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 2021",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "785": {
+    "codigo": 785,
+    "nome": "CTOP 48/47 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal/Caminho sao braz, 2271",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 3",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "787": {
+    "codigo": 787,
+    "nome": "CTOP 49 - VILA ESPERANÇA",
+    "endereco": "Rua da Benção, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "789": {
+    "codigo": 789,
+    "nome": "CTOP 50 - VILA ESPERANÇA",
+    "endereco": "Beco Beira Mar, 419",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "791": {
+    "codigo": 791,
+    "nome": "CTOP 51 - VILA ESPERANÇA",
+    "endereco": "Rua da Benção, 590",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "793": {
+    "codigo": 793,
+    "nome": "CTOP 52 - VILA ESPERANÇA",
+    "endereco": "Beco bar do cabeça, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "795": {
+    "codigo": 795,
+    "nome": "CTOP 53 - VILA ESPERANÇA",
+    "endereco": "Rua santa filomena, 450",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "797": {
+    "codigo": 797,
+    "nome": "CTOP 54 - VILA ESPERANÇA",
+    "endereco": "Rua santa barbara, 71",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "799": {
+    "codigo": 799,
+    "nome": "CTOP 55 - VILA ESPERANÇA",
+    "endereco": "Rua Santa Paula, 70",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "801": {
+    "codigo": 801,
+    "nome": "CTOP 56 - VILA ESPERANÇA",
+    "endereco": "Rua santa filomena, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "803": {
+    "codigo": 803,
+    "nome": "CTOP 57 - VILA ESPERANÇA",
+    "endereco": "Rua Santa Marta, 620",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "805": {
+    "codigo": 805,
+    "nome": "CTOP 58 - VILA ESPERANÇA",
+    "endereco": "Rua Santa Marta, 519",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "807": {
+    "codigo": 807,
+    "nome": "CTOP 59 - VILA ESPERANÇA",
+    "endereco": "Rua Santa Rosa, 88",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "809": {
+    "codigo": 809,
+    "nome": "CTOP 61 E 68 - VILA ESPERANÇA",
+    "endereco": "Larissa Cockner, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "811": {
+    "codigo": 811,
+    "nome": "CTOP 62 - VILA ESPERANÇA",
+    "endereco": "Larissa Cockner, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "813": {
+    "codigo": 813,
+    "nome": "CTOP 63 E 60 - VILA ESPERANÇA",
+    "endereco": "Larissa Cockner, 119",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "817": {
+    "codigo": 817,
+    "nome": "CTOP 65 E 64 - VILA ESPERANÇA",
+    "endereco": "Caminho São Geraldo, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "819": {
+    "codigo": 819,
+    "nome": "CTOP 66 - VILA ESPERANÇA",
+    "endereco": "Rua santa clara, 61",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "821": {
+    "codigo": 821,
+    "nome": "CTOP 67 - VILA ESPERANÇA",
+    "endereco": "Rua santa monica, 165",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "825": {
+    "codigo": 825,
+    "nome": "CTOP 69 - VILA ESPERANÇA",
+    "endereco": "Rua santa marta, 106",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "827": {
+    "codigo": 827,
+    "nome": "CTOP 70 - VILA ESPERANÇA",
+    "endereco": "Caminho São Geraldo, 331",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "829": {
+    "codigo": 829,
+    "nome": "CTOP 71 - VILA ESPERANÇA",
+    "endereco": "Caminho São Geraldo, 143",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "831": {
+    "codigo": 831,
+    "nome": "CTOP 72 - VILA ESPERANÇA",
+    "endereco": "Caminho São Geraldo, 31",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "833": {
+    "codigo": 833,
+    "nome": "CTOP 73 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 1511",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "835": {
+    "codigo": 835,
+    "nome": "CTOP 74 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 795",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "837": {
+    "codigo": 837,
+    "nome": "CTOP 75 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 1021",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "839": {
+    "codigo": 839,
+    "nome": "CTOP 76 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 515",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "841": {
+    "codigo": 841,
+    "nome": "CTOP 77 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 131 A",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "843": {
+    "codigo": 843,
+    "nome": "CTOP 78 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 311",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "845": {
+    "codigo": 845,
+    "nome": "CTOP 79 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 395",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "847": {
+    "codigo": 847,
+    "nome": "CTOP 80 - VILA ESPERANÇA",
+    "endereco": "Avenida Principal, 475",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "849": {
+    "codigo": 849,
+    "nome": "CTOP 2 E 14 - NOVA VILA NOVA",
+    "endereco": "Rua Santo Antônio, 138",
+    "bairro": "Vila Nova",
+    "cidade": "Cubatão",
+    "area_atuacao": "NOVA VILA NOVA - OLT3 - PON 7",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "853": {
+    "codigo": 853,
+    "nome": "CTOP 3 - JARDIM SÃO FRANCISCO",
+    "endereco": "Rua Padre Primo Maria Vieira, 352",
+    "bairro": "Jardim São Francisco",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "859": {
+    "codigo": 859,
+    "nome": "CTOP 4 E 4 - JARDIM SAO FRANCISCO 1 AO 8",
+    "endereco": "Rua Antônio Augusto Bastos, 307",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "COSTA E SILVA EX 3,12,16 - OLT3 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "861": {
+    "codigo": 861,
+    "nome": "CTOP 4 E 4 - JARDIM SAO FRANCISCO 9 AO 16",
+    "endereco": "Rua Antônio Augusto Bastos, 307",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM SÃO FRANCISCO - OLT3 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "863": {
+    "codigo": 863,
+    "nome": "CDHU BLOCO A - 3",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "865": {
+    "codigo": 865,
+    "nome": "CDHU BLOCO A - 6",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "867": {
+    "codigo": 867,
+    "nome": "CDHU BLOCO A - 9",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "869": {
+    "codigo": 869,
+    "nome": "CDHU BLOCO A - 13",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "871": {
+    "codigo": 871,
+    "nome": "CDHU BLOCO B - 3",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "873": {
+    "codigo": 873,
+    "nome": "CDHU BLOCO B - 6",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "875": {
+    "codigo": 875,
+    "nome": "CDHU BLOCO B - 9",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "877": {
+    "codigo": 877,
+    "nome": "CDHU BLOCO B - 13",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "879": {
+    "codigo": 879,
+    "nome": "CDHU BLOCO C - 3",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "881": {
+    "codigo": 881,
+    "nome": "CDHU BLOCO C - 6",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "883": {
+    "codigo": 883,
+    "nome": "CDHU BLOCO C - 9",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "885": {
+    "codigo": 885,
+    "nome": "CDHU BLOCO C - 13",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "887": {
+    "codigo": 887,
+    "nome": "CDHU BLOCO D - 3",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "889": {
+    "codigo": 889,
+    "nome": "CDHU BLOCO D - 6",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "891": {
+    "codigo": 891,
+    "nome": "CDHU BLOCO D - 9",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "893": {
+    "codigo": 893,
+    "nome": "CDHU BLOCO D - 13",
+    "endereco": "Rua Marli Alves Pereira, 227",
+    "bairro": "Parque Fernando Jorge",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE FERNANDO JORGE - OLT3 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "895": {
+    "codigo": 895,
+    "nome": "CTOP 1 - INDUSTRIA",
+    "endereco": "Rodovia Cônego Domênico Rangoni, 0",
+    "bairro": "Vila Áurea (Vicente de Carvalho)",
+    "cidade": "Guarujá",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "897": {
+    "codigo": 897,
+    "nome": "CTOP 2 - INDUSTRIA",
+    "endereco": "Rodovia Cônego Domênico Rangoni, 0",
+    "bairro": "Vila Áurea (Vicente de Carvalho)",
+    "cidade": "Guarujá",
+    "area_atuacao": "ALIVIO JARDIM SÃO FRANCISCO - OLT2 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "899": {
+    "codigo": 899,
+    "nome": "CTOP 2 - VILA ESPERANÇA",
+    "endereco": "Caminho São Leopoldo, 0",
+    "bairro": "Vila Esperança",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 1",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "901": {
+    "codigo": 901,
+    "nome": "CTOP 34 - VILA SÃO JOSÉ",
+    "endereco": "Rua São José, 0",
+    "bairro": "Vila São José",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA SÃO JOSÉ - OLT2 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "903": {
+    "codigo": 903,
+    "nome": "CTOP 15 - PARQUE SAO LUIS",
+    "endereco": "Rua Olívia de Jesus Peralta, 181",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "905": {
+    "codigo": 905,
+    "nome": "CEIP 17 - PREDIO 40 -PARQUE SAO LUIS",
+    "endereco": "Rua Adelino Francisco, 40 - bloco 3",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "907": {
+    "codigo": 907,
+    "nome": "CTOP 30 - PARQUE SAO LUIS",
+    "endereco": "Rua Dona Darci Moreira César, 174",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "909": {
+    "codigo": 909,
+    "nome": "PREDIO 40 - VILA NATAL",
+    "endereco": "Rua Julio Amaro Ribeiro, 40",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL - OLT 1 - PON 8",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "913": {
+    "codigo": 913,
+    "nome": "CTOP 14 - PREDIO 61 - PARQUE SAO LUIS",
+    "endereco": "Rua João Martins Sobrinho, 12",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "915": {
+    "codigo": 915,
+    "nome": "CTOP 19 - PREDIO 516 - PARQUE SAO LUIS",
+    "endereco": "Rua João Veiga, 516",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "917": {
+    "codigo": 917,
+    "nome": "CTOP 11 - PREDIO 153 - PARQUE SAO LUIS",
+    "endereco": "Rua Vereador Sônio Célio, 153",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "919": {
+    "codigo": 919,
+    "nome": "CTOP 46 - ILHA CARAGUATA",
+    "endereco": "Avenida Nadir Tereza Esteves, 0",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "921": {
+    "codigo": 921,
+    "nome": "CTOP 9 - ILHA CARAGUATA",
+    "endereco": "Rua Álvaro Ferreira, 52",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "923": {
+    "codigo": 923,
+    "nome": "CTOP 27 - PARQUE SAO LUIS",
+    "endereco": "Rua Vereador Gigino Aldo Trombino, 349",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "925": {
+    "codigo": 925,
+    "nome": "CTOP 12 - PARQUE SAO LUIS",
+    "endereco": "Rua Rivaldo Alves Feitosa, 0",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "927": {
+    "codigo": 927,
+    "nome": "CTOP 3 - VILA CARAGUATA",
+    "endereco": "Rua Herbert José de Souza, 52",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "928": {
+    "codigo": 928,
+    "nome": "CTOP 25 - PARQUE SAO LUIS",
+    "endereco": "Rua Benedito Moreira César, 314",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "929": {
+    "codigo": 929,
+    "nome": "CTOP 74 - BOLSAO 9",
+    "endereco": "Rua Acácia dos Santos Pereira, 460",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "931": {
+    "codigo": 931,
+    "nome": "CTOP 39 - BOLSAO 8",
+    "endereco": "Rua José Quirino Dantas, 295",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "933": {
+    "codigo": 933,
+    "nome": "CTOP 6 - BOLSAO 7",
+    "endereco": "Rua Marina Lourenço de Oliveira, 480",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "935": {
+    "codigo": 935,
+    "nome": "PREDIO 11 - VILA NATAL",
+    "endereco": "Rua Luís Gustavo de Lima, 11",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "937": {
+    "codigo": 937,
+    "nome": "CTOP 68 - BOLSAO 9",
+    "endereco": "Rua Mário Ferreira, 735",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "939": {
+    "codigo": 939,
+    "nome": "CTOP 65 - BOLSAO 9",
+    "endereco": "Rua Mário Ferreira, 0",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "941": {
+    "codigo": 941,
+    "nome": "CTOP 7 - PARQUE SAO LUIS",
+    "endereco": "Avenida Doutor Joel Gonçalves de Oliveira, 81",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "943": {
+    "codigo": 943,
+    "nome": "CTOP 23 - BOLSAO 7",
+    "endereco": "Rua Marina Lourenço de Oliveira, 81",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "945": {
+    "codigo": 945,
+    "nome": "CTOP 42 - BOLSÃO 8",
+    "endereco": "Rua Lourenço Batista de Araújo, 291",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "947": {
+    "codigo": 947,
+    "nome": "CTOP 36 - BOLSÃO 8",
+    "endereco": "Rua José Quirino Dantas/Av.Dep.Emilio Justo, 173",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "949": {
+    "codigo": 949,
+    "nome": "CTOP 76 - BOLSAO 9",
+    "endereco": "Rua Vereador Antonio Aló, 115",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "951": {
+    "codigo": 951,
+    "nome": "CTOP 35 - BOLSAO 8",
+    "endereco": "Avenida Deputado Emílio Justo, 0",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "953": {
+    "codigo": 953,
+    "nome": "CTOP 25 - ILHA CARAGUATA",
+    "endereco": "Rua João Maria Catarino, 188",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "ILHA CARAGUATA - OLT5 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "955": {
+    "codigo": 955,
+    "nome": "CTOP 57 - CASQUEIRO",
+    "endereco": "Rua Maria Graziela, 353",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "957": {
+    "codigo": 957,
+    "nome": "CTOP 52 - BOLSÃO 9",
+    "endereco": "Rua Isabel Angelina Gomes, 230",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "959": {
+    "codigo": 959,
+    "nome": "CTOP 51 - BOLSÃO 9",
+    "endereco": "Rua José Carlos Menezes da Conceição, 250",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "961": {
+    "codigo": 961,
+    "nome": "CTOP 49 - BOLSÃO 9",
+    "endereco": "Rua Orlando Terras, 111",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "963": {
+    "codigo": 963,
+    "nome": "CTOP 44 - BOLSÃO 8",
+    "endereco": "Rua Professora Hortência Mathey, 49",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "965": {
+    "codigo": 965,
+    "nome": "CTOP 12 (2) - VILA COUTO",
+    "endereco": "Rua Professora Ana Dias, 162",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/JD 31 DE MARÇO - OLT3 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "967": {
+    "codigo": 967,
+    "nome": "CTOP 18 - BOLSÃO 7",
+    "endereco": "Rua Manuel Mathias de Souza, 20",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "969": {
+    "codigo": 969,
+    "nome": "CTOP 21 - BOLSÃO 7",
+    "endereco": "Rua Vicente Latrova, 20",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "971": {
+    "codigo": 971,
+    "nome": "CTOP 46 - BOLSÃO 8",
+    "endereco": "Rua Brasílio Martins Fontes/Manoel Florêncio da Silva, 0",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "973": {
+    "codigo": 973,
+    "nome": "CTOP 8 - BOLSÃO 7",
+    "endereco": "Rua Manuel Mathias de Souza, 281",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "975": {
+    "codigo": 975,
+    "nome": "CTOP 54  - BOLSÃO 9",
+    "endereco": "Rua Vereador Doutor Josafá Balbino dos Santos, 99",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "977": {
+    "codigo": 977,
+    "nome": "CTOP 47 - BOLSÃO 8",
+    "endereco": "Rua Maria Esther Garcez Vilet, 100",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "979": {
+    "codigo": 979,
+    "nome": "CTOP 20 - PARQUE SÃO LUIS",
+    "endereco": "Rua Rivaldo Alves Feitosa, 90",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "983": {
+    "codigo": 983,
+    "nome": "CTOP 63 - BOLSÃO 9",
+    "endereco": "Rua José Delfim Louro, 80",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "985": {
+    "codigo": 985,
+    "nome": "CTOP 57 - BOLSÃO 9",
+    "endereco": "Rua Professora Maria Rosa de Aquino Cordel, 80",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "987": {
+    "codigo": 987,
+    "nome": "CTOP 13 - BOLSÃO 7",
+    "endereco": "Rua Osvaldo Soares de Oliveira, 32",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "989": {
+    "codigo": 989,
+    "nome": "CTOP 42 - CASQUEIRO",
+    "endereco": "Avenida Martim Francisco, 620",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "991": {
+    "codigo": 991,
+    "nome": "CTOP 29 - BOLSÃO 7",
+    "endereco": "Av. Fernando Santos Oliveira, 0",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 3",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "993": {
+    "codigo": 993,
+    "nome": "CTOP 70 - BOLSÃO 9",
+    "endereco": "Rua Mário Jorge de Oliveira, 240",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "995": {
+    "codigo": 995,
+    "nome": "CTOP 73 - BOLSÃO 9",
+    "endereco": "Rua Acácia dos Santos Pereira, 508",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "997": {
+    "codigo": 997,
+    "nome": "CTOP 10 na CTOP 14 - PREDIO 61 - PARQUE SAO LUIS",
+    "endereco": "Rua João Martins Sobrinho, 61",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "999": {
+    "codigo": 999,
+    "nome": "CTOP A - CEIP 1 PRÉDIO 1 - CAIC",
+    "endereco": "Rua Zenaide Oliveira dos Santos, 0",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1001": {
+    "codigo": 1001,
+    "nome": "CTOP A - CEIP 2 PRÉDIO 1 - CAIC",
+    "endereco": "Rua Zenaide Oliveira dos Santos, 0",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1003": {
+    "codigo": 1003,
+    "nome": "CTOP A - CEIP 3 PRÉDIO 1 - CAIC",
+    "endereco": "Rua Zenaide Oliveira dos Santos, 127",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1005": {
+    "codigo": 1005,
+    "nome": "CTOP 50 - VILA ESPERANÇA",
+    "endereco": "Rua da Benção, 0",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA ESPERANÇA - OLT4 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1007": {
+    "codigo": 1007,
+    "nome": "CTOP 59 - BOLSÃO 9",
+    "endereco": "Rua Jonas de Souza, 20",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1009": {
+    "codigo": 1009,
+    "nome": "CEIP 18 - PREDIO 120 - PARQUE SÃO LUIS",
+    "endereco": "Rua Adelino Francisco, 120",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1011": {
+    "codigo": 1011,
+    "nome": "CTOP A - CEIP 4 PRÉDIO 1 - CAIC",
+    "endereco": "Rua Zenaide Oliveira dos Santos, 0 PREDIO",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL PREDIOS NOVOS - OLT1 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1013": {
+    "codigo": 1013,
+    "nome": "CTOP 7 - BOLSÃO 7",
+    "endereco": "Rua Manuel Mathias de Souza, 450",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 7 - OLT 6 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1015": {
+    "codigo": 1015,
+    "nome": "CTOP 9 - PARQUE SÃO LUIS",
+    "endereco": "Rua Manoel Antonio da Silva, 105",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1017": {
+    "codigo": 1017,
+    "nome": "CTOP 28 - PARQUE SÃO LUIS",
+    "endereco": "Rua Vereador Gigino Aldo Trombino, 0",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1019": {
+    "codigo": 1019,
+    "nome": "CTOP 34 - BOLSÃO 8",
+    "endereco": "Rua José Lopes da Silva, 0",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1021": {
+    "codigo": 1021,
+    "nome": "CTOP 45 - BOLSÃO 8",
+    "endereco": "Rua Jorge Farah, 0",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1023": {
+    "codigo": 1023,
+    "nome": "CTOP 56 - BOLSÃO 9",
+    "endereco": "Rua Roberto Mário Santini, 0",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSÃO 9 - OLT 6 - PON 5",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1025": {
+    "codigo": 1025,
+    "nome": "CTOP 1 - JD SÃO FRANCISCO - PREDIO/INDUSTRIA",
+    "endereco": "Rua José Vicente, 0",
+    "bairro": "Sítio Cafezal",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS COSTA E SILVA - OLT2 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1027": {
+    "codigo": 1027,
+    "nome": "CTOP 4 - PARQUE SÃO LUIS",
+    "endereco": "Avenida Doutor Joel Gonçalves de Oliveira, 0",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1029": {
+    "codigo": 1029,
+    "nome": "CTOP 8 - VILA COUTO (9 a 16)",
+    "endereco": "Rua Antônio Lemos, 0",
+    "bairro": "Vila Paulista",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1031": {
+    "codigo": 1031,
+    "nome": "CTOP 1 - PARQUE SÃO LUIS",
+    "endereco": "Rua Geraldo Lucas Gonzaga, 0",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1033": {
+    "codigo": 1033,
+    "nome": "CEIP 18 - PREDIO 123 - VILA COUTO",
+    "endereco": "Rua Armando de Salles Oliveira, 123 PRÉDIO",
+    "bairro": "Centro",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA COUTO/VILA PAULISTA - OLT3 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1035": {
+    "codigo": 1035,
+    "nome": "CEIP 2 - CDHU MANTIQUEIRA - BLOCO A",
+    "endereco": "Rua Waldemar Luiz Martins, 20 PREDIOS BLOCO A",
+    "bairro": "Conjunto Afonso Schmidt",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS COSTA E SILVA - OLT2 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1037": {
+    "codigo": 1037,
+    "nome": "CEIP 3 - CDHU MANTIQUEIRA - BLOCO A",
+    "endereco": "Rua Waldemar Luiz Martins, 20",
+    "bairro": "Conjunto Afonso Schmidt",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS COSTA E SILVA - OLT2 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1039": {
+    "codigo": 1039,
+    "nome": "CTOP 4 - CDHU MANTIQUEIRA",
+    "endereco": "Rua Lafayette Custódio da Silva, 0",
+    "bairro": "Conjunto Afonso Schmidt",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS COSTA E SILVA - OLT2 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1041": {
+    "codigo": 1041,
+    "nome": "CTOP 2 - PARQUE SÃO LUIS",
+    "endereco": "Avenida Irmã Valderez Correia, 0",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 1",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1043": {
+    "codigo": 1043,
+    "nome": "CTOP 21 - PREDIO, 90 - PARQUE SÃO LUIS",
+    "endereco": "Rua Rivaldo Alves Feitosa, 90 BLOCO 1",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1045": {
+    "codigo": 1045,
+    "nome": "CTOP 22 - PREDIO, 90 - PARQUE SÃO LUIS",
+    "endereco": "Rua Rivaldo Alves Feitosa, 90 BLOCO 2",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1047": {
+    "codigo": 1047,
+    "nome": "CTOP 23 - PREDIO, 90 - PARQUE SÃO LUIS",
+    "endereco": "Rua Rivaldo Alves Feitosa, 90 BLOCO 3",
+    "bairro": "Parque São Luis",
+    "cidade": "Cubatão",
+    "area_atuacao": "PARQUE SÃO LUIS - OLT 6 - PON 2",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1049": {
+    "codigo": 1049,
+    "nome": "CTOP 63 - CASQUEIRO",
+    "endereco": "Avenida Europa, 200",
+    "bairro": "Jardim Casqueiro",
+    "cidade": "Cubatão",
+    "area_atuacao": "JARDIM CASQUEIRO - OLT5 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1051": {
+    "codigo": 1051,
+    "nome": "CTOP 1 ZTE - VILA NATAL",
+    "endereco": "Rua São Francisco de Assis, 0",
+    "bairro": "Vila Natal",
+    "cidade": "Cubatão",
+    "area_atuacao": "VILA NATAL/CAIC - OLT 8 - PON 6",
+    "total_portas": 16,
+    "portas_inicio": 1
+  },
+  "1053": {
+    "codigo": 1053,
+    "nome": "CTOP 1 ZTE - CDHU bloco D, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão K, 00",
+    "bairro": "Ilha Caraguatá",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1055": {
+    "codigo": 1055,
+    "nome": "CTOP 2 ZTE - CDHU bloco D, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão K, 00",
+    "bairro": "Ilha Caraguatá",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1057": {
+    "codigo": 1057,
+    "nome": "CTOP 3 ZTE - CDHU bloco C, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão k, 00",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1059": {
+    "codigo": 1059,
+    "nome": "CTOP 4 ZTE - CDHU bloco C, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão k, 00",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1061": {
+    "codigo": 1061,
+    "nome": "CTOP 48 - BOLSÃO 8",
+    "endereco": "Rua Agostinho Lourenço Vilete, 00",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1063": {
+    "codigo": 1063,
+    "nome": "CTOP 5 ZTE - CDHU bloco B, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão K, 00",
+    "bairro": "",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1065": {
+    "codigo": 1065,
+    "nome": "CTOP 5 - INDUSTRIA (PROJETO MANTIQUEIRA)",
+    "endereco": "Avenida Manoel Santos Pereira, 00",
+    "bairro": "Zona Industrial",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS COSTA E SILVA - OLT2 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1067": {
+    "codigo": 1067,
+    "nome": "CTOP 7 ZTE - CDHU bloco A, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão K, 00",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1069": {
+    "codigo": 1069,
+    "nome": "CEIP 6 - CDHU MANTIQUEIRA - BLOCO B",
+    "endereco": "Rua Waldemar Luiz Martins, 20 PREDIO CDHU MANTIQUEIRA",
+    "bairro": "Conjunto Afonso Schmidt",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS COSTA E SILVA - OLT2 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1071": {
+    "codigo": 1071,
+    "nome": "CTOP 8 ZTE - CDHU bloco A, ILHA CARAGUATA",
+    "endereco": "Conjunto Cubatão k, 00",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1073": {
+    "codigo": 1073,
+    "nome": "CTOP 7 ZTE - VALE VERDE",
+    "endereco": "Rua Manuel Ventura da Silva, 00",
+    "bairro": "Vale Verde",
+    "cidade": "Cubatão",
+    "area_atuacao": "VALE VERDE - OLT 8 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1075": {
+    "codigo": 1075,
+    "nome": "CTOP 6 ZTE - VALE VERDE",
+    "endereco": "Avenida Manoel dos Santos Mesquita, 00",
+    "bairro": "Vale Verde",
+    "cidade": "Cubatão",
+    "area_atuacao": "VALE VERDE - OLT 8 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1077": {
+    "codigo": 1077,
+    "nome": "CTOP 37 - BOLSÃO 8",
+    "endereco": "Rua Jaime Duarte, 147",
+    "bairro": "Jardim Nova República",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 8 -OLT 6 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1079": {
+    "codigo": 1079,
+    "nome": "CTOP 12 ZTE - CDHU bloco B2, ILHA CARAGUATA",
+    "endereco": "Rua Ralce Pereira, 201",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1081": {
+    "codigo": 1081,
+    "nome": "CTOP 14 ZTE - VALE VERDE",
+    "endereco": "Rua Leonel Simões, 00",
+    "bairro": "Vale Verde",
+    "cidade": "Cubatão",
+    "area_atuacao": "VALE VERDE - OLT 8 - PON 7",
+    "total_portas": 8,
+    "portas_inicio": 1
+
+
+    
+  },
+  "1083": {
+    "codigo": 1083,
+    "nome": "CTOP 71 - BOLSÃO 9",
+    "endereco": "Rua Vereador Doutor Josafá Balbino dos Santos, 00",
+    "bairro": "Jardim Real",
+    "cidade": "Cubatão",
+    "area_atuacao": "BOLSAO 9 - OLT 6 - PON 6",
+    "total_portas": 8,
+    "portas_inicio": 1
+  },
+  "1085": {
+    "codigo": 1085,
+    "nome": "CTOP 9 ZTE - CDHU bloco A, ILHA CARAGUATA",
+    "endereco": "Rua Ralce Pereira, 201",
+    "bairro": "Vila Caraguata",
+    "cidade": "Cubatão",
+    "area_atuacao": "PREDIOS ILHA CARAGUATA - OLT 8 - PON 4",
+    "total_portas": 8,
+    "portas_inicio": 1
+  }
+}
+

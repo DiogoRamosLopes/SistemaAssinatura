@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@page {
+    size: A4;
+    margin: 10mm 10mm 10mm 10mm;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    color: #000;
+    background: #fff;
+}
+.os-table { 
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #000;
+}
+.os-table td { 
+    border: 1px solid #000; 
+    padding: 4px 6px; 
+    vertical-align: top;
+    font-size: 9pt;
+}
+.text-center { text-align: center; }
+.status-finalizada { color: #00aa00; font-weight: bold; }
+.status-cancelada { color: #cc0000; font-weight: bold; }
+.status-aberta { color: #ff8800; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<table class="os-table">
+<tbody>
+<!-- Header -->
+<tr>
+<td style="text-align: center; vertical-align: middle; width: 50%;">
+<strong>MELOLINK INTERNET FIBRA OPTICA LTDA - ME</strong><br/>
+Rua Quinze de Novembro, 131 - Vila Nova<br/>
+Cubatão / SP - CEP: 11520-010<br/>
+Telefone: (13) 99637-1382
+</td>
+<td style="text-align: right; width: 50%;">
+<small><b>PROTOCOLO Nº</b></small><br/>
+{{ protocolo }}<br/>
+<b><small>Nº da Ordem de Serviço</small></b><br/>
+{{ id_ordem_servico }}<br/>
+<b><small>Código Cliente:</small></b> {{ codigo_cliente }}<br/>
+<b><small>Código Cliente/Plano:</small></b> {{ codigo_cliente_plano }}
+</td>
+</tr>
+
+<!-- Cliente -->
+<tr>
+<td colspan="2">
+<b>Cliente:</b> {{ cliente_nome }}&nbsp;&nbsp; <b>CPF:</b> {{ cliente_cpf }}<br/>
+<b>Telefone(s):</b> {{ cliente_telefones }}<br/>
+<b>Email(s):</b> {{ cliente_email }}
+</td>
+</tr>
+
+<!-- Endereço de Instalação -->
+<tr>
+<td colspan="2">
+<b>Endereço de Instalação:</b> {{ endereco_instalacao }}
+</td>
+</tr>
+
+<!-- Endereço de Cobrança (se houver) -->
+{% if endereco_cobranca %}
+<tr>
+<td colspan="2">
+<b>Endereço de Cobrança:</b> {{ endereco_cobranca }}
+</td>
+</tr>
+{% endif %}
+
+<!-- Referência (se houver) -->
+{% if referencia_instalacao %}
+<tr>
+<td colspan="2">
+<b>Referência:</b> {{ referencia_instalacao }}
+</td>
+</tr>
+{% endif %}
+
+<!-- Plano -->
+<tr>
+<td colspan="2">
+<b>Plano:</b> {{ plano }} 
+{% if velocidade %} - <b>Velocidade:</b> {{ velocidade }}{% endif %}
+</td>
+</tr>
+
+<!-- Valor da Instalação -->
+{% if valor_instalacao %}
+<tr>
+<td colspan="2"><b>Valor Instalação:</b> R$ {{ valor_instalacao }}</td>
+</tr>
+{% endif %}
+
+<!-- CTO -->
+{% if caixa_cto %}
+<tr>
+<td colspan="2"><b>Caixa CTO:</b> {{ caixa_cto }} {% if endereco_cto %}- {{ endereco_cto }}{% endif %}</td>
+</tr>
+{% endif %}
+
+<!-- Porta CTO -->
+{% if porta_cto %}
+<tr>
+<td colspan="2"><b>Porta CTO:</b> {{ porta_cto }}</td>
+</tr>
+{% endif %}
+
+<!-- Data/Hora Execução -->
+<tr>
+<td colspan="2">
+<b>Data da Exec./Agendamento:</b> {{ data_execucao }} &nbsp;&nbsp; <b>Hora:</b> {{ hora_execucao }}
+</td>
+</tr>
+
+<!-- Data de Abertura -->
+<tr>
+<td colspan="2">
+<b>Data de Abertura:</b> {{ data_abertura }}
+</td>
+</tr>
+
+<!-- Login/Senha -->
+{% if login or senha %}
+<tr>
+<td colspan="2"><b>Login:</b> {{ login }} &nbsp;&nbsp; <b>Senha:</b> {{ senha }}</td>
+</tr>
+{% endif %}
+
+<!-- MAC/IP -->
+{% if mac or ip %}
+<tr>
+<td colspan="2"><b>MAC:</b> {{ mac }} &nbsp;&nbsp; <b>IP:</b> {{ ip }}</td>
+</tr>
+{% endif %}
+
+<!-- PSK Wi-Fi -->
+{% if psk_wifi %}
+<tr>
+<td colspan="2"><b>PSK Wi-Fi:</b> {{ psk_wifi }}</td>
+</tr>
+{% endif %}
+
+<!-- Seriais -->
+{% if serial_fiberhome %}
+<tr>
+<td colspan="2"><b>Serial Number (FiberHome):</b> {{ serial_fiberhome }}</td>
+</tr>
+{% endif %}
+{% if serial_huawei %}
+<tr>
+<td colspan="2"><b>Serial Number (Huawei):</b> {{ serial_huawei }}</td>
+</tr>
+{% endif %}
+{% if serial_onu %}
+<tr>
+<td colspan="2"><b>Serial Number ONU:</b> {{ serial_onu }}</td>
+</tr>
+{% endif %}
+{% if serial_outros %}
+<tr>
+<td colspan="2"><b>Serial Number (Outros):</b> {{ serial_outros }}</td>
+</tr>
+{% endif %}
+{% if serial_datacom %}
+<tr>
+<td colspan="2"><b>Serial Number (Datacom):</b> {{ serial_datacom }}</td>
+</tr>
+{% endif %}
+
+<!-- Parâmetros do Cliente -->
+{% if parametros_cliente %}
+<tr>
+<td colspan="2"><b>Parâmetros do Cliente:</b> {{ parametros_cliente }}</td>
+</tr>
+{% endif %}
+
+<!-- Equipamentos em Comodato -->
+{% if equipamentos_comodato %}
+<tr>
+<td colspan="2"><b>Equipamentos em Comodato:</b> {{ equipamentos_comodato }}</td>
+</tr>
+{% endif %}
+
+<!-- Observação -->
+{% if observacao %}
+<tr>
+<td colspan="2"><b>Observação:</b> {{ observacao }}</td>
+</tr>
+{% endif %}
+
+<!-- Ocorrências -->
+<tr>
+<td colspan="2"><b>Ocorrências de Abertura:</b><br/>{{ ocorrencias }}</td>
+</tr>
+
+<!-- Serviço -->
+<tr>
+<td colspan="2"><b>Serviço:</b> {{ tipo_servico }}</td>
+</tr>
+
+<!-- Descrição do Serviço Executado -->
+<tr>
+<td colspan="2"><b>Descrição do Serviço Executado (última ocorrência):</b><br/>{{ descricao_servico }}</td>
+</tr>
+
+<!-- Status -->
+<tr>
+<td colspan="2">
+<b>Status da OS:</b> <span class="status-{{ status_class }}">{{ status }}</span>
+</td>
+</tr>
+
+<!-- Data/Hora Finalização -->
+<tr>
+<td colspan="2"><b>Data/Hora Finalização:</b> {{ data_hora_finalizacao }}</td>
+</tr>
+
+<!-- Assinatura Cliente -->
+<tr>
+<td colspan="2">
+<b>Assinatura Cliente:</b>
+<div style="min-height: 40px; border-bottom: 1px solid #000; margin-top: 5px;">&nbsp;</div>
+</td>
+</tr>
+
+<!-- Documento -->
+<tr>
+<td colspan="2">
+<b>Documento Cliente:</b> [  ] RG &nbsp;&nbsp; [  ] CPF
+</td>
+</tr>
+
+<!-- Técnico -->
+<tr>
+<td colspan="2"><b>Técnico Responsável:</b> {{ tecnico_responsavel }}</td>
+</tr>
+
+</tbody>
+</table>
+
+</body>
+</html>
