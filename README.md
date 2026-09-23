@@ -2,7 +2,7 @@
 
 ## Sobre o Projeto
 
-O AssinaNet é um sistema completo de gestão de contratos e assinaturas digitais desenvolvido especialmente para a Melolink Internet Fibra Óptica. A plataforma permite a geração, assinatura e gerenciamento de documentos contratuais com validade jurídica, atendendo aos requisitos da Lei 14.063/2020.
+O AssinaNet é um sistema completo de gestão de contratos e assinaturas digitais desenvolvido especialmente para empresas de internet. A plataforma permite a geração, assinatura e gerenciamento de documentos contratuais com validade jurídica, atendendo aos requisitos da Lei 14.063/2020.
 
 ## Funcionalidades
 

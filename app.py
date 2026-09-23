@@ -89,9 +89,9 @@ for d in [UPLOAD_DIR, PDF_DIR, os.path.dirname(DB_PATH), UPLOAD_TXT_DIR, UPLOAD_
 EMAIL_CONFIG = {
     'smtp_server': os.getenv('EMAIL_SERVER', 'smtp.gmail.com'),
     'smtp_port': int(os.getenv('EMAIL_PORTA', 587)),
-    'email_remetente': os.getenv('EMAIL_REMETENTE', 'melolinkerp@gmail.com'),
+    'email_remetente': os.getenv('EMAIL_REMETENTE', 'sua-empresa@gmail.com'),
     'email_senha': os.getenv('EMAIL_SENHA', ''),
-    'email_nome': os.getenv('EMAIL_NOME', 'Melolink Internet')
+    'email_nome': os.getenv('EMAIL_NOME', 'Sua-empresa Internet')
 }
 
 def get_local_ip():
@@ -1360,7 +1360,7 @@ class RadiusNetClient:
         story = []
         title_style = ParagraphStyle('CustomTitle', parent=styles['Title'], fontSize=16, 
                                      textColor='#CC0000', alignment=1, spaceAfter=20)
-        story.append(Paragraph('MELOLINK INTERNET FIBRA OPTICA LTDA', title_style))
+        story.append(Paragraph('SUA-EMPRESA INTERNET FIBRA OPTICA LTDA', title_style))
         story.append(Paragraph('ORDEM DE SERVIÇO', styles['Heading2']))
         story.append(Spacer(1, 20))
         story.append(Paragraph(f"<b>Protocolo:</b> {dados.get('protocolo', '')}", styles['Normal']))
@@ -1633,7 +1633,7 @@ def init_db():
     )''')
     
     if c.execute('SELECT COUNT(*) FROM tecnicos').fetchone()[0] == 0:
-        tecnicos_padrao = [('tec001', 'Renato', 'MAT001'), ('tec002', 'Joao', 'MAT002'), ('tec003', 'Rodrigo', 'MAT003')]
+        tecnicos_padrao = [('tec001', 'tecnico1', 'MAT001'), ('tec002', 'tecnico2', 'MAT002'), ('tec003', 'tecnico3', 'MAT003')]
         for tid, nome, mat in tecnicos_padrao:
             senha_hash = generate_password_hash(mat)
             c.execute('INSERT INTO tecnicos (id, nome, matricula, ativo, senha_hash) VALUES (?,?,?,1,?)',
@@ -1648,7 +1648,7 @@ def init_db():
             admin_senha_padrao = 'admin123'
         senha_hash = generate_password_hash(admin_senha_padrao)
         c.execute('INSERT INTO usuarios_admin (id, username, senha_hash, nome_completo, email, ativo) VALUES (?,?,?,?,?,1)',
-                  (admin_id, "admin", senha_hash, "Administrador", "admin@melolink.com.br"))
+                  (admin_id, "admin", senha_hash, "Administrador", "admin@suas empresa.com.br"))
         logger.info("✅ Usuário admin criado.")
     
     conn.commit()
@@ -1919,7 +1919,7 @@ def gerar_pdf_fallback(rid, dados, tec_nome, data_hora, ip, contrato_id, tipo_do
     doc = SimpleDocTemplate(buf, pagesize=A4, leftMargin=20*mm, rightMargin=20*mm, topMargin=20*mm, bottomMargin=20*mm)
     styles = getSampleStyleSheet()
     title_style = ParagraphStyle('CustomTitle', parent=styles['Title'], fontSize=18, textColor='#CC0000', alignment=1, spaceAfter=20)
-    titulo = 'MELOLINK INTERNET FIBRA OPTICA LTDA'
+    titulo = 'SUA-EMPRESA INTERNET FIBRA OPTICA LTDA'
     if tipo_documento == 'mudanca_endereco':
         subtitulo = 'TERMO DE MUDANCA DE ENDERECO/ASSINANTE'
     elif tipo_documento == 'mudanca_assinante':
@@ -2109,7 +2109,7 @@ def send_remote_signature_email(to_email, client_name, sign_url, documento_tipo,
         msg = MIMEMultipart("alternative")
         msg["From"] = f"{EMAIL_CONFIG['email_nome']} <{EMAIL_CONFIG['email_remetente']}>"
         msg["To"] = to_email
-        msg["Subject"] = f"Ação necessária: assine seu {tipo_texto} - Melolink Internet"
+        msg["Subject"] = f"Ação necessária: assine seu {tipo_texto} - Sua-empresa Internet"
 
         html_body = f"""
 <!DOCTYPE html>
@@ -2133,7 +2133,7 @@ style="background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e
 <td align="center"
 style="background:linear-gradient(135deg,#dc2626,#991b1b);padding:30px;color:#ffffff;">
 
-<h1 style="margin:0;font-size:28px;">Melolink Internet</h1>
+<h1 style="margin:0;font-size:28px;">Sua-empresa Internet</h1>
 
 <p style="margin-top:8px;font-size:15px;">
 Documento para Assinatura Digital
@@ -2228,7 +2228,7 @@ border-left:5px solid #f59e0b;
 <strong>Importante</strong><br><br>
 
 Se você não reconhece esta solicitação ou acredita que recebeu este e-mail por engano,
-desconsidere esta mensagem ou entre em contato com a equipe da Melolink Internet.
+desconsidere esta mensagem ou entre em contato com a equipe da Sua-empresa Internet.
 
 </p>
 
@@ -2247,7 +2247,7 @@ font-size:12px;
 color:#6b7280;
 ">
 
-<strong>Melolink Internet</strong><br>
+<strong>Sua-empresa Internet</strong><br>
 Este é um e-mail automático. Por favor, não responda esta mensagem.
 
 </td>
@@ -4043,9 +4043,9 @@ def enviar_email_pdf():
             msg = MIMEMultipart()
             msg['From'] = f"{EMAIL_CONFIG['email_nome']} <{EMAIL_CONFIG['email_remetente']}>"
             msg['To'] = email
-            msg['Subject'] = f"Documento Assinado - Melolink Internet"
+            msg['Subject'] = f"Documento Assinado - Sua-empresa Internet"
             
-            corpo = f"""<html><body><p>Ola <strong>{contrato['cliente_nome']}</strong>,</p><p>Segue em anexo o seu documento assinado.</p><p>Protocolo: {contrato['contrato_id']}<br>Data: {contrato['data_hora']}</p><p>Atenciosamente,<br>Melolink Internet</p></body></html>"""
+            corpo = f"""<html><body><p>Ola <strong>{contrato['cliente_nome']}</strong>,</p><p>Segue em anexo o seu documento assinado.</p><p>Protocolo: {contrato['contrato_id']}<br>Data: {contrato['data_hora']}</p><p>Atenciosamente,<br>Sua-empresa Internet</p></body></html>"""
             msg.attach(MIMEText(corpo, 'html'))
             
             with open(pdf_path, 'rb') as f:

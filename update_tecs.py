@@ -1,9 +1,9 @@
 ﻿import sqlite3
 conn = sqlite3.connect('database/contratos.db')
 c = conn.cursor()
-c.execute("UPDATE tecnicos SET nome='Renato' WHERE id='tec001'")
-c.execute("UPDATE tecnicos SET nome='Rodrigo' WHERE id='tec002'")
-c.execute("UPDATE tecnicos SET nome='Joao' WHERE id='tec003'")
+c.execute("UPDATE tecnicos SET nome='tecnico1' WHERE id='tec001'")
+c.execute("UPDATE tecnicos SET nome='tecnico2' WHERE id='tec002'")
+c.execute("UPDATE tecnicos SET nome='tecnico3' WHERE id='tec003'")
 conn.commit()
 print('Atualizado!')
 for row in c.execute('SELECT id, nome, matricula FROM tecnicos WHERE ativo=1'): print(row)
